@@ -3,12 +3,12 @@
 #
 # ref: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: spacetower_python_client Python package
+name: Test
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  tests:
 
     runs-on: ubuntu-latest
     strategy:
@@ -35,28 +35,3 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
-
-  publish:
-    runs-on: ubuntu-latest
-    triggers:
-      - workflow_dispatch
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest poetry
-          poetry install
-      - name: Build package
-        run: |
-          python -m pip install poetry
-          poetry build
-      - name: Publish package
-        env:
-          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          python -m pip install --upgrade twine
-          echo $PYPI_API_TOKEN | python -m twine upload dist/* --repository-url https://upload.pypi.org/legacy/
