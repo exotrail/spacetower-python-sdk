@@ -1,0 +1,63 @@
+# CHANGELOG
+
+FDS API Python SDK v1.0.0 (2024-04-19):
+    - Update to API 1.0.0, Exoops legacy 1.8.7
+    - Roadmaps:
+        - Introduction of timeline (list of dictionaries to store all roadmap events) to better visualize the roadmap.
+        - Addition of warm-up attitude in the RoadmapFromActions class.
+        - Automatic calculation of roadmap end and start dates (if not provided) based on the actions.
+        - Addition of RETROGRADE-NADIR AttitudeMode (thruster opposite to the velocity vector and z axis pointing to nadir).
+        - Added compatibility check between FiringAction and Thruster (if firing is longer than the thruster's capacity).
+        - Easier export of roadmaps to format compatible with pandas DataFrame.
+    - Orbit determination:
+        - Addition of the firing analysis report (when a roadmap with firings is provided).
+        - Addition of ThrustVectorEstimationRequest class to estimate the thrust vector based on the orbit determination results.
+    - Orbit extrapolation:
+        - Ephemerides: added interface for multiple ephemerides request and outputs (POWER, PROPULSION, CARTESIAN, KEPLERIAN, ATTITUDE_QUATERNIONS, ATTITUDE_EULER_ANGLES)
+        - Added support for CIRF/ECI frame for CCSDS file export.
+        - Added flag for covariance propagation (propagate covariance matrix with the state).
+        - Added possibility to return all orbital states at roadmap events (RequiredOrbitalStates).
+    - Orbital state: Made covariance matrix and spacecraft updateable. Requires save() method to be called after modification.
+    - Thruster: Made thruster power (firing, warm-up, and standby) and thrust magnitude updateable.
+    - Spacecraft: Made propellant mass updateable (recomputes the platform mass). Requires save() method to be called after modification.
+    - Two Line Elements:
+        - added checksum recalculation at modification.
+        - NORAD ID is now an integer in the retrieval from SpaceTrack.
+    - Models: added possibility to force the save into the API client (with a new ID).
+    - Minor bug fixes and improvements.
+
+FDS API Python SDK v0.1.3:
+- Added possibility to propagate ephemerides (CARTESIAN, KEPLERIAN, POWER, PROPULSION)
+- Minor improvements and correction of minor bugs
+- Update of java backend to v0.1.3.
+
+FDS API Python SDK v0.1.2:
+- Renamed and restructured the package, with more intuitive names and structure
+- All use cases are now initialised through an OrbitalState object
+- Orbit determination: added possibility to estimate the drag coefficient and the reflectivity coefficient (in determination.requests)
+- Added TLE extrapolation with SGP4
+- Orbit extrapolation: added possibility to write covariance in OEM files
+- Added Quaternion class with some basic operations to represent rotations
+- Added utils in orbital mechanics, geometry, frame transformations, math from validated libraries (i.e. Celestlab)
+- Removed dependency on spacetrack package: a SpacetrackClient is now required to retrieve TLEs.
+- Use of loguru for logging
+- Loading of environment variables from .env file is now done automatically by the package initialization on import
+- Updated the documentation
+- Updated unit tests
+- Minor improvements and correction of minor bugs
+
+FDS API Python SDK v0.0.9:
+- Updated `OrbitalState` objects, that can be created through class methods `with_tle` or `with_orbit`
+- OrbitDetermination is now initialised through an OrbitalState object (instead of tle, propagation context, covariance and spacecraft)
+- Updated results (objects `ResultOrbitExtrapolation`, `ResultOrbitDetermination`, `ResultManeuverGeneration`) for better readibility
+- Removed usage of `DiagonalCovarianceMatrix` in favor of `CovarianceMatrix` (initialisation with diagonal is possible with the class method `from_diagonal`)
+- Added example scripts with focus on post-processing and visualization of results
+- Updated the documentation
+- Other minor improvements and correction of minor bugs
+
+FDS API Python SDK v0.0.7:
+- Added possibility to generate Orbit Ephemerides Message (OEM) files in Orbit Extrapolation
+- Added orbitType field to covariance matrix
+- Added example file for Orbit determination and Orbit Extrapolation with production of ephemeredes
+- Updated and completed the documentation
+- Other minor improvements and correction of minor bugs
