@@ -38,6 +38,8 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    triggers:
+      - workflow_dispatch
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
