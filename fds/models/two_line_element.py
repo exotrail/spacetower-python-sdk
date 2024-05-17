@@ -5,7 +5,7 @@ import numpy as np
 
 from fds.utils.dates import check_datetime_time_zone_is_utc
 from fds.utils.log import log_and_raise
-from fds_api_gen_client import TLE
+from spacetower_python_client import TLE
 
 
 class TwoLineElement:

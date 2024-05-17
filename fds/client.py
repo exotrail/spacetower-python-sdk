@@ -1,18 +1,10 @@
-import os
 from enum import Enum
-
-import sentry_sdk
 from loguru import logger
 
-import fds_api_gen_client as fdsapi
+import spacetower_python_client as fdsapi
 
 from fds import auth
 from fds.utils.log import log_and_raise
-
-sentry_sdk.init(
-    dsn=os.getenv('SENTRY_DSN', 'http://be7cc6dbc77d2197a3fbf84d0aaf2824@172.16.3.58:9000/7'),
-    traces_sample_rate=1.0,
-)
 
 
 class SingletonMeta(type):

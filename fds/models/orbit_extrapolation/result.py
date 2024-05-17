@@ -15,7 +15,7 @@ from fds.models.orbital_state import OrbitalState
 from fds.models.telemetry import TelemetryGpsNmea, TelemetryGpsPv, Telemetry
 from fds.utils.dates import get_datetime
 from fds.utils.log import log_and_raise
-from fds_api_gen_client import EphemerisDto
+from spacetower_python_client import EphemerisDto
 
 
 class ResultOrbitExtrapolation(RetrievableModel):

@@ -8,7 +8,7 @@ from fds.models._model import FromConfigBaseModel, RetrievableModel
 from fds.models.orbital_state import CovarianceMatrix
 from fds.utils.enum import EnumFromInput
 from fds.utils.log import log_and_raise
-from fds_api_gen_client import OutlierManagerSettingsDto
+from spacetower_python_client import OutlierManagerSettingsDto
 
 
 class OrbitDeterminationConfiguration(FromConfigBaseModel, RetrievableModel):

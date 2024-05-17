@@ -8,7 +8,7 @@ from fds.models.quaternion import Quaternion
 from fds.utils.dates import datetime_to_iso_string, get_datetime
 from fds.utils.enum import EnumFromInput
 from fds.utils.log import log_and_raise
-from fds_api_gen_client import QuaternionActionDto
+from spacetower_python_client import QuaternionActionDto
 
 
 class AttitudeMode(EnumFromInput):
