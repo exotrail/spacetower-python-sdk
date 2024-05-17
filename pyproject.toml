@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "spacetower-python-sdk"
+name = "spacetower-fds-sdk"
 version = "1.0.0"
-description = "Python SDK for spacetower Flight Dynamics System API"
+description = "SDK for spacetower Flight Dynamics System API"
 authors = ["Exotrail"]
 readme = "README.md"
 license = "Proprietary"
@@ -16,7 +16,6 @@ PyYAML = "^6.0.1"
 numpy = "^1.26.4"
 typing-extensions = "^4.11.0"
 python-dotenv = "^1.0.0"
-sentry-sdk = "^1.45.0"
 loguru = "^0.7.2"
 spacetower-python-client = "^1.0.0"
 
