@@ -3,7 +3,7 @@ from loguru import logger
 
 import spacetower_python_client as fdsapi
 
-from fds import auth
+from fds import config
 from fds.utils.log import log_and_raise
 
 
@@ -461,8 +461,8 @@ class FdsClient(metaclass=SingletonMeta):
     @classmethod
     def get_client(cls):
         return cls(
-            fds_api_url=auth.get_api_url(),
-            api_key=auth.get_api_token()
+            fds_api_url=config.get_api_url(),
+            api_key=config.get_api_key()
         )
 
     @staticmethod
