@@ -1,5 +1,4 @@
 import os
-from loguru import logger
 
 
 class Config:
@@ -8,17 +7,14 @@ class Config:
 
 
 def set_api_key(token: str):
-    logger.debug(f'API key set to {token}')
     Config.api_key = token
 
 
 def get_api_key():
-    logger.debug(f'get_api_key -> {Config.api_key}')
     return Config.api_key
 
 
 def set_url(url: str):
-    logger.debug(f'API URL set to {url}')
     Config.api_url = url
 
 

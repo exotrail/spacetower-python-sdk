@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spacetower-fds-sdk"
-version = "1.0.4"
+version = "1.0.5"
 description = "SDK for spacetower Flight Dynamics System API"
 authors = ["Exotrail"]
 readme = "README.md"
