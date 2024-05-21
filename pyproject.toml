@@ -10,7 +10,7 @@ packages = [
     { include = "fds" }
 ]
 include = [
-    {paht = "fds/utils/config_file_blueprint.yaml", format = ["sdist", "wheel"]},
+    { path = "fds/utils/config_file_blueprint.yaml", format = ["sdist", "wheel"] },
 ]
 
 [tool.poetry.dependencies]
