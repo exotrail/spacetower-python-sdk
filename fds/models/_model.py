@@ -7,7 +7,7 @@ from loguru import logger
 from typing_extensions import Self
 
 from fds.client import FdsClient
-from fds.models import BLUEPRINT_FILEPATH
+from fds.models import DEFAULT_CONFIG
 from fds.utils.dates import get_datetime
 from fds.utils.dict import compare_two_dicts
 from fds.utils.enum import EnumFromInput
@@ -199,13 +199,11 @@ class FromConfigBaseModel(BaseModel, ABC):
     def _get_config_dict_from_file(config_filepath: str | Path) -> dict:
         with open(config_filepath, 'r') as f:
             config = yaml.safe_load(f)
-        with open(BLUEPRINT_FILEPATH, 'r') as f:
-            blueprint = yaml.safe_load(f)
 
-        if config.get('version') != blueprint.get('version'):
+        if config.get('version') != DEFAULT_CONFIG.get('version'):
             msg = (f"Configuration file version ({config.get('version')}) "
-                   f"does not correspond to the blueprint version ({blueprint.get('version')}).")
+                   f"does not correspond to the default version ({DEFAULT_CONFIG.get('version')}).")
             log_and_raise(ValueError, msg)
 
-        compare_two_dicts(config, blueprint)
+        compare_two_dicts(config, DEFAULT_CONFIG)
         return config

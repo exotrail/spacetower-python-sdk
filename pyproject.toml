@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spacetower-fds-sdk"
-version = "1.0.3"
+version = "1.0.4"
 description = "SDK for spacetower Flight Dynamics System API"
 authors = ["Exotrail"]
 readme = "README.md"
@@ -8,9 +8,6 @@ license = "Proprietary"
 keywords = ["FDS", "API", "Exotrail", "Flight Dynamics"]
 packages = [
     { include = "fds" }
-]
-include = [
-    { path = "fds/utils/config_file_blueprint.yaml", format = ["sdist", "wheel"] },
 ]
 
 [tool.poetry.dependencies]

@@ -10,7 +10,7 @@ def compare_two_dicts(test_dict: dict, blueprint: dict):
 
     for key in test_dict.keys():
         if key not in blueprint.keys():
-            msg = f"Dictionary key {key} is not in blueprint keys {blueprint.keys()}"
+            msg = f"Dictionary key {key} is not in default config key {blueprint.keys()}"
             log_and_raise(ValueError, msg)
         if isinstance(blueprint[key], dict):
             _check_if_dict(test_dict[key], f"test_dict[{key}]")
