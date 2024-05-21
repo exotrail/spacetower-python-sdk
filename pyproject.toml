@@ -9,6 +9,9 @@ keywords = ["FDS", "API", "Exotrail", "Flight Dynamics"]
 packages = [
     { include = "fds" }
 ]
+include = [
+    {paht = "fds/utils/config_file_blueprint.yaml", format = ["sdist", "wheel"]},
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -25,9 +28,6 @@ pytest = ">=7.2.1"
 [[tool.poetry.source]]
 name = "PyPI"
 priority = "primary"
-
-[tool.poetry.include]
-"fds/utils/config_file_blueprint.yaml"
 
 
 [tool.poetry.group.dev.dependencies]
