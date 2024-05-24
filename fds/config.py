@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    api_key = os.getenv('FDS_API_KEY', None)
+    api_key = os.getenv('FDS_API_KEY', '')
     api_url = os.getenv('FDS_API_URL', "https://api.spacetower.exotrail.space/fds/v1")
 
 

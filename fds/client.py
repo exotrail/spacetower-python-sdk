@@ -475,7 +475,8 @@ class FdsClient(metaclass=SingletonMeta):
             return obj['id']
 
     def get_api_client(self):
-        return fdsapi.ApiClient(self.api_config, header_name='apikey', header_value=self.api_key)
+        header_name = 'apikey' if self.api_key is not None else None
+        return fdsapi.ApiClient(self.api_config, header_name=header_name, header_value=self.api_key)
 
     def _object_exists(self, object_type: str, client_id: str, object_map, command='retrieve') -> bool:
         with self.get_api_client() as api_client:
