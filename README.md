@@ -103,7 +103,7 @@ The SDK also provides additional functionalities in support of the main operatio
 
 ## Documentation
 
-An online documentation of the Python SDK of space**tower**™ can be accessed at : https://docs.spacetower.exotrail.space/python-sdk  
+An online documentation of the Python SDK of space**tower**™ can be accessed at : https://docs.spacetower.exotrail.space/python-sdk/index.html  
 
 It includes docstrings description of the various modules of the SDK, to which uyou can refer to when using space**tower**™ in your projects.
 
