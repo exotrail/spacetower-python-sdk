@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds.utils package &#8212; spacetower-python-sdk 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="tests package" href="tests.html" />
+    <link rel="prev" title="fds.models.tle_extrapolation package" href="fds.models.tle_extrapolation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-utils-package">
+<h1>fds.utils package<a class="headerlink" href="#fds-utils-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-fds.utils.dates">
+<span id="fds-utils-dates-module"></span><h2>fds.utils.dates module<a class="headerlink" href="#module-fds.utils.dates" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.dates.check_datetime_time_zone_is_utc">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.dates.</span></span><span class="sig-name descname"><span class="pre">check_datetime_time_zone_is_utc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.dates.check_datetime_time_zone_is_utc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.dates.datetime_to_iso_string">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.dates.</span></span><span class="sig-name descname"><span class="pre">datetime_to_iso_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.dates.datetime_to_iso_string" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.dates.filter_sequence_with_minimum_time_step">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.dates.</span></span><span class="sig-name descname"><span class="pre">filter_sequence_with_minimum_time_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_step_in_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span></span></span><a class="headerlink" href="#fds.utils.dates.filter_sequence_with_minimum_time_step" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.dates.get_datetime">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.dates.</span></span><span class="sig-name descname"><span class="pre">get_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_utc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.utils.dates.get_datetime" title="Link to this definition">¶</a></dt>
+<dd><p>This function always returns a datetime object with UTC timezone (if the input is not None).
+In both cases, the timezone is checked. If it is not UTC, an exception is raised.</p>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.dict">
+<span id="fds-utils-dict-module"></span><h2>fds.utils.dict module<a class="headerlink" href="#module-fds.utils.dict" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.dict.compare_two_dicts">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.dict.</span></span><span class="sig-name descname"><span class="pre">compare_two_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blueprint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.dict.compare_two_dicts" title="Link to this definition">¶</a></dt>
+<dd><p>The two dictionaries have a set of keys, the test_dict one must be a subset of the blueprint one. Moreover,
+each key corresponds to a dictionary, and keys of this dictionary must be the same as the blueprint one.</p>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.enum">
+<span id="fds-utils-enum-module"></span><h2>fds.utils.enum module<a class="headerlink" href="#module-fds.utils.enum" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.enum.EnumFromInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.enum.</span></span><span class="sig-name descname"><span class="pre">EnumFromInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.enum.EnumFromInput" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.enum.EnumFromInput.from_input">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.enum.EnumFromInput.from_input" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.frames">
+<span id="fds-utils-frames-module"></span><h2>fds.utils.frames module<a class="headerlink" href="#module-fds.utils.frames" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.frames.</span></span><span class="sig-name descname"><span class="pre">Frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.frames.Frame" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.CIRF">
+<span class="sig-name descname"><span class="pre">CIRF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CIRF'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.CIRF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.ECF">
+<span class="sig-name descname"><span class="pre">ECF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ECF'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.ECF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.ECI">
+<span class="sig-name descname"><span class="pre">ECI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ECI'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.ECI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.EME2000">
+<span class="sig-name descname"><span class="pre">EME2000</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'EME2000'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.EME2000" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.GCRF">
+<span class="sig-name descname"><span class="pre">GCRF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GCRF'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.GCRF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.GTOD">
+<span class="sig-name descname"><span class="pre">GTOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GTOD'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.GTOD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.ITRF">
+<span class="sig-name descname"><span class="pre">ITRF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ITRF'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.ITRF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.J2000">
+<span class="sig-name descname"><span class="pre">J2000</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'J2000'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.J2000" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.QSW">
+<span class="sig-name descname"><span class="pre">QSW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'QSW'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.QSW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.TEME">
+<span class="sig-name descname"><span class="pre">TEME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TEME'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.TEME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.TNW">
+<span class="sig-name descname"><span class="pre">TNW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TNW'</span></em><a class="headerlink" href="#fds.utils.frames.Frame.TNW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.frames.Frame.value_or_alias">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value_or_alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.frames.Frame.value_or_alias" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.frames.get_rot_order_axes">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.frames.</span></span><span class="sig-name descname"><span class="pre">get_rot_order_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.frames.get_rot_order_axes" title="Link to this definition">¶</a></dt>
+<dd><p>Get the rotation order axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>r</strong> (<em>str</em>) – rotation order</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>rotation order axes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.frames.transformation_matrix_in_to_lvlh">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.frames.</span></span><span class="sig-name descname"><span class="pre">transformation_matrix_in_to_lvlh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_cart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.frames.transformation_matrix_in_to_lvlh" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the transformation matrix from inertial to LVLH frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state_cart</strong> (<em>np.ndarray</em>) – state in cartesian coordinates (X, Y, Z, Vx, Vy, Vz) [km, km, km, km/s, km/s, km/s]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformation matrix from inertial to LVLH frame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_fr_lvlhMat</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.frames.transformation_matrix_in_to_tnw">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.frames.</span></span><span class="sig-name descname"><span class="pre">transformation_matrix_in_to_tnw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_cart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.frames.transformation_matrix_in_to_tnw" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the transformation matrix from inertial to TNW frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state_cart</strong> (<em>np.ndarray</em>) – state in cartesian coordinates (X, Y, Z, Vx, Vy, Vz) [km, km, km, km/s, km/s, km/s]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformation matrix from inertial to TNW frame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_fr_tnwMat</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.geometry">
+<span id="fds-utils-geometry-module"></span><h2>fds.utils.geometry module<a class="headerlink" href="#module-fds.utils.geometry" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.geometry.angle_between">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.geometry.angle_between" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the angle in radians between two vectors v1 and v2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<em>np.ndarray</em>) – A NumPy array representing the first vector.</p></li>
+<li><p><strong>v2</strong> (<em>np.ndarray</em>) – A NumPy array representing the second vector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The angle in radians between the two vectors.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If v1 or v2 are zero vectors or if their dimensions don’t match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.geometry.check_vector_shape">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">check_vector_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.geometry.check_vector_shape" title="Link to this definition">¶</a></dt>
+<dd><p>Check if the input vector has the correct shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>np.ndarray</em>) – input vector</p></li>
+<li><p><strong>shape</strong> (<em>tuple</em>) – expected shape</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the input vector has a different length than expected</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.geometry.convert_to_numpy_array_and_check_shape">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">convert_to_numpy_array_and_check_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.geometry.convert_to_numpy_array_and_check_shape" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a list to a numpy array and check if the length is correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>list</em>) – input list</p></li>
+<li><p><strong>shape</strong> (<em>tuple</em>) – expected shape</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>input list as numpy array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if the input vector has a different length than expected</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.geometry.unit_vector">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">unit_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.geometry.unit_vector" title="Link to this definition">¶</a></dt>
+<dd><p>Return the unit vector of the input vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>np.ndarray</em>) – input vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>unit vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.log">
+<span id="fds-utils-log-module"></span><h2>fds.utils.log module<a class="headerlink" href="#module-fds.utils.log" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.log.log_and_raise">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.log.</span></span><span class="sig-name descname"><span class="pre">log_and_raise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">BaseException</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">NoReturn</span></span></span><a class="headerlink" href="#fds.utils.log.log_and_raise" title="Link to this definition">¶</a></dt>
+<dd><p>Raise an exception with a message and log it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exception_type</strong> (<em>Exception</em>) – The exception to be raised.</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – The message to be logged and raised. Defaults to “”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exception_type</strong> – The exception to be raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.math">
+<span id="fds-utils-math-module"></span><h2>fds.utils.math module<a class="headerlink" href="#module-fds.utils.math" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.math.modulo_with_range">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.math.</span></span><span class="sig-name descname"><span class="pre">modulo_with_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_min_atol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max_atol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.math.modulo_with_range" title="Link to this definition">¶</a></dt>
+<dd><p>Modulo with result in range [x_min, x_max)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The value to be modulated</p></li>
+<li><p><strong>x_min</strong> – The minimum value of the range</p></li>
+<li><p><strong>x_max</strong> – The maximum value of the range</p></li>
+<li><p><strong>x_min_atol</strong> – The tolerance for the minimum value (to avoid floating point errors)</p></li>
+<li><p><strong>x_max_atol</strong> – The tolerance for the maximum value (to avoid floating point errors)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_rMod</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.math.pmodulo">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.math.</span></span><span class="sig-name descname"><span class="pre">pmodulo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.math.pmodulo" title="Link to this definition">¶</a></dt>
+<dd><p>Modulo with positive result</p>
+<dl class="simple">
+<dt>Source:</dt><dd><p>SciLab (v 2023.1.0), <a class="reference external" href="https://atoms.scilab.org">https://atoms.scilab.org</a> pmodulo</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils.nmea">
+<span id="fds-utils-nmea-module"></span><h2>fds.utils.nmea module<a class="headerlink" href="#module-fds.utils.nmea" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">GgaSentence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utc_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">satellites_used</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msl_altitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geoid_separation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_of_diff_corr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">differential_base_station_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.GgaSentence" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.utils.nmea.NmeaSentence" title="fds.utils.nmea.NmeaSentence"><code class="xref py py-class docutils literal notranslate"><span class="pre">NmeaSentence</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.age_of_diff_corr">
+<span class="sig-name descname"><span class="pre">age_of_diff_corr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.age_of_diff_corr" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.differential_base_station_id">
+<span class="sig-name descname"><span class="pre">differential_base_station_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.differential_base_station_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.geoid_separation">
+<span class="sig-name descname"><span class="pre">geoid_separation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.geoid_separation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.hdop">
+<span class="sig-name descname"><span class="pre">hdop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.hdop" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.is_valid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_if_false</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#fds.utils.nmea.GgaSentence.is_valid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.message_id">
+<span class="sig-name descname"><span class="pre">message_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.message_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.msl_altitude">
+<span class="sig-name descname"><span class="pre">msl_altitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.msl_altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.parse">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.GgaSentence.parse" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.parse_altitude">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_altitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.nmea.GgaSentence.parse_altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.parse_geoid_separation">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_geoid_separation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.utils.nmea.GgaSentence.parse_geoid_separation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.quality_indicator">
+<span class="sig-name descname"><span class="pre">quality_indicator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.quality_indicator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.satellites_used">
+<span class="sig-name descname"><span class="pre">satellites_used</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.satellites_used" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.sentence">
+<span class="sig-name descname"><span class="pre">sentence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.sentence" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.GgaSentence.utc_time">
+<span class="sig-name descname"><span class="pre">utc_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.GgaSentence.utc_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaFileError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">NmeaFileError</span></span><a class="headerlink" href="#fds.utils.nmea.NmeaFileError" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">NmeaMeasurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geoid_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.geoid_height">
+<span class="sig-name descname"><span class="pre">geoid_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.geoid_height" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.ground_speed">
+<span class="sig-name descname"><span class="pre">ground_speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.ground_speed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaMeasurement.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.NmeaMeasurement.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">NmeaSentence</span></span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence.get_coordinate_from_string_and_direction">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_coordinate_from_string_and_direction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence.get_coordinate_from_string_and_direction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence.get_measure_in_meters">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_measure_in_meters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence.get_measure_in_meters" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence.parse">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence.parse" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence.parse_latitude">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_latitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence.parse_latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.NmeaSentence.parse_longitude">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_longitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.nmea.NmeaSentence.parse_longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">RmcSentence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utc_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_over_ground</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnetic_variation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positioning_system_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.RmcSentence" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.utils.nmea.NmeaSentence" title="fds.utils.nmea.NmeaSentence"><code class="xref py py-class docutils literal notranslate"><span class="pre">NmeaSentence</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.course_over_ground">
+<span class="sig-name descname"><span class="pre">course_over_ground</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.course_over_ground" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.ground_speed">
+<span class="sig-name descname"><span class="pre">ground_speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.ground_speed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.is_valid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_if_false</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#fds.utils.nmea.RmcSentence.is_valid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.magnetic_variation">
+<span class="sig-name descname"><span class="pre">magnetic_variation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.magnetic_variation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.message_id">
+<span class="sig-name descname"><span class="pre">message_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.message_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.parse">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.RmcSentence.parse" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.parse_datetime">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime</span></span></span><a class="headerlink" href="#fds.utils.nmea.RmcSentence.parse_datetime" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.parse_magnetic_variation">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse_magnetic_variation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.utils.nmea.RmcSentence.parse_magnetic_variation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.positioning_system_mode">
+<span class="sig-name descname"><span class="pre">positioning_system_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.positioning_system_mode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.sentence">
+<span class="sig-name descname"><span class="pre">sentence</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.sentence" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.RmcSentence.utc_time">
+<span class="sig-name descname"><span class="pre">utc_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.utils.nmea.RmcSentence.utc_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.nmea.SentenceBundle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">SentenceBundle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.utils.nmea.RmcSentence" title="fds.utils.nmea.RmcSentence"><span class="pre">fds.utils.nmea.RmcSentence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gga</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.utils.nmea.GgaSentence" title="fds.utils.nmea.GgaSentence"><span class="pre">fds.utils.nmea.GgaSentence</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.SentenceBundle" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.nmea.SentenceBundle.date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.utils.nmea.SentenceBundle.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.nmea.SentenceBundle.from_strings">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gga</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.nmea.SentenceBundle.from_strings" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.SentenceBundle.gga">
+<span class="sig-name descname"><span class="pre">gga</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.utils.nmea.GgaSentence" title="fds.utils.nmea.GgaSentence"><span class="pre">GgaSentence</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.utils.nmea.SentenceBundle.gga" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.utils.nmea.SentenceBundle.rmc">
+<span class="sig-name descname"><span class="pre">rmc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.utils.nmea.RmcSentence" title="fds.utils.nmea.RmcSentence"><span class="pre">RmcSentence</span></a></em><a class="headerlink" href="#fds.utils.nmea.SentenceBundle.rmc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.export_list_of_sentences">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">export_list_of_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_gga</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.export_list_of_sentences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.filter_sentences">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">filter_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_start_date_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_end_date_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_min_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.filter_sentences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.filter_sentences_by_date">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">filter_sentences_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_start_date_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_end_date_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.filter_sentences_by_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.filter_sentences_by_step">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">filter_sentences_by_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_min_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.filter_sentences_by_step" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.get_list_of_measurements_from_raw_and_dates">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">get_list_of_measurements_from_raw_and_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_measurements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.NmeaMeasurement" title="fds.utils.nmea.NmeaMeasurement"><span class="pre">NmeaMeasurement</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.get_list_of_measurements_from_raw_and_dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.get_list_of_measurements_from_sentences">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">get_list_of_measurements_from_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.NmeaMeasurement" title="fds.utils.nmea.NmeaMeasurement"><span class="pre">NmeaMeasurement</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.get_list_of_measurements_from_sentences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.get_raw_sentences_from_folder">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">get_raw_sentences_from_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.get_raw_sentences_from_folder" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.get_raw_sentences_from_single_file">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">get_raw_sentences_from_single_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.get_raw_sentences_from_single_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.parse_raw_sentences">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">parse_raw_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.parse_raw_sentences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.parse_raw_sentences_from_file">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">parse_raw_sentences_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.parse_raw_sentences_from_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.nmea.parse_raw_sentences_from_folder">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.nmea.</span></span><span class="sig-name descname"><span class="pre">parse_raw_sentences_from_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.utils.nmea.SentenceBundle" title="fds.utils.nmea.SentenceBundle"><span class="pre">SentenceBundle</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.utils.nmea.parse_raw_sentences_from_folder" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-fds.utils.orbital_mechanics">
+<span id="fds-utils-orbital-mechanics-module"></span><h2>fds.utils.orbital_mechanics module<a class="headerlink" href="#module-fds.utils.orbital_mechanics" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">OrbitalElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SMA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ECC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOP</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RAAN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.AOP">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AOP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.AOP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.ECC">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ECC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.ECC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.INC">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">INC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.INC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.MA">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.MA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.RAAN">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RAAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.RAAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.SMA">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SMA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.SMA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.TA">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.TA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.as_array">
+<span class="sig-name descname"><span class="pre">as_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_mean_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radians</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.as_array" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.OrbitalElements.with_mean_anomaly">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">with_mean_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SMA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ECC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOP</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RAAN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MA</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fds.utils.orbital_mechanics.OrbitalElements" title="fds.utils.orbital_mechanics.OrbitalElements"><span class="pre">OrbitalElements</span></a></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.OrbitalElements.with_mean_anomaly" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SMA</strong> (<em>float</em>) – semi-major axis [km]</p></li>
+<li><p><strong>ECC</strong> (<em>float</em>) – eccentricity [-]</p></li>
+<li><p><strong>INC</strong> (<em>float</em>) – inclination [deg]</p></li>
+<li><p><strong>AOP</strong> (<em>float</em>) – argument of periapsis [deg]</p></li>
+<li><p><strong>RAAN</strong> (<em>float</em>) – right ascension of the ascending node [deg]</p></li>
+<li><p><strong>MA</strong> (<em>float</em>) – mean anomaly [deg]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.check_kep_validity">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">check_kep_validity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.utils.orbital_mechanics.check_kep_validity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.compute_delta_v_with_rocket_equation">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">compute_delta_v_with_rocket_equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specific_impulse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.compute_delta_v_with_rocket_equation" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the delta-v required to perform a maneuver with the rocket equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>specific_impulse</strong> (<em>float</em>) – specific impulse [s]</p></li>
+<li><p><strong>initial_mass</strong> (<em>float</em>) – initial mass [kg]</p></li>
+<li><p><strong>final_mass</strong> (<em>float</em>) – final mass [kg]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>delta-v [m/s]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Curtis, Orbital Mechanics for Engineering Students, eq 6.21</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.eccentric_anomaly_from_mean_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">eccentric_anomaly_from_mean_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.eccentric_anomaly_from_mean_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the eccentric anomaly from the mean anomaly using one Halley step and one Newton-Raphson step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>mean_anomaly</strong> – mean anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentric anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL__kp_M2Eell</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.eccentric_anomaly_from_mean_anomaly_newton_rhapson">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">eccentric_anomaly_from_mean_anomaly_newton_rhapson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_tol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.eccentric_anomaly_from_mean_anomaly_newton_rhapson" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the eccentric anomaly from the mean anomaly using the Newton-Raphson method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>mean_anomaly</strong> – mean anomaly [rad]</p></li>
+<li><p><strong>step_tol</strong> – tolerance for the Newton-Raphson method</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentric anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Curtis, Orbital Mechanics for Engineering Students, eq 3.14</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.eccentric_anomaly_from_true_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">eccentric_anomaly_from_true_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.eccentric_anomaly_from_true_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the eccentric anomaly from the true anomaly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>true_anomaly</strong> – true anomaly [rad] in the range [-pi, pi]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentric anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_kp_v2E</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.get_delta_cartesian_tnw_between_two_keplerian_states">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">get_delta_cartesian_tnw_between_two_keplerian_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sma_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aop_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raan_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sma_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aop_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raan_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.get_delta_cartesian_tnw_between_two_keplerian_states" title="Link to this definition">¶</a></dt>
+<dd><p>Get the cartesian delta between two keplerian states in the TNW frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sma_ref</strong> (<em>float</em>) – semi-major axis of the first orbit [km]</p></li>
+<li><p><strong>ecc_ref</strong> (<em>float</em>) – eccentricity of the first orbit</p></li>
+<li><p><strong>inc_ref</strong> (<em>float</em>) – inclination of the first orbit [rad]</p></li>
+<li><p><strong>aop_ref</strong> (<em>float</em>) – argument of perigee of the first orbit [rad]</p></li>
+<li><p><strong>raan_ref</strong> (<em>float</em>) – right ascension of the ascending node of the first orbit [rad]</p></li>
+<li><p><strong>ma_ref</strong> (<em>float</em>) – mean anomaly of the first orbit [rad]</p></li>
+<li><p><strong>sma_target</strong> (<em>float</em>) – semi-major axis of the second orbit [km]</p></li>
+<li><p><strong>ecc_target</strong> (<em>float</em>) – eccentricity of the second orbit</p></li>
+<li><p><strong>inc_target</strong> (<em>float</em>) – inclination of the second orbit [rad]</p></li>
+<li><p><strong>aop_target</strong> (<em>float</em>) – argument of perigee of the second orbit [rad]</p></li>
+<li><p><strong>raan_target</strong> (<em>float</em>) – right ascension of the ascending node of the second orbit [rad]</p></li>
+<li><p><strong>ma_target</strong> (<em>float</em>) – mean anomaly of the second orbit [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cartesian delta between two keplerian states in the TNW frame [km, km, km, km/s, km/s, km/s]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_op_orbGapLof</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.kep_to_car">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">kep_to_car</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.kep_to_car" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Keplerian to Cartesian elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sma</strong> (<em>float</em>) – semi-major axis [km]</p></li>
+<li><p><strong>ecc</strong> (<em>float</em>) – eccentricity [-]</p></li>
+<li><p><strong>inc</strong> (<em>float</em>) – inclination [rad]</p></li>
+<li><p><strong>aop</strong> (<em>float</em>) – argument of perigee [rad]</p></li>
+<li><p><strong>raan</strong> (<em>float</em>) – right ascension of the ascending node [rad]</p></li>
+<li><p><strong>ma</strong> (<em>float</em>) – mean anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cartesian elements (X, Y, Z, Vx, Vy, Vz) [km, km, km, km/s, km/s, km/s]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_oe_kep2car</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.keplerian_period">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">keplerian_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semi_major_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">398600.4418</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.keplerian_period" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.mean_anomaly_from_eccentric_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">mean_anomaly_from_eccentric_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentric_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.mean_anomaly_from_eccentric_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the mean anomaly from the eccentric anomaly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>eccentric_anomaly</strong> – eccentric anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Curtis, Orbital Mechanics for Engineering Students, eq 3.11</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.mean_anomaly_from_true_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">mean_anomaly_from_true_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.mean_anomaly_from_true_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the mean anomaly from the true anomaly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>true_anomaly</strong> – true anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.true_anomaly_from_eccentric_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">true_anomaly_from_eccentric_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentric_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.true_anomaly_from_eccentric_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the true anomaly from the eccentric anomaly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>eccentric_anomaly</strong> – eccentric anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Celestlab (v 3.4.2), <a class="reference external" href="https://atoms.scilab.org/toolboxes/celestlab">https://atoms.scilab.org/toolboxes/celestlab</a>, CL_kp_E2v</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.utils.orbital_mechanics.true_anomaly_from_mean_anomaly">
+<span class="sig-prename descclassname"><span class="pre">fds.utils.orbital_mechanics.</span></span><span class="sig-name descname"><span class="pre">true_anomaly_from_mean_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_anomaly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#fds.utils.orbital_mechanics.true_anomaly_from_mean_anomaly" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the true anomaly from the mean anomaly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eccentricity</strong> – eccentricity [-]</p></li>
+<li><p><strong>mean_anomaly</strong> – mean anomaly [rad]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true anomaly [rad]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Source:</dt><dd><p>Curtis, Orbital Mechanics for Engineering Students</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fds.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fds.utils" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fds-python-sdk</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fds.html">fds package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">fds-python-sdk</a><ul>
+  <li><a href="fds.html">fds package</a><ul>
+      <li>Previous: <a href="fds.models.tle_extrapolation.html" title="previous chapter">fds.models.tle_extrapolation package</a></li>
+      <li>Next: <a href="tests.html" title="next chapter">tests package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/fds.utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

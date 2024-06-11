@@ -161,8 +161,12 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
         process_noise_matrix = CovarianceMatrix.from_diagonal(diagonal=(1E-1, 1E-1, 1E-1, 1E-4, 1E-4, 1E-4),
                                                               frame="TNW")
         self.od_config = (
-            OrbitDeterminationConfiguration.import_from_config_file(self.CONFIG_TEST_FILEPATH,
-                                                                    process_noise_matrix=process_noise_matrix))
+            OrbitDeterminationConfiguration.import_from_config_file(
+                self.CONFIG_TEST_FILEPATH,
+                process_noise_matrix=process_noise_matrix,
+                max_number_of_consecutive_outliers=20
+            )
+        )
 
         self.nmea_measure = TelemetryGpsNmeaRaw(
             self.NMEA_TEST_DATA,
@@ -186,20 +190,19 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
         os = res.estimated_states[-1]
 
         final_date = get_datetime('2023-06-29 18:37:55+00:00')
+
+        final_matrix = np.array([
+            [9.61609722e+01, -8.16089797e-01, 4.06390495e-01, 6.91994091e-01, 8.54998483e-02, 9.16733687e-02],
+            [-8.16089797e-01, 9.99410366e+01, -1.64601085e-02, 8.56183116e-02, 6.50945592e-01, -1.24376951e-01],
+            [4.06390495e-01, -1.64601085e-02, 1.00077938e+02, 9.20243593e-02, -1.24695087e-01, 6.50486646e-01],
+            [6.91994091e-01, 8.56183116e-02, 9.20243593e-02, 9.19239465e-02, 1.18179816e-02, 1.19104624e-02],
+            [8.54998483e-02, 6.50945592e-01, -1.24695087e-01, 1.18179816e-02, 8.44161821e-02, -1.63241115e-02],
+            [9.16733687e-02, -1.24376951e-01, 6.50486646e-01, 1.19104624e-02, -1.63241115e-02, 8.42578348e-02]
+        ])
+
         final_cov_mat = CovarianceMatrix(
-            matrix=[[96.16102727403323, -0.8160783099252733, 0.40638571653154276, 0.691994334551828,
-                     0.08549990181436279, 0.09167335041127644],
-                    [-0.8160783099252733, 99.94103807309796, -0.016461908338637088, 0.08561833791299005,
-                     0.650945574507383, -0.12437697164554287],
-                    [0.40638571653154276, -0.016461908338637088, 100.07793765192385, 0.092024318322771,
-                     -0.12469511413828294, 0.6504866350448696],
-                    [0.691994334551828, 0.08561833791299005, 0.092024318322771, 0.09192395246194768,
-                     0.011817979924014232, 0.011910459482900978],
-                    [0.08549990181436279, 0.650945574507383, -0.12469511413828294, 0.011817979924014232,
-                     0.0844161784675575, -0.016324113928652614],
-                    [0.09167335041127644, -0.12437697164554287, 0.6504866350448696, 0.011910459482900978,
-                     -0.016324113928652614, 0.0842578336754444]],
-            date='2023-06-29 18:37:55+00:00',
+            matrix=final_matrix,
+            date=final_date,
             frame=Frame.ECI,
         ).save()
 
@@ -341,9 +344,8 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
         start_date = datetime(2023, 5, 22, 0, 0, 0, 0, tzinfo=UTC)
         quaternions = []
         for i in range(0, 3600 * 3, 60):
-            rand_quat = np.random.rand(4)
-            rand_quat /= np.linalg.norm(rand_quat)
-            quaternions.append(Quaternion(*rand_quat, date=start_date + timedelta(seconds=i)))
+            quaternion = np.array([0.5, 0.5, 0.5, 0.5])
+            quaternions.append(Quaternion(*quaternion, date=start_date + timedelta(seconds=i)))
 
         attitude_action = ActionAttitude(
             transition_date=start_date,

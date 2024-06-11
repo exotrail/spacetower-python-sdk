@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds-python-sdk &#8212; spacetower-python-sdk 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fds package" href="fds.html" />
+    <link rel="prev" title="Welcome to spacetower-python-sdk’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-python-sdk">
+<h1>fds-python-sdk<a class="headerlink" href="#fds-python-sdk" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fds.html">fds package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.models.html">fds.models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.actions">fds.models.actions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.ground_station">fds.models.ground_station module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.orbital_state">fds.models.orbital_state module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.orbits">fds.models.orbits module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.quaternion">fds.models.quaternion module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.roadmaps">fds.models.roadmaps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.spacecraft">fds.models.spacecraft module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.telemetry">fds.models.telemetry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.two_line_element">fds.models.two_line_element module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.utils.html">fds.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.dates">fds.utils.dates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.dict">fds.utils.dict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.enum">fds.utils.enum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.frames">fds.utils.frames module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.geometry">fds.utils.geometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.log">fds.utils.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.math">fds.utils.math module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.nmea">fds.utils.nmea module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.orbital_mechanics">fds.utils.orbital_mechanics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.client">fds.client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.client.FdsClient"><code class="docutils literal notranslate"><span class="pre">FdsClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.MODELS_MAP"><code class="docutils literal notranslate"><span class="pre">FdsClient.MODELS_MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.Models"><code class="docutils literal notranslate"><span class="pre">FdsClient.Models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.USE_CASES_MAP"><code class="docutils literal notranslate"><span class="pre">FdsClient.USE_CASES_MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.UseCases"><code class="docutils literal notranslate"><span class="pre">FdsClient.UseCases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.api_config"><code class="docutils literal notranslate"><span class="pre">FdsClient.api_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.api_url_msg"><code class="docutils literal notranslate"><span class="pre">FdsClient.api_url_msg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.create_object"><code class="docutils literal notranslate"><span class="pre">FdsClient.create_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.destroy_object"><code class="docutils literal notranslate"><span class="pre">FdsClient.destroy_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_api_client"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_api_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_client"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_id"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.model_exists"><code class="docutils literal notranslate"><span class="pre">FdsClient.model_exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_all"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_model"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_result_from_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_result_from_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.run_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.run_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.use_case_exists"><code class="docutils literal notranslate"><span class="pre">FdsClient.use_case_exists()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.client.SingletonMeta"><code class="docutils literal notranslate"><span class="pre">SingletonMeta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.config">fds.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.api_key"><code class="docutils literal notranslate"><span class="pre">Config.api_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.api_url"><code class="docutils literal notranslate"><span class="pre">Config.api_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_api_key"><code class="docutils literal notranslate"><span class="pre">get_api_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_api_url"><code class="docutils literal notranslate"><span class="pre">get_api_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_api_key"><code class="docutils literal notranslate"><span class="pre">set_api_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_url"><code class="docutils literal notranslate"><span class="pre">set_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.constants">fds.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_determination">tests.test_determination module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestDragCoefficientEstimationRequest.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestDragCoefficientEstimationRequest.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.FINAL_TLE"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.FINAL_TLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.INITIAL_DATE"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.INITIAL_DATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.INITIAL_TLE"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.INITIAL_TLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.INITIAL_TLE_MIXED"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.INITIAL_TLE_MIXED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.assert_parameter_estimation"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.assert_parameter_estimation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.setUp"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_initialisation"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_run"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_mixed_rmc_gga_sentences"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_mixed_rmc_gga_sentences()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_multiple_firings_roadmap"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_multiple_firings_roadmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_parameter_requests"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_parameter_requests()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_prograde_roadmap"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_prograde_roadmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_quaternion_roadmap"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_quaternion_roadmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDetermination.test_orbit_determination_with_retrograde_roadmap"><code class="docutils literal notranslate"><span class="pre">TestOrbitDetermination.test_orbit_determination_with_retrograde_roadmap()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.noise"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.noise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestOrbitDeterminationConfiguration.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestOrbitDeterminationConfiguration.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestReflectivityCoefficientEstimationRequest.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestReflectivityCoefficientEstimationRequest.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_determination.TestThrustVectorEstimationRequest.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestThrustVectorEstimationRequest.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_ground_station">tests.test_ground_station module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation"><code class="docutils literal notranslate"><span class="pre">TestGroundStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestGroundStation.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestGroundStation.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestGroundStation.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestGroundStation.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_ground_station.TestGroundStation.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestGroundStation.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_maneuvers">tests.test_maneuvers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.test_action_with_quaternion"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.test_action_with_quaternion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionAttitude.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestActionAttitude.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring"><code class="docutils literal notranslate"><span class="pre">TestActionFiring</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.test_action_with_warmup_attitude"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.test_action_with_warmup_attitude()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestActionFiring.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestActionFiring.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.setUp"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.test_export_of_data_for_dataframe"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.test_export_of_data_for_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.test_maneuver_generation_initialisation"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.test_maneuver_generation_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.test_maneuver_generation_run"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.test_maneuver_generation_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.test_maneuver_generation_with_inclination_change"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.test_maneuver_generation_with_inclination_change()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverGeneration.test_use_generated_roadmap_for_orbit_extrapolation"><code class="docutils literal notranslate"><span class="pre">TestManeuverGeneration.test_use_generated_roadmap_for_orbit_extrapolation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestManeuverStrategy.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestManeuverStrategy.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.aa"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.aa</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.af"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.af</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_automatic_start_and_end_dates"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_automatic_start_and_end_dates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_export_of_data_for_dataframe"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_export_of_data_for_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_roadmap_extension_after"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_roadmap_extension_after()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_roadmap_extension_before"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_roadmap_extension_before()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_maneuvers.TestRoadmapFromActions.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestRoadmapFromActions.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_nmea_processor">tests.test_nmea_processor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.TELEMETRY_FOLDER_PATH"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.TELEMETRY_FOLDER_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_gga_sentence_parsing"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_gga_sentence_parsing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_multiple_files_all"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_multiple_files_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_single_file"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_single_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_end_date"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_end_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_start_date"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_start_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_step"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_single_file_filter_by_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_from_single_file_no_gga"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_from_single_file_no_gga()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_nmea_processor_write_measurements"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_nmea_processor_write_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_rmc_sentence_parsing"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_rmc_sentence_parsing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_sentence_validity"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_sentence_validity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_nmea_processor.TestNmeaProcessor.test_transformation_of_raw_data_in_list_of_measurements"><code class="docutils literal notranslate"><span class="pre">TestNmeaProcessor.test_transformation_of_raw_data_in_list_of_measurements()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_orbit_extrapolation">tests.test_orbit_extrapolation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEphemeridesRequest.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEphemeridesRequest.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestOrbital.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestOrbital.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestSensor.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestSensor.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.gs"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.gs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestEventsRequestStationVisibility.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestEventsRequestStationVisibility.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsNmea.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsNmea.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestGpsPv.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestGpsPv.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.gs"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.gs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestOptical.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestOptical.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.gs"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.gs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestMeasurementsRequestRadar.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestMeasurementsRequestRadar.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest"><code class="docutils literal notranslate"><span class="pre">TestOemRequest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOemRequest.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestOemRequest.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.setUp"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_error_in_orbit_extrapolation_if_covariance_not_in_initial_orbital_state"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_error_in_orbit_extrapolation_if_covariance_not_in_initial_orbital_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_event_export"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_event_export()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_initialisation"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_run"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_station_event_grouping_intersect"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_station_event_grouping_intersect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_station_event_grouping_no_start_no_exit"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_station_event_grouping_no_start_no_exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_covariance_matrix"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_covariance_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_duration"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_duration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_ephemerides"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_ephemerides()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_nmea_measurements"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_nmea_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_oem_request"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_oem_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_orbital_events"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_orbital_events()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_pv_measurements"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_pv_measurements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_and_duration"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_and_duration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_and_duration_error"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_and_duration_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_firing_and_spacecraft_thruster_error"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_roadmap_firing_and_spacecraft_thruster_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_sensor_events"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_sensor_events()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbit_extrapolation.TestOrbitExtrapolation.test_orbit_extrapolation_with_station_visibility_event"><code class="docutils literal notranslate"><span class="pre">TestOrbitExtrapolation.test_orbit_extrapolation_with_station_visibility_event()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_orbital_state">tests.test_orbital_state module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.KWARGS_POSITION_VELOCITY"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.KWARGS_POSITION_VELOCITY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.KWARGS_STATE"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.KWARGS_STATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCartesianOrbit.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestCartesianOrbit.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestCovarianceMatrix.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestCovarianceMatrix.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.test_angle_ranges"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.test_angle_ranges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestKeplerianOrbit.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestKeplerianOrbit.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.KWARGS_INITIALISATION"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.KWARGS_INITIALISATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.cov"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.cov</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.mean_orb"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.mean_orb</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.osc_orb"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.osc_orb</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.prop"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.prop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.spacecraft"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.spacecraft</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_covariance_update"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_covariance_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_creation_request"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_creation_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_creation_with_and_without_covariance"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_creation_with_and_without_covariance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestOrbitalState.test_spacecraft_update"><code class="docutils literal notranslate"><span class="pre">TestOrbitalState.test_spacecraft_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_orbital_state.TestPropagationContext.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestPropagationContext.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_quaternion">tests.test_quaternion module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion"><code class="docutils literal notranslate"><span class="pre">TestQuaternion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.setUp"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_back_and_forth"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_back_and_forth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_add"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_conjugate"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_conjugate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_eq"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_eq()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_from_angle_axis"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_from_angle_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_imag"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_imag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_mul"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_mul()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_ne"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_ne()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_norm"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_norm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_real"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_real()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_repr"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_repr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_str"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_sub"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_sub()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_angle_axis"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_angle_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_angles_back_and_forth"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_angles_back_and_forth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_cardan_angles_xyz"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_cardan_angles_xyz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_euler_angles"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_euler_angles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_euler_angles_2"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_euler_angles_2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_euler_angles_3"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_euler_angles_3()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_to_rotation_matrix"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_to_rotation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_quaternion_unit"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_quaternion_unit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_rot_matrix_to_quaternion"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_rot_matrix_to_quaternion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_rot_matrix_to_quaternion_elementary"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_rot_matrix_to_quaternion_elementary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_quaternion.TestQuaternion.test_vector_rotation"><code class="docutils literal notranslate"><span class="pre">TestQuaternion.test_vector_rotation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_spacecraft">tests.test_spacecraft module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery"><code class="docutils literal notranslate"><span class="pre">TestBattery</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestBattery.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestBattery.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestBattery.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestBattery.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestBattery.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestBattery.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestBattery.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_update_of_power"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_update_of_power()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestElectricalThruster.test_update_of_thrust"><code class="docutils literal notranslate"><span class="pre">TestElectricalThruster.test_update_of_thrust()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray"><code class="docutils literal notranslate"><span class="pre">TestSolarArray</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSolarArray.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSolarArray.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.bat"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.bat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.sa"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.sa</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.test_update_of_propellant_mass"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.test_update_of_propellant_mass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftBox.thr"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftBox.thr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_spacecraft.TestSpacecraftSphere.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestSpacecraftSphere.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_telemetry">tests.test_telemetry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.KWARGS_4"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.KWARGS_4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.KWARGS_5"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.KWARGS_5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.KWARGS_6"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.KWARGS_6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_initialisation_4"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_initialisation_4()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_initialisation_5"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_initialisation_5()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_initialisation_error"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_initialisation_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmea.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmea.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.KWARGS_1"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.KWARGS_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.KWARGS_2"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.KWARGS_2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsNmeaRaw.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsNmeaRaw.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryGpsPv.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryGpsPv.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.gs"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.gs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryOptical.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryOptical.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.KWARGS"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.KWARGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.gs"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.gs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.test_import_from_config_file"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.test_import_from_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.test_initialisation"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.test_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.test_save_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.test_save_and_destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_telemetry.TestTelemetryRadar.test_save_and_retrieve_by_id_and_destroy"><code class="docutils literal notranslate"><span class="pre">TestTelemetryRadar.test_save_and_retrieve_by_id_and_destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_tle_extrapolation">tests.test_tle_extrapolation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation.setUp"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation.test_tle_extrapolation"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation.test_tle_extrapolation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation.test_tle_extrapolation_initialisation"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation.test_tle_extrapolation_initialisation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_tle_extrapolation.TestTleExtrapolation.test_tle_extrapolation_run"><code class="docutils literal notranslate"><span class="pre">TestTleExtrapolation.test_tle_extrapolation_run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_two_line_element">tests.test_two_line_element module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.TLE_FOLDER_PATH"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.TLE_FOLDER_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.setUp"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_checksum_calculation"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_checksum_calculation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_data_update"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_data_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_date_extraction"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_date_extraction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_from_single_line"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_from_single_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_from_spacetrack"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_from_spacetrack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_two_line_element.TestTwoLineElement.test_line_format_error"><code class="docutils literal notranslate"><span class="pre">TestTwoLineElement.test_line_format_error()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests.test_utils">tests.test_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestDatesUtils"><code class="docutils literal notranslate"><span class="pre">TestDatesUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDatesUtils.test_check_datetime_time_zone_is_utc"><code class="docutils literal notranslate"><span class="pre">TestDatesUtils.test_check_datetime_time_zone_is_utc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDatesUtils.test_check_datetime_time_zone_is_utc_raises"><code class="docutils literal notranslate"><span class="pre">TestDatesUtils.test_check_datetime_time_zone_is_utc_raises()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDatesUtils.test_datetime_to_iso_string"><code class="docutils literal notranslate"><span class="pre">TestDatesUtils.test_datetime_to_iso_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDatesUtils.test_filter_sequence_with_minimum_time_step"><code class="docutils literal notranslate"><span class="pre">TestDatesUtils.test_filter_sequence_with_minimum_time_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestDictUtils"><code class="docutils literal notranslate"><span class="pre">TestDictUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDictUtils.test_compare_dicts"><code class="docutils literal notranslate"><span class="pre">TestDictUtils.test_compare_dicts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestDictUtils.test_get_datetime"><code class="docutils literal notranslate"><span class="pre">TestDictUtils.test_get_datetime()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils.setUp"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils.test_frame_creation"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils.test_frame_creation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils.test_rot_mat_in_to_lvlh"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils.test_rot_mat_in_to_lvlh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils.test_rot_mat_in_to_tnw"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils.test_rot_mat_in_to_tnw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestFrameUtils.test_rot_mat_string_to_float"><code class="docutils literal notranslate"><span class="pre">TestFrameUtils.test_rot_mat_string_to_float()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils.setUp"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils.test_angle_between_vectors"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils.test_angle_between_vectors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils.test_check_vector_length"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils.test_check_vector_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils.test_convert_to_numpy_array_and_check_shape"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils.test_convert_to_numpy_array_and_check_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestGeomUtils.test_unit_vector"><code class="docutils literal notranslate"><span class="pre">TestGeomUtils.test_unit_vector()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestMath"><code class="docutils literal notranslate"><span class="pre">TestMath</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestMath.test_modulo_with_range"><code class="docutils literal notranslate"><span class="pre">TestMath.test_modulo_with_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestMath.test_modulo_with_range_border_cases"><code class="docutils literal notranslate"><span class="pre">TestMath.test_modulo_with_range_border_cases()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestMath.test_pmodulo"><code class="docutils literal notranslate"><span class="pre">TestMath.test_pmodulo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.setUp"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.setUp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_compute_delta_v"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_compute_delta_v()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_eccentric_anomaly_from_mean_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_eccentric_anomaly_from_mean_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_eccentric_anomaly_from_true_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_eccentric_anomaly_from_true_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_get_delta_cartesian_tnw_between_two_keplerian_states"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_get_delta_cartesian_tnw_between_two_keplerian_states()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_kep_to_car"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_kep_to_car()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_mean_anomaly_from_eccentric_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_mean_anomaly_from_eccentric_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_mean_anomaly_from_true_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_mean_anomaly_from_true_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_mean_to_eccentric_to_mean"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_mean_to_eccentric_to_mean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_true_anomaly_from_eccentric_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_true_anomaly_from_eccentric_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_true_anomaly_from_mean_anomaly"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_true_anomaly_from_mean_anomaly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_true_to_eccentric_to_true"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_true_to_eccentric_to_true()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.test_utils.TestOrbMechUtils.test_true_to_mean_to_true"><code class="docutils literal notranslate"><span class="pre">TestOrbMechUtils.test_true_to_mean_to_true()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#module-tests">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.TestModels"><code class="docutils literal notranslate"><span class="pre">TestModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestModels.CONFIG_TEST_FILEPATH"><code class="docutils literal notranslate"><span class="pre">TestModels.CONFIG_TEST_FILEPATH</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.TestModelsWithContainer"><code class="docutils literal notranslate"><span class="pre">TestModelsWithContainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#tests.TestUseCases"><code class="docutils literal notranslate"><span class="pre">TestUseCases</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.ATOL_POSITION"><code class="docutils literal notranslate"><span class="pre">TestUseCases.ATOL_POSITION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.ATOL_TIME"><code class="docutils literal notranslate"><span class="pre">TestUseCases.ATOL_TIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.ATOL_VELOCITY"><code class="docutils literal notranslate"><span class="pre">TestUseCases.ATOL_VELOCITY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.CLIENT_TYPE"><code class="docutils literal notranslate"><span class="pre">TestUseCases.CLIENT_TYPE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.CONFIG_TEST_FILEPATH"><code class="docutils literal notranslate"><span class="pre">TestUseCases.CONFIG_TEST_FILEPATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.compare_csv_to_list_of_dict"><code class="docutils literal notranslate"><span class="pre">TestUseCases.compare_csv_to_list_of_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.is_datetime_close"><code class="docutils literal notranslate"><span class="pre">TestUseCases.is_datetime_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.is_string_date_close"><code class="docutils literal notranslate"><span class="pre">TestUseCases.is_string_date_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.is_value_close"><code class="docutils literal notranslate"><span class="pre">TestUseCases.is_value_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#tests.TestUseCases.kwargs"><code class="docutils literal notranslate"><span class="pre">TestUseCases.kwargs</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fds-python-sdk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fds.html">fds package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to spacetower-python-sdk’s documentation!</a></li>
+      <li>Next: <a href="fds.html" title="next chapter">fds package</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -191,6 +191,13 @@ class FromConfigBaseModel(BaseModel, ABC):
             obj_data = config_dict[cls.FDS_TYPE]
         except KeyError:
             log_and_raise(KeyError, f'Object {cls.FDS_TYPE} not in the config file.')
+
+        # if data is both in obj_data and kwargs, kwargs will overwrite obj_data
+        for key in obj_data.keys():
+            if key in kwargs:
+                obj_data[key] = kwargs[key]
+                kwargs.pop(key)
+
         obj = cls(**obj_data, **kwargs)
         obj._model_source = ModelSource.CONFIG
         return obj

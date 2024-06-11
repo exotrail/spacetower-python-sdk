@@ -325,6 +325,7 @@ class ResultOrbitDetermination(RetrievableModel):
             report: Report,
             in_depth_results: InDepthResults,
             estimated_states: list[OrbitalState],
+            estimated_keplerian_covariance_matrix: CovarianceMatrix,
             firing_analysis_report: FiringAnalysisReport = None,
             nametag: str = None
     ):
@@ -333,6 +334,7 @@ class ResultOrbitDetermination(RetrievableModel):
         self._status = status
         self._report = report
         self._estimated_states = estimated_states
+        self._estimated_keplerian_covariance_matrix = estimated_keplerian_covariance_matrix
         self._in_depth_results = in_depth_results
         self._firing_analysis_report = firing_analysis_report
 
@@ -353,6 +355,10 @@ class ResultOrbitDetermination(RetrievableModel):
         return self._estimated_states
 
     @property
+    def estimated_keplerian_covariance_matrix(self) -> CovarianceMatrix:
+        return self._estimated_keplerian_covariance_matrix
+
+    @property
     def firing_analysis_report(self) -> FiringAnalysisReport:
         return self._firing_analysis_report
 
@@ -370,9 +376,12 @@ class ResultOrbitDetermination(RetrievableModel):
                             obj_data['estimatedStates']]
         firing_analysis_report = cls.FiringAnalysisReport.create_from_api_dict(obj_data['firingAnalysisReport']) \
             if 'firingAnalysisReport' in obj_data else None
+        estimated_keplerian_covariance_matrix = CovarianceMatrix._create_from_api_object_data(
+            obj_data['estimatedKeplerianCovariance'])
 
         return {
             'status': obj_data['status'],
+            'estimated_keplerian_covariance_matrix': estimated_keplerian_covariance_matrix,
             'report': cls.Report.create_from_api_dict(obj_data['report']),
             'in_depth_results': cls.InDepthResults.create_from_api_dict(
                 obj_data['inDepthResults']),

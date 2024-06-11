@@ -260,6 +260,7 @@ class ResultOrbitExtrapolation(RetrievableModel):
 
     def export_event_timeline_data(self) -> list[dict]:
         """Export data for a timeline correctly sorted.
+
         Returns:
             list[dict]: List of dictionaries with the following keys: 'date', 'event', 'ground_station_name',
                 'ground_station_id'.
@@ -283,10 +284,11 @@ class ResultOrbitExtrapolation(RetrievableModel):
 
     def export_event_gantt_data(self) -> list[dict]:
         """Export data for Gantt chart correctly sorted.
+        
         Returns:
             list[dict]: List of dictionaries with the following keys: 'start_date', 'end_date', 'event',
-            'ground_station_name', 'ground_station_id', 'duration'.
-            """
+                'ground_station_name', 'ground_station_id', 'duration'.
+        """
 
         columns = ['start_date', 'end_date', 'event', 'ground_station_name', 'ground_station_id', 'duration']
         df_data_list = []

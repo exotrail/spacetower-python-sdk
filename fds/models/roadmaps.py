@@ -111,19 +111,22 @@ class RoadmapFromActions(Roadmap, RetrievableModel):
         if start_date is None:
             start_date = first_action_date
         if end_date is None:
+            if first_action_date == last_action_date:
+                msg = "The roadmap has only one action, the end date must be provided."
+                log_and_raise(ValueError, msg)
             end_date = last_action_date
 
-        if start_date >= end_date:
-            msg = f"The initial date {start_date} must be before the final date {end_date}"
+        if start_date > end_date:
+            msg = f"The start date {start_date} must be before the end date {end_date}"
             log_and_raise(ValueError, msg)
         if start_date > first_action_date:
-            msg = f"The initial date {start_date} must be before the first action date {first_action_date}"
+            msg = f"The start date {start_date} must be before the first action date {first_action_date}"
             log_and_raise(ValueError, msg)
         if start_date > last_action_date:
-            msg = f"The initial date {start_date} must be before the last action date {last_action_date}"
+            msg = f"The start date {start_date} must be before the last action date {last_action_date}"
             log_and_raise(ValueError, msg)
         if end_date < last_action_date:
-            msg = f"The final date {end_date} must be after the last action date {last_action_date}"
+            msg = f"The end date {end_date} must be after the last action date {last_action_date}"
             log_and_raise(ValueError, msg)
         return start_date, end_date
 

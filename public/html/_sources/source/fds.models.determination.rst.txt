@@ -1,0 +1,45 @@
+fds.models.determination package
+================================
+
+Submodules
+----------
+
+fds.models.determination.configuration module
+---------------------------------------------
+
+.. automodule:: fds.models.determination.configuration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.determination.requests module
+----------------------------------------
+
+.. automodule:: fds.models.determination.requests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.determination.result module
+--------------------------------------
+
+.. automodule:: fds.models.determination.result
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.determination.use\_case module
+-----------------------------------------
+
+.. automodule:: fds.models.determination.use_case
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fds.models.determination
+   :members:
+   :undoc-members:
+   :show-inheritance:

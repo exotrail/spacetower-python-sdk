@@ -64,8 +64,10 @@ DEFAULT_CONFIG = {
         "nametag": None,
         "integrator_min_step": None,  # float, (s)
         "integrator_max_step": None,  # float, (s)
-        "integrator_kind": None,  # str, (values: 'DORMAND_PRINCE_853', 'DORMAND_PRINCE_54', 'ADAMS_MOULTON', 'RUNGE_KUTTA')
-        "model_perturbations": None,  # Iterable[str], Perturbations included in the model (values: EARTH_POTENTIAL, SRP, THIRD_BODY, DRAG, CONSTANT_THRUST, IMPULSIVE_THRUST)
+        "integrator_kind": None,
+        # str, (values: 'DORMAND_PRINCE_853', 'DORMAND_PRINCE_54', 'ADAMS_MOULTON', 'RUNGE_KUTTA')
+        "model_perturbations": None,
+        # Iterable[str], Perturbations included in the model (values: EARTH_POTENTIAL, SRP, THIRD_BODY, DRAG, CONSTANT_THRUST, IMPULSIVE_THRUST)
         "model_solar_flux": None,  # float, Solar flux (SFU).
         "model_earth_potential_deg": None,  # int, Earth potential degree (-)
         "model_earth_potential_ord": None,  # int, Earth potential order (-)
@@ -73,7 +75,8 @@ DEFAULT_CONFIG = {
     },
     "MANEUVER_STRATEGY": {
         "nametag": None,  # str
-        "thrust_arcs_position": None,  # str, (values: ASCENDING_AND_DESCENDING_NODES, ASCENDING_NODE, CUSTOM, DESCENDING_NODE, APOGEE_AND_PERIGEE, APOGEE, PERIGEE, ASCENDING_AND_DESCENDING_ANTINODES, ASCENDING_ANTINODE, DESCENDING_ANTINODE, MEAN_LONGITUDE)
+        "thrust_arcs_position": None,
+        # str, (values: ASCENDING_AND_DESCENDING_NODES, ASCENDING_NODE, CUSTOM, DESCENDING_NODE, APOGEE_AND_PERIGEE, APOGEE, PERIGEE, ASCENDING_AND_DESCENDING_ANTINODES, ASCENDING_ANTINODE, DESCENDING_ANTINODE, MEAN_LONGITUDE)
         "thrust_arcs_number": None,  # str, (values: ONE or TWO)
         "thrust_arc_initialisation_kind": None,  # str, (values: DUTY_CYCLE, THRUST_DURATION)
         "number_of_thrust_orbits": None,  # int
@@ -89,7 +92,7 @@ DEFAULT_CONFIG = {
         "tuning_beta": None,  # float
         "tuning_kappa": None,  # float
         "outliers_manager_scale": None,  # float
-        "outliers_manager_warmup": None,  # float, (s)
+        "outliers_manager_warmup": None,  # int
         "noise_provider_kind": None,  # str, (values: 'BASIC', 'SNC', 'DMC', 'EDB_CD')
     },
     "TELEMETRY_GPS_NMEA": {
