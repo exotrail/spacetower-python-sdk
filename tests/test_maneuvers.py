@@ -10,7 +10,7 @@ from fds.models.orbits import KeplerianOrbit, OrbitMeanOsculatingType, PositionA
 from fds.models.quaternion import Quaternion
 from fds.models.roadmaps import RoadmapFromActions
 from fds.models.spacecraft import SpacecraftBox
-from fds.utils.dates import get_datetime
+from fds.utils.dates import get_datetime, DateRange
 from tests import TestModels, _test_initialisation, TestUseCases
 
 
@@ -338,25 +338,21 @@ class TestManeuverGeneration(TestUseCases, unittest.TestCase):
 
         # Add tests for report
         report_data = {
-            'total_burns_duration': 1166.5545692294781,
-            'total_impulse': 16.331763969212695,
-            'total_delta_v': 0.1464743709081192,
-            'total_consumption': 0.0017530278427299946,
-            'thruster_duty_cycle': 0.07020590978784938,
+            'total_burns_duration': 1166.9753648002807,
+            'total_impulse': 16.33765510720393,
+            'total_delta_v': 0.14652720705834066,
+            'total_consumption': 0.0017536601889323684,
+            'thruster_duty_cycle': 0.07023086396036486,
             'total_number_of_burns': 1,
-            'number_of_orbital_periods': 2.850843301812763,
-            'average_thrust_duration': 1166.5545692294781,
-            'total_warmup_duty_cycle': 0.01444374639088943,
-            'simulation_duration': 16616.187622304344,
-            'final_duty_cycle': 0.20629398081836384
+            'number_of_orbital_periods': 2.8508583316947314,
+            'average_thrust_duration': 1166.9753648002807,
+            'total_warmup_duty_cycle': 0.014443670242663817,
+            'simulation_duration': 16616.275224221492,
+            'final_duty_cycle': 0.2062939808090732
         }
 
         for key, value in report_data.items():
-            if key in {'total_burns_duration', 'average_thrust_duration', 'simulation_duration'}:
-                atol = self.ATOL_TIME
-            else:
-                atol = 1E-3
-            self.assertTrue(self.is_value_close(getattr(res.report, key), value, atol))
+            self.assertTrue(self.is_value_close(getattr(res.report, key), value, rtol=1E-3))
 
     def test_maneuver_generation_with_inclination_change(self):
         kwargs = self.kwargs.copy()
@@ -441,3 +437,32 @@ class TestManeuverGeneration(TestUseCases, unittest.TestCase):
         self.assertTrue(self.is_datetime_close(oe_inc.result.last_orbital_state.mean_orbit.date,
                                                res_inc.generated_roadmap.end_date))
         self.assertTrue(self.is_datetime_close(oe_inc.initial_date, res_inc.generated_roadmap.start_date))
+
+    def test_no_firing_intervals_constraints(self):
+        kwargs = self.kwargs.copy()
+        kwargs['delta_semi_major_axis'] = 1
+        self.kwargs = kwargs
+
+        # Run normal maneuver generation
+        res = self._test_client_run()
+
+        # get date of first burn
+        thruster_actions = res.generated_roadmap.thruster_actions
+        # get the action where thruster_mode is THRUSTER_ON
+        burn_start_dates = [action.date for action in thruster_actions if action.thruster_mode == 'THRUSTER_ON']
+        no_firing_date_range = DateRange.from_midpoint_and_duration(burn_start_dates[0], 60)
+
+        kwargs['no_firing_date_ranges'] = [no_firing_date_range]
+        self.kwargs = kwargs
+
+        # Run maneuver generation with no firing date range
+        res_with_constraints = self._test_client_run()
+
+        # get date of first burn
+        thruster_actions_with_constraints = res_with_constraints.generated_roadmap.thruster_actions
+        # get the action where thruster_mode is THRUSTER_ON
+        burn_with_constraints_start_dates = [action.date for action in thruster_actions_with_constraints
+                                             if action.thruster_mode == 'THRUSTER_ON']
+
+        assert burn_with_constraints_start_dates[0] > no_firing_date_range.end
+        assert burn_with_constraints_start_dates[0] > burn_start_dates[0]

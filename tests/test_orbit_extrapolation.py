@@ -526,9 +526,9 @@ class TestOrbitExtrapolation(TestUseCases):
             results_line = results_orbit_data_message[i].split()
             results_line = [float(x) for x in results_line[1:]]
             for x1, x2 in zip(oem_line[:3], results_line[:3]):
-                self.assertTrue(self.is_value_close(x1, x2, self.ATOL_POSITION))
+                self.assertTrue(self.is_value_close(x1, x2, atol=self.ATOL_POSITION))
             for x1, x2 in zip(oem_line[3:], results_line[3:]):
-                self.assertTrue(self.is_value_close(x1, x2, self.ATOL_VELOCITY))
+                self.assertTrue(self.is_value_close(x1, x2, atol=self.ATOL_VELOCITY))
 
         for i in range(27, 105):
             oem_line = oem_test[i].split()

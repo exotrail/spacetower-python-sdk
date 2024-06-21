@@ -230,6 +230,10 @@ class ResultOrbitDetermination(RetrievableModel):
                         delta_argument_of_perigee=obj_data['argumentOfPerigeeDelta'],
                     )
 
+                def to_array(self):
+                    return np.array([self.delta_semi_major_axis, self.delta_eccentricity, self.delta_inclination,
+                                     self.delta_argument_of_perigee, self.delta_raan])
+
             @dataclass
             class SmoothedKeplerianElements:
                 semi_major_axis: float
@@ -257,6 +261,13 @@ class ResultOrbitDetermination(RetrievableModel):
                         raan_standard_deviation=obj_data['raanStandardDeviation'],
                         argument_of_perigee_standard_deviation=obj_data['argumentOfPerigeeStandardDeviation']
                     )
+
+                def to_array(self):
+                    return (np.array([self.semi_major_axis, self.eccentricity, self.inclination,
+                                      self.argument_of_perigee, self.raan]),
+                            np.array([self.semi_major_axis_standard_deviation, self.eccentricity_standard_deviation,
+                                      self.inclination_standard_deviation, self.argument_of_perigee_standard_deviation,
+                                      self.raan_standard_deviation]))
 
             delta_keplerian_elements: DeltaKeplerianElements
             smoothed_keplerian_elements_before_firing: SmoothedKeplerianElements
@@ -325,6 +336,7 @@ class ResultOrbitDetermination(RetrievableModel):
             report: Report,
             in_depth_results: InDepthResults,
             estimated_states: list[OrbitalState],
+            estimated_keplerian_covariance_matrix: CovarianceMatrix,
             firing_analysis_report: FiringAnalysisReport = None,
             nametag: str = None
     ):
@@ -333,6 +345,7 @@ class ResultOrbitDetermination(RetrievableModel):
         self._status = status
         self._report = report
         self._estimated_states = estimated_states
+        self._estimated_keplerian_covariance_matrix = estimated_keplerian_covariance_matrix
         self._in_depth_results = in_depth_results
         self._firing_analysis_report = firing_analysis_report
 
@@ -353,6 +366,10 @@ class ResultOrbitDetermination(RetrievableModel):
         return self._estimated_states
 
     @property
+    def estimated_keplerian_covariance_matrix(self) -> CovarianceMatrix:
+        return self._estimated_keplerian_covariance_matrix
+
+    @property
     def firing_analysis_report(self) -> FiringAnalysisReport:
         return self._firing_analysis_report
 
@@ -370,9 +387,12 @@ class ResultOrbitDetermination(RetrievableModel):
                             obj_data['estimatedStates']]
         firing_analysis_report = cls.FiringAnalysisReport.create_from_api_dict(obj_data['firingAnalysisReport']) \
             if 'firingAnalysisReport' in obj_data else None
+        estimated_keplerian_covariance_matrix = CovarianceMatrix._create_from_api_object_data(
+            obj_data['estimatedKeplerianCovariance'])
 
         return {
             'status': obj_data['status'],
+            'estimated_keplerian_covariance_matrix': estimated_keplerian_covariance_matrix,
             'report': cls.Report.create_from_api_dict(obj_data['report']),
             'in_depth_results': cls.InDepthResults.create_from_api_dict(
                 obj_data['inDepthResults']),

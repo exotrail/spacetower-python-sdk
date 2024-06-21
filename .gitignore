@@ -10,9 +10,11 @@ venv
 *.yaml
 __pycache__
 .ruff_cache
-docs/_build
 .tox
 *.json
 .idea/
 examples/data/
 poetry.lock
+doc/source/
+doc/_build/
+dist/

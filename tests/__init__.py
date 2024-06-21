@@ -133,15 +133,20 @@ class TestUseCases(unittest.TestCase):
         self.is_datetime_close(date1_datetime, date2_datetime, atol_seconds)
 
     @staticmethod
-    def is_value_close(t1: float, t2: float, atol: float) -> bool:
+    def is_value_close(t1: float, t2: float, rtol: float = None, atol: float = None) -> bool:
         if t1 == 'None' or t1 is None:
             if t2 == 'None' or t2 is None:
                 return True
             logger.error(f"t1 is None and t2 is {t2}")
             return False
-        condition = np.isclose(float(t1), float(t2), atol=atol)
+        kwargs = {}
+        if rtol is not None:
+            kwargs['rtol'] = rtol
+        if atol is not None:
+            kwargs['atol'] = atol
+        condition = np.isclose(float(t1), float(t2), **kwargs)
         if not condition:
-            logger.error(f"t1: {float(t1)} and t2: {float(t2)} are not close in the range of {atol}.")
+            logger.error(f"t1: {float(t1)} and t2: {float(t2)} are not close in the range of {rtol}.")
         return condition
 
     @staticmethod

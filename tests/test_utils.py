@@ -4,13 +4,14 @@ from datetime import datetime, UTC, timedelta, timezone
 
 import numpy as np
 
-import fds.utils.dates
 import fds.utils.dict as utils
 import fds.utils.frames as frames
 import fds.utils.geometry as g
 import fds.utils.orbital_mechanics as orb_mech_utils
 from fds.constants import EARTH_GRAV_CONSTANT
 from fds.utils import math
+from fds.utils.dates import get_datetime, convert_date_to_utc, datetime_to_iso_string, \
+    filter_sequence_with_minimum_time_step, DateRange
 
 
 class TestDictUtils(unittest.TestCase):
@@ -92,30 +93,30 @@ class TestDictUtils(unittest.TestCase):
         self.assertRaises(ValueError, utils.compare_two_dicts, config, blueprint)
 
     def test_get_datetime(self):
-        assert fds.utils.dates.get_datetime("2021-03-04T00:00:00Z") == datetime(2021, 3, 4, 0, 0,
-                                                                                tzinfo=UTC)
-        assert (fds.utils.dates.get_datetime(datetime(2021, 3, 4, 0, 0, tzinfo=UTC))
+        assert get_datetime("2021-03-04T00:00:00Z") == datetime(2021, 3, 4, 0, 0,
+                                                                tzinfo=UTC)
+        assert (get_datetime(datetime(2021, 3, 4, 0, 0, tzinfo=UTC))
                 == datetime(2021, 3, 4, 0, 0, tzinfo=UTC))
-        assert fds.utils.dates.get_datetime(None) is None
+        assert get_datetime(None) is None
 
 
 class TestDatesUtils(unittest.TestCase):
 
-    def test_check_datetime_time_zone_is_utc(self):
-        assert fds.utils.dates.check_datetime_time_zone_is_utc(
-            datetime(2021, 3, 4, 0, 0, tzinfo=UTC))
+    def test_convert_datetime_time_zone_to_utc(self):
+        date_utc = datetime(2021, 3, 4, 0, 0, tzinfo=timezone.utc)
+        date_no_tz = datetime(2021, 3, 4, 0, 0)
+        new_date = convert_date_to_utc(date_no_tz)
+        assert new_date == date_utc
 
-    def test_check_datetime_time_zone_is_utc_raises(self):
-        self.assertRaises(ValueError, fds.utils.dates.check_datetime_time_zone_is_utc,
-                          datetime(2021, 3, 4, 0, 0))
-        self.assertRaises(ValueError, fds.utils.dates.check_datetime_time_zone_is_utc,
-                          datetime(2021, 3, 4, 0, 0, tzinfo=timezone(timedelta(hours=1))))
+        date_wrong_tz = datetime(2021, 3, 4, 1, 0, tzinfo=timezone(timedelta(hours=1)))
+        new_date = convert_date_to_utc(date_wrong_tz)
+        assert new_date == date_utc
 
     def test_datetime_to_iso_string(self):
-        assert fds.utils.dates.datetime_to_iso_string(
+        assert datetime_to_iso_string(
             datetime(2021, 3, 4, 0, 0, tzinfo=UTC)
         ) == "2021-03-04T00:00:00.000000Z"
-        assert fds.utils.dates.datetime_to_iso_string(None) is None
+        assert datetime_to_iso_string(None) is None
 
     def test_filter_sequence_with_minimum_time_step(self):
         initial_sequence = [1, 2, 3, 4, 5]
@@ -127,7 +128,67 @@ class TestDatesUtils(unittest.TestCase):
             datetime(2021, 3, 4, 0, 4, tzinfo=UTC)
         ]
         min_step = 120
-        assert fds.utils.dates.filter_sequence_with_minimum_time_step(initial_sequence, dates, min_step) == [1, 3, 5]
+        assert filter_sequence_with_minimum_time_step(initial_sequence, dates, min_step) == [1, 3, 5]
+
+    def test_date_ranges(self):
+        drange1 = [datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+                   datetime(2021, 3, 4, 0, 1, tzinfo=UTC)]
+        drange2 = ["2021-03-04T00:00:00Z", "2021-03-04T00:01:00Z"]
+
+        drange_dict1 = {"start": drange1[0], "end": drange1[1]}
+        drange_dict2 = {"start": drange1[0], "end": drange1[1]}
+
+        dr1 = DateRange.from_list(drange1)
+        dr1_dict = DateRange.from_dict(drange_dict1)
+        dr1_list = DateRange.from_input(drange1)
+
+        dr2 = DateRange.from_list(drange2)
+        dr2_dict = DateRange.from_dict(drange_dict2)
+        dr2_list = DateRange.from_input(drange2)
+
+        assert dr1 == dr1_dict == dr1_list
+        assert dr2 == dr2_dict == dr2_list
+        assert dr1 == dr2
+        assert dr1.duration_seconds == 60 == dr2.duration_seconds
+
+        # test date range creations
+        dr3 = DateRange.from_end_and_duration(drange1[1], 60)
+        assert dr3 == dr1
+
+        dr4 = DateRange.from_start_and_duration(drange1[0], 60)
+        assert dr4 == dr1
+
+        # test repr and str
+        assert str(dr1) == "2021-03-04 00:00:00+00:00 to 2021-03-04 00:01:00+00:00 (0:01:00)"
+        assert repr(dr1) == "2021-03-04 00:00:00+00:00 to 2021-03-04 00:01:00+00:00 (0:01:00)"
+
+        # test invalid date range
+        self.assertRaises(ValueError, DateRange, drange1[1], drange1[0])
+        self.assertRaises(ValueError, DateRange.from_end_and_duration, drange1[1], -60)
+
+        # test union
+        dr5 = DateRange(drange1[0], drange1[1])
+        dr6 = DateRange(drange1[1] - timedelta(seconds=30), drange1[1] + timedelta(seconds=30))
+
+        dr7 = dr5.get_union(dr6)
+        assert dr7.start == dr5.start
+        assert dr7.end == dr6.end
+
+        dr8 = dr6.get_intersection(dr5)
+        assert dr8.start == dr6.start
+        assert dr8.end == dr5.end
+
+        # test booleans
+        dr9 = DateRange(drange1[1], drange1[1] + timedelta(seconds=30))
+        assert dr5.is_adjacent(dr9)
+        assert not dr5.is_adjacent(dr6)
+        assert dr5.is_overlapping(dr6)
+        assert not dr5.is_overlapping(dr9)
+        assert dr5.is_inside(dr7)
+        assert dr7.is_containing(dr5)
+
+        date = datetime(2021, 3, 4, 0, 0, second=30, tzinfo=UTC)
+        assert dr5.contains(date)
 
 
 class TestMath(unittest.TestCase):

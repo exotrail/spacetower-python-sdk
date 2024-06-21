@@ -427,7 +427,7 @@ class ThrusterChemical(Thruster):
                          wet_mass, warm_up_duration, nametag)
 
 
-class Spacecraft(FromConfigBaseModel, RetrievableModel, ABC):
+class Spacecraft(RetrievableModel, ABC):
     FDS_TYPE = FdsClient.Models.SPACECRAFT
 
     @abstractmethod
@@ -489,7 +489,7 @@ class Spacecraft(FromConfigBaseModel, RetrievableModel, ABC):
         return new_obj
 
 
-class SpacecraftBox(Spacecraft):
+class SpacecraftBox(Spacecraft, FromConfigBaseModel):
     FDS_TYPE = FdsClient.Models.SPACECRAFT_BOX
     _PROPULSION_KINDS = {ThrusterElectrical.FDS_TYPE: ThrusterElectrical,
                          ThrusterChemical.FDS_TYPE: ThrusterChemical}
@@ -635,8 +635,7 @@ class SpacecraftBox(Spacecraft):
     @classmethod
     def import_from_config_file(cls, config_filepath: str | Path, battery: Battery = None,
                                 solar_array: SolarArray = None,
-                                thruster: ThrusterElectrical | ThrusterChemical = None,
-                                number_of_active_thrusters: int = 1) -> Self:
+                                thruster: ThrusterElectrical | ThrusterChemical = None) -> Self:
         config_dict = cls._get_config_dict_from_file(config_filepath)
         if battery is None:
             battery = Battery.import_from_config_dict(config_dict)
@@ -658,7 +657,7 @@ class SpacecraftBox(Spacecraft):
         return compute_delta_v_with_rocket_equation(self.thruster.isp, initial_mass, final_mass)
 
 
-class SpacecraftSphere(Spacecraft):
+class SpacecraftSphere(Spacecraft, FromConfigBaseModel):
     FDS_TYPE = FdsClient.Models.SPACECRAFT_SPHERE
 
     def __init__(

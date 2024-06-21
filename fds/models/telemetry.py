@@ -6,12 +6,12 @@ from typing import Sequence
 from fds.client import FdsClient
 from fds.models._model import ModelSource, RetrievableModel, FromConfigBaseModel
 from fds.models.ground_station import GroundStation
-from fds.models.nmea_processor import NmeaProcessor
 from fds.models.orbit_extrapolation.requests import MeasurementsRequestGpsNmea, MeasurementsRequestGpsPv, \
     MeasurementsRequestOptical, MeasurementsRequestRadar
 from fds.utils.dates import get_datetime, datetime_to_iso_string
 from fds.utils.frames import Frame
 from fds.utils.log import log_and_raise
+from fds.utils.nmea import RmcSentence
 
 
 class Telemetry(FromConfigBaseModel, RetrievableModel, ABC):
@@ -199,6 +199,8 @@ class TelemetryGpsNmeaRaw(TelemetryNmea):
         super().__init__(standard_deviation_ground_speed, standard_deviation_latitude, standard_deviation_longitude,
                          standard_deviation_altitude, nametag)
         self._nmea_sentences = list(nmea_sentences)
+        self._start_date = self.get_start_date()
+        self._end_date = self.get_end_date()
 
     @property
     def nmea_sentences(self) -> list[str]:
@@ -206,15 +208,21 @@ class TelemetryGpsNmeaRaw(TelemetryNmea):
 
     @property
     def start_date(self) -> datetime:
+        return self._start_date
+
+    @property
+    def end_date(self) -> datetime:
+        return self._end_date
+
+    def get_start_date(self) -> datetime:
         if self.nmea_sentences[0].startswith("$GPGGA"):
             start_index = 1
         else:
             start_index = 0
-        return NmeaProcessor.get_datetime_from_rmc_sentence(self.nmea_sentences[start_index])
+        return RmcSentence.parse_datetime(self.nmea_sentences[start_index].split(","))
 
-    @property
-    def end_date(self) -> datetime:
-        return NmeaProcessor.get_datetime_from_rmc_sentence(self.nmea_sentences[-1])
+    def get_end_date(self) -> datetime:
+        return RmcSentence.parse_datetime(self.nmea_sentences[-1].split(","))
 
     @classmethod
     def import_from_config_file(cls, config_filepath: str | Path,

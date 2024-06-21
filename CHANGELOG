@@ -1,5 +1,22 @@
 # CHANGELOG
 
+FDS API Python SDK v1.1.0 (2024-06-21):
+    - Update to spacetower API next version(1.1.0)
+    - Update of README
+    - ManeuverGeneration (already available for use):
+           - Add no_firing_date_ranges attribute (list of DateRange) to avoid firing during selected date ranges
+    - OrbitDeterminationConfiguration
+           - Add an additional parameter for maximum number of consecutive outliers that are allowed before increasing the outliers filtering tolerance
+    - Utils:
+- [BREAKING CHANGES] refactored NMEAProcessor object and moved functions to fds.utils.nmea package (added parsing of NMEA sentences). Impacted methods:
+       - NmeaProcessor.from_single_file -> nmea.parse_raw_sentences_from_file
+       - NmeaProcessor.filter_sentences_by_step -> nmea.filter_sentences_by_step
+       - NmeaProcessor.get_merged_sentences -> nmea.export_list_of_sentences
+       - Sentence -> SentenceBoundle (object that contains RmcSentence and GgaSentence objects at the same date)
+       - meaProcessor.Sentence(rmc=…, gga=…, date=…) (initialisation method from strings) -> nmea.SentenceBundle.from_strings(rmc=…, gga=…)
+- Dates: add DateRange in dates utils
+    - Removal of libs\fds-api-gen-client --> Switch to public GitHub spacetower-python-client package (installation through PIP)
+
 FDS API Python SDK v1.0.0 (2024-04-19):
     - Update to API 1.0.0, Exoops legacy 1.8.7
     - Roadmaps:

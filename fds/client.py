@@ -1,3 +1,4 @@
+import base64
 from enum import Enum
 from loguru import logger
 
@@ -442,11 +443,14 @@ class FdsClient(metaclass=SingletonMeta):
         }
     }
 
-    def __init__(self, fds_api_url, api_key=None, proxy=None):
+    def __init__(self, fds_api_url, api_key=None, token=None, client_id=None, client_secret=None, proxy=None):
         self._api_config = fdsapi.Configuration(
             host=fds_api_url
         )
         self.api_key = api_key
+        self.token = token
+        self.client_id = client_id
+        self.client_secret = client_secret
         if proxy is not None:
             self.api_config.proxy = proxy
 
@@ -462,7 +466,11 @@ class FdsClient(metaclass=SingletonMeta):
     def get_client(cls):
         return cls(
             fds_api_url=config.get_api_url(),
-            api_key=config.get_api_key()
+            api_key=config.get_api_key(),
+            client_id=config.get_client_id(),
+            client_secret=config.get_client_secret(),
+            token=config.get_token(),
+            proxy=config.get_proxy(),
         )
 
     @staticmethod
@@ -475,7 +483,19 @@ class FdsClient(metaclass=SingletonMeta):
             return obj['id']
 
     def get_api_client(self):
-        return fdsapi.ApiClient(self.api_config, header_name='apikey', header_value=self.api_key)
+        header_name = None
+        header_value = None
+        if self.api_key is not None and self.api_key != '':
+            header_value = self.api_key
+            header_name = 'apikey'
+        elif self.token is not None and self.token != '':
+            header_value = f'Bearer {self.token}'
+            header_name = 'Authorization'
+        elif self.client_id is not None and self.client_secret is not None:
+            credentials = base64.b64encode(f"{self.client_id}:{self.client_secret}".encode()).decode()
+            header_value = f'Basic {credentials}'
+            header_name = 'Authorization'
+        return fdsapi.ApiClient(self.api_config, header_name=header_name, header_value=header_value)
 
     def _object_exists(self, object_type: str, client_id: str, object_map, command='retrieve') -> bool:
         with self.get_api_client() as api_client:

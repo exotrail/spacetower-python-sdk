@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "spacetower-fds-sdk"
-version = "1.0.5"
+version = "1.1.0"
 description = "SDK for spacetower Flight Dynamics System API"
 authors = ["Exotrail"]
 readme = "README.md"
-license = "Proprietary"
+license = "MIT"
 keywords = ["FDS", "API", "Exotrail", "Flight Dynamics"]
 packages = [
     { include = "fds" }
@@ -17,7 +17,7 @@ numpy = "^1.26.4"
 typing-extensions = "^4.11.0"
 python-dotenv = "^1.0.0"
 loguru = "^0.7.2"
-spacetower-python-client = "^1.0.0"
+spacetower-python-client = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=7.2.1"

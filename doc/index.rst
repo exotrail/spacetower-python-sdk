@@ -9,12 +9,7 @@ Welcome to spacetower-python-sdk's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Modules
-=======
-.. automodule:: your_module
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   source/modules
 
 
 Indices and tables

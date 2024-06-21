@@ -3,7 +3,7 @@ from typing import Self
 
 import numpy as np
 
-from fds.utils.dates import check_datetime_time_zone_is_utc
+from fds.utils.dates import convert_date_to_utc
 from fds.utils.log import log_and_raise
 from spacetower_python_client import TLE
 
@@ -103,7 +103,7 @@ class TwoLineElement:
             closest_date: datetime = datetime.now(UTC),
             force_past: bool = False,
     ):
-        check_datetime_time_zone_is_utc(closest_date)
+        closest_date = convert_date_to_utc(closest_date)
 
         tles = sorted(tle_list, key=lambda x: x.date)
         if closest_date is None or len(tles) == 1:
@@ -134,12 +134,12 @@ class TwoLineElement:
         Returns:
             list[TwoLineElement]: List of TLEs
         """
+        start_date_limit = convert_date_to_utc(start_date_limit)
+        end_date_limit = convert_date_to_utc(end_date_limit)
+
         if start_date_limit >= end_date_limit:
             msg = f"Start date ({start_date_limit}) must be before end date ({end_date_limit})."
             log_and_raise(ValueError, msg)
-
-        check_datetime_time_zone_is_utc(start_date_limit)
-        check_datetime_time_zone_is_utc(end_date_limit)
 
         # Remove timezone info from dates (SpaceTrackClient does not support timezone aware dates)
         start_date_limit = start_date_limit.replace(tzinfo=None)
