@@ -32,7 +32,12 @@ class PositionAngleType(EnumFromInput):
 
 
 class Orbit(TimestampedRetrievableModel, ABC):
+    """
+    Base class for all data container orbits objects which holds features shared by all.
+    """
+
     FDS_TYPE = FdsClient.Models.ORBIT
+    ":meta private:"
 
     @abstractmethod
     def __init__(
@@ -48,20 +53,32 @@ class Orbit(TimestampedRetrievableModel, ABC):
 
     @property
     def kind(self) -> OrbitMeanOsculatingType:
+        """
+        Is this instance a mean orbit or an osculating one?
+        """
         return self._kind
 
     @property
     def frame(self) -> Frame:
+        """
+        Frame in which the orbit instance is defined.
+        """
         return self._frame
 
     @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
+        """
+        :meta private:
+        """
         return {
             'date': obj_data['date'],
             'frame': obj_data['frame']
         }
 
     def api_create_map(self, **kwargs) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_create_map()
         d.update(
             {
@@ -73,6 +90,13 @@ class Orbit(TimestampedRetrievableModel, ABC):
 
     @classmethod
     def retrieve_generic_by_id(cls, client_id: str, nametag: str = None):
+        """
+        Creates an orbit by retrieving the corresponding data stored in persistence.
+
+        Args:
+            client_id: ID of the object
+            nametag: nametag
+        """
         obj_data = FdsClient.get_client().retrieve_model(cls.FDS_TYPE, client_id)
         if not isinstance(obj_data, dict):
             obj_data = obj_data.to_dict()
@@ -89,7 +113,11 @@ class Orbit(TimestampedRetrievableModel, ABC):
 
 
 class KeplerianOrbit(Orbit):
+    """
+    Data container for orbits defined with Keplerian parameters.
+    """
     FDS_TYPE = FdsClient.Models.KEPLERIAN_ORBIT
+    ":meta private:"
 
     def __init__(
             self,
@@ -120,7 +148,7 @@ class KeplerianOrbit(Orbit):
         super().__init__(date=date, kind=kind, frame=frame, nametag=nametag)
 
         self._anomaly_kind = PositionAngleType.from_input(anomaly_kind)
-        if self._anomaly_kind == PositionAngleType.TRUE:
+        if self.anomaly_kind == PositionAngleType.TRUE:
             self._orbital_elements = om.OrbitalElements(SMA=semi_major_axis, ECC=eccentricity, INC=inclination,
                                                         AOP=argument_of_perigee, RAAN=raan, TA=anomaly)
         else:
@@ -132,14 +160,30 @@ class KeplerianOrbit(Orbit):
 
     @property
     def orbital_elements(self) -> om.OrbitalElements:
+        """
+        Orbital elements defining the keplerian orbit.
+        """
         return self._orbital_elements
 
     @property
+    def anomaly_kind(self) -> PositionAngleType:
+        """
+        Is the anomaly true, mean or eccentric?
+        """
+        return self._anomaly_kind
+
+    @property
     def keplerian_period(self) -> float:
+        """
+        Period of the orbit [s]
+        """
         return om.keplerian_period(self.orbital_elements.SMA)
 
     @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_retrieve_map(obj_data)
         d.update(
             {
@@ -156,6 +200,9 @@ class KeplerianOrbit(Orbit):
         return d
 
     def api_create_map(self, **kwargs) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_create_map()
 
         d.update(
@@ -175,7 +222,11 @@ class KeplerianOrbit(Orbit):
 
 
 class CartesianState(Orbit):
+    """
+    Data container objects for orbits defined with cartesian parameters.
+    """
     FDS_TYPE = FdsClient.Models.CARTESIAN_ORBIT
+    ":meta private:"
 
     def __init__(
             self,
@@ -209,49 +260,81 @@ class CartesianState(Orbit):
 
     @property
     def position(self) -> np.ndarray:
+        """
+        Position vector of the orbit. All components are expressed in km.
+        """
         return np.array([self._position_x, self._position_y, self._position_z])
 
     @property
     def velocity(self) -> np.ndarray:
+        """
+        Velocity vector of the orbit. All components are expressed in km/s.
+        """
         return np.array([self._velocity_x, self._velocity_y, self._velocity_z])
 
     @property
     def position_x(self) -> float:
+        """
+        Position along the X axis of the orbit [km].
+        """
         return self._position_x
 
     @property
     def position_y(self) -> float:
+        """
+        Position along the Y axis of the orbit [km].
+        """
         return self._position_y
 
     @property
     def position_z(self) -> float:
+        """
+        Position along the Z axis of the orbit [km].
+        """
         return self._position_z
 
     @property
     def velocity_x(self) -> float:
+        """
+        Velocity along the X axis of the orbit [km/s].
+        """
         return self._velocity_x
 
     @property
     def velocity_y(self) -> float:
+        """
+        Velocity along the Y axis of the orbit [km/s].
+        """
         return self._velocity_y
 
     @property
     def velocity_z(self) -> float:
+        """
+        Velocity along the Z axis of the orbit [km/s].
+        """
         return self._velocity_z
 
     @property
     def state(self) -> np.ndarray:
+        """
+        State vector of the orbit as an array.
+        """
         return np.array([self.position_x, self.position_y, self.position_z, self.velocity_x, self.velocity_y,
                          self.velocity_z])
 
     @classmethod
     def from_state(cls, state: np.ndarray, date: str | datetime, frame: str | Frame, nametag: str = None):
         """
+        Instantiate a CartesianOrbit from a given state vector.
+
         Args:
             state (np.ndarray): State vector with shape (6,), for position and velocity (Unit: km and km/s)
             date (str): Date in UTC format
             frame (str | Frame): Frame
             nametag (str, optional): Defaults to None.
+
+        Returns:
+            A new CartesianOrbit instance.
         """
         convert_to_numpy_array_and_check_shape(state, (6,))
         return cls(
@@ -270,12 +353,17 @@ class CartesianState(Orbit):
     def from_position_velocity(cls, position: Sequence[float] | np.ndarray, velocity: Sequence[float] | np.ndarray,
                                date: str | datetime, frame: str | Frame, nametag: str = None):
         """
+        Instantiate a new CartesianOrbit a Position vector and a Velocity vector
+
         Args:
             position (Sequence[float]): Position (Unit: km)
             velocity (Sequence[float]): Velocity (Unit: km/s)
             date (str): Date in UTC format
             frame (str | Frame): Frame
             nametag (str, optional): Defaults to None.
+
+        Returns:
+            A new CartesianOrbit instance.
         """
         position = convert_to_numpy_array_and_check_shape(position, (3,))
         velocity = convert_to_numpy_array_and_check_shape(velocity, (3,))
@@ -284,6 +372,9 @@ class CartesianState(Orbit):
 
     @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_retrieve_map(obj_data)
         d.update(
             {
@@ -298,6 +389,9 @@ class CartesianState(Orbit):
         return d
 
     def api_create_map(self, **kwargs) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_create_map()
         d.update(
             {

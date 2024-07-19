@@ -2,13 +2,14 @@ from abc import ABC, abstractmethod
 from datetime import datetime, timedelta
 from typing import Sequence
 
+from spacetower_python_client import QuaternionActionDto
+
 from fds.client import FdsClient
 from fds.models._model import TimestampedRetrievableModel
 from fds.models.quaternion import Quaternion
-from fds.utils.dates import datetime_to_iso_string, get_datetime
+from fds.utils.dates import datetime_to_iso_string, get_datetime, DateRange
 from fds.utils.enum import EnumFromInput
 from fds.utils.log import log_and_raise
-from spacetower_python_client import QuaternionActionDto
 
 
 class AttitudeMode(EnumFromInput):
@@ -61,17 +62,27 @@ class ActionAttitude(Action):
         """
         super().__init__(transition_date, nametag)
         self._attitude_mode = AttitudeMode.from_input(attitude_mode)
+        self._quaternions = self._get_quaternions(quaternions)
 
+    def _get_quaternions(self, quaternions):
         if quaternions is not None:
             # check that each quaternion has a date
             for q in quaternions:
                 if not isinstance(q.date, datetime):
                     msg = f"Each quaternion must have a date."
                     log_and_raise(ValueError, msg)
-            self._quaternions = sorted(quaternions, key=lambda x: x.date)
+            quaternions = sorted(quaternions, key=lambda x: x.date)
+
+            # check that the first quaternion is at or after the transition date
+            if quaternions[0].date < self.date:
+                msg = f"The first quaternion must be at or after the transition date."
+                log_and_raise(ValueError, msg)
         else:
-            self._quaternions = None
-        self._quaternion_ids = []
+            if self.attitude_mode == AttitudeMode.QUATERNION:
+                msg = "Quaternions must be provided if attitude mode is QUATERNION."
+                log_and_raise(ValueError, msg)
+            quaternions = None
+        return quaternions
 
     @property
     def attitude_mode(self) -> AttitudeMode:
@@ -156,16 +167,17 @@ class ActionFiring(Action):
         warm_up_start_date = get_datetime(firing_start_date) - timedelta(seconds=warm_up_duration)
         super().__init__(warm_up_start_date, nametag)
 
+        if warm_up_duration == 0 and warm_up_attitude_mode is not None:
+            msg = "Warm-up attitude mode should be None if warm-up duration is 0."
+            log_and_raise(ValueError, msg)
+
         self._duration = duration
         self._warm_up_duration = warm_up_duration
         self._firing_attitude_mode = AttitudeMode.from_input(firing_attitude_mode)
         self._post_firing_attitude_mode = AttitudeMode.from_input(post_firing_attitude_mode)
-        self._warm_up_attitude_mode = AttitudeMode.from_input(
-            warm_up_attitude_mode) if warm_up_attitude_mode is not None else None
-
-        if self.warm_up_duration == 0 and self.warm_up_attitude_mode is not None:
-            msg = "Warm-up attitude mode should be None if warm-up duration is 0."
-            log_and_raise(ValueError, msg)
+        self._warm_up_attitude_mode = self._get_warmup_attitude_mode(
+            warm_up_duration, warm_up_attitude_mode, firing_attitude_mode
+        )
 
     @property
     def firing_attitude_mode(self) -> AttitudeMode:
@@ -204,6 +216,35 @@ class ActionFiring(Action):
         return self._warm_up_attitude_mode
 
     @classmethod
+    def from_firing_date_range(
+            cls,
+            firing_date_range: DateRange,
+            firing_attitude_mode: str | AttitudeMode,
+            post_firing_attitude_mode: str | AttitudeMode,
+            warm_up_duration: float = 0,
+            warm_up_attitude_mode: str | AttitudeMode = None,
+            nametag: str = None
+    ):
+        """
+        Args:
+            firing_date_range (DateRange): The date range of the firing.
+            firing_attitude_mode (str | AttitudeMode): The attitude mode of the satellite during the firing.
+            post_firing_attitude_mode (str | AttitudeMode): The attitude mode of the satellite after the firing.
+            warm_up_duration (float): (Unit: s) Defaults to 0.
+            warm_up_attitude_mode (str | AttitudeMode): Defaults to None.
+            nametag (str): Defaults to None.
+        """
+        return cls(
+            firing_attitude_mode=firing_attitude_mode,
+            post_firing_attitude_mode=post_firing_attitude_mode,
+            duration=firing_date_range.duration_seconds,
+            firing_start_date=firing_date_range.start,
+            warm_up_duration=warm_up_duration,
+            warm_up_attitude_mode=warm_up_attitude_mode,
+            nametag=nametag
+        )
+
+    @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
         return {
             'firing_attitude_mode': obj_data['firingAttitude'],
@@ -227,6 +268,16 @@ class ActionFiring(Action):
             }
         )
         return d
+
+    @staticmethod
+    def _get_warmup_attitude_mode(warm_up_duration: float, warm_up_attitude_mode: str | AttitudeMode | None,
+                                  firing_attitude_mode: str | AttitudeMode) -> None | str | AttitudeMode:
+        if warm_up_duration == 0:
+            return None
+        elif warm_up_attitude_mode is None:
+            return AttitudeMode.from_input(firing_attitude_mode)
+        else:
+            return AttitudeMode.from_input(warm_up_attitude_mode)
 
 
 class ActionThruster(Action):

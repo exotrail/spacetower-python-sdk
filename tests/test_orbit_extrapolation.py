@@ -2,6 +2,8 @@ import datetime
 import json
 from datetime import timedelta
 
+import numpy as np
+
 from fds.models.actions import ActionAttitude, AttitudeMode, ActionFiring
 from fds.models.ground_station import GroundStation
 from fds.models.orbit_extrapolation.events import SensorEvent, OrbitalEvent, EclipseEvent, StationVisibilityEvent, \
@@ -14,12 +16,13 @@ from fds.models.orbit_extrapolation.result import ResultOrbitExtrapolation
 from fds.models.orbit_extrapolation.use_case import OrbitExtrapolation
 from fds.models.orbital_state import CovarianceMatrix, PropagationContext, OrbitalState, RequiredOrbitalStates
 from fds.models.orbits import KeplerianOrbit, OrbitMeanOsculatingType, PositionAngleType
+from fds.models.quaternion import Quaternion
 from fds.models.roadmaps import RoadmapFromActions
 from fds.models.spacecraft import SpacecraftSphere, SpacecraftBox
 from fds.models.telemetry import TelemetryGpsPv, TelemetryGpsNmea
 from fds.utils.dates import get_datetime
 from fds.utils.frames import Frame
-from tests import TestModels, _test_initialisation, TestModelsWithContainer, TestUseCases, DATA_DIR
+from tests import TestModels, _test_initialisation, TestModelsWithContainer, TestUseCases, DATA_DIR, compare_csv_to_list
 from tests.test_ground_station import TestGroundStation
 
 
@@ -425,6 +428,29 @@ class TestOrbitExtrapolation(TestUseCases):
         self.assertTrue(res.orbital_states[2].date == firing.firing_start_date)
         self.assertTrue(res.orbital_states[3].date == firing.firing_end_date)
         self.assertTrue(res.orbital_states[4].date == roadmap_final_date)
+
+    def test_orbit_extrapolation_with_roadmap_with_quaternions(self):
+        start_date = self.orbit.date
+        quaternions = []
+        for i in range(0, 3600 * 3, 60):
+            quaternion = np.array([0.5, 0.5, 0.5, 0.5])
+            quaternions.append(Quaternion.from_collection(quaternion, date=start_date + timedelta(seconds=i)))
+
+        attitude_action = ActionAttitude(attitude_mode=AttitudeMode.QUATERNION, transition_date=self.orbit.date,
+                                         quaternions=quaternions)
+
+        roadmap = RoadmapFromActions(
+            actions=(attitude_action,)
+        )
+
+        oe_only_roadmap = OrbitExtrapolation(
+            initial_orbital_state=self.initial_orbital_state_box,
+            required_orbital_states=RequiredOrbitalStates.ALL,
+            roadmap=roadmap
+        )
+        res = oe_only_roadmap.run().result
+
+        self.assertTrue(res.last_orbital_state.mean_orbit.date == roadmap.end_date)
 
     def test_orbit_extrapolation_with_roadmap_and_duration(self):
         roadmap_final_date = (self.orbit.date +
@@ -870,25 +896,6 @@ class TestOrbitExtrapolation(TestUseCases):
                     self.assertTrue(is_true)
 
     def test_orbit_extrapolation_with_ephemerides(self):
-        import csv
-        from pathlib import Path
-        import numpy as np
-
-        def compare_csv_to_list(csv_file: Path, list_to_compare: list[dict]):
-            are_same = True
-            with open(csv_file, 'r') as file:
-                reader = csv.DictReader(file)
-                for row in reader:
-                    for d in list_to_compare:
-                        if all(row[key] == str(value) for key, value in d.items()):
-                            are_same *= True
-                        if not are_same:
-                            # verify if there are nan values that are not saved
-                            for key, value in d.items():
-                                if row[key] == 'nan' and np.isnan(value):
-                                    are_same = True
-                                    break
-            return are_same
 
         ephemerides_request = EphemeridesRequest(
             ephemeris_types=[EphemeridesRequest.EphemerisType.CARTESIAN, EphemeridesRequest.EphemerisType.KEPLERIAN,

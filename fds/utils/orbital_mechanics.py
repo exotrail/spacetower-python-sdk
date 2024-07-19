@@ -36,33 +36,64 @@ class OrbitalElements:
 
     @property
     def SMA(self) -> float:
+        """
+        Semi-major axis [km]
+        """
         return self._SMA
 
     @property
     def ECC(self) -> float:
+        """
+        Eccentricity [-]
+        """
         return self._ECC
 
     @property
     def INC(self) -> float:
+        """
+        Inclination [deg]
+        """
         return self._INC
 
     @property
     def AOP(self) -> float:
+        """
+        Argument of Perigee [deg]
+        """
         return self._AOP
 
     @property
     def RAAN(self) -> float:
+        """
+        Right Ascension of the Ascending Node [deg]
+        """
         return self._RAAN
 
     @property
     def TA(self) -> float:
+        """
+        True Anomaly [deg]
+        """
         return self._TA
 
     @property
     def MA(self) -> float:
+        """
+        Mean Anomaly [deg]
+        """
         return self._MA
 
     def as_array(self, with_mean_anomaly: bool = True, radians: bool = False) -> np.ndarray:
+        """
+        Returns the orbital elements as a numpy array.
+
+        Args:
+            with_mean_anomaly: If true, returns orbital elements with mean anomaly. If false, with true anomaly.
+            radians: If true, all angles are expressed in radians; if false, in degrees.
+
+        Returns:
+            an array with the orbital elements
+        """
         an = self.MA if with_mean_anomaly else self.TA
 
         if radians:
@@ -81,6 +112,8 @@ class OrbitalElements:
             MA: float
     ) -> 'OrbitalElements':
         """
+        Create an instance with mean anomaly.
+
             Args:
                 SMA (float): semi-major axis [km]
                 ECC (float): eccentricity [-]
@@ -301,6 +334,13 @@ def check_kep_validity(
         sma: float,
         ecc: float,
 ):
+    """
+    Check the validity of some keplerian elements. Raises an exception if not.
+
+    Args:
+        sma: semi-major axis [km]
+        ecc: eccentricity [-]
+    """
     if sma <= 0:
         raise ValueError("Semi-major axis must be greater than 0")
     if ecc < 0 or ecc >= 1:
@@ -369,6 +409,9 @@ def kep_to_car(
 
 
 def keplerian_period(semi_major_axis: float, mu: float = EARTH_GRAV_CONSTANT) -> float:
+    """
+    Compute the keplerian period of an orbit.
+    """
     return 2 * np.pi * np.sqrt(semi_major_axis ** 3 / mu)
 
 

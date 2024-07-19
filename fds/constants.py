@@ -11,7 +11,7 @@ GGA_REGEX = (r"(\$GPGGA,\d{6}\.\d+,\d{4}\.\d+,[NS],\d{5}\.\d+,[EW],\d,\d{1,2},\d
              r"(\d{1,2})?,(.{4})?\*[0-9A-Fa-f]{2}$)")  # https://docs.novatel.com/OEM7/Content/Logs/GPGGA.htm
 
 EARTH_GRAV_CONSTANT = 398600.4418
-EARTH_RADIUS = 6378.137e3  # meters
+EARTH_RADIUS = 6378136.3  # meters
 STANDARD_GRAVITY = 9.80665  # m/s²
 
 # UNIT CONVERSIONS

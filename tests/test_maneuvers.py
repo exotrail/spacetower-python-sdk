@@ -128,8 +128,8 @@ class TestRoadmapFromActions(TestModels):
         self.assertEqual(data[1].get('Thruster mode'), 'WARMUP')
         self.assertEqual(
             data[1].get('Attitude mode'),
-            action_firing.firing_attitude_mode.value
-        )  # TODO: update when warmup attitude mode is implemented
+            action_firing.warm_up_attitude_mode.value
+        )
         self.assertEqual(data[2].get('Date'), action_firing.firing_start_date)
         self.assertEqual(data[2].get('Thruster mode'), 'THRUSTER_ON')
         self.assertEqual(data[2].get('Attitude mode'), action_firing.firing_attitude_mode.value)
@@ -253,7 +253,6 @@ class TestManeuverStrategy(TestModels):
               'number_of_rest_orbits': 1,
               'number_of_shift_orbits': 1,
               'orbital_duty_cycle': 0.2,
-              'thrust_arc_duration': 1200,
               'stop_thrust_at_eclipse': True,
               'nametag': 'TestOrbitDeterminationConfiguration'}
 
@@ -265,6 +264,13 @@ class TestManeuverStrategy(TestModels):
 
     def test_save_and_retrieve_by_id_and_destroy(self):
         self._test_save_and_retrieve_by_id_and_destroy(self.CLIENT_TYPE, **self.KWARGS)
+
+    def test_save_and_destroy_with_thrust_duration_initialisation(self):
+        kwargs = self.KWARGS.copy()
+        kwargs['thrust_arc_initialisation_kind'] = "THRUST_DURATION"
+        kwargs['thrust_arc_duration'] = 60
+        kwargs.pop('orbital_duty_cycle')
+        self._test_save_and_destroy(self.CLIENT_TYPE, **kwargs)
 
 
 class TestManeuverGeneration(TestUseCases, unittest.TestCase):
@@ -424,7 +430,7 @@ class TestManeuverGeneration(TestUseCases, unittest.TestCase):
         self.assertTrue(oe.result.last_orbital_state.mean_orbit.date == res.generated_roadmap.end_date)
         self.assertTrue(oe.initial_date == res.generated_roadmap.start_date)
 
-        # Launch another maneuver generation with delta inclination in the kwargs
+    def test_use_generated_roadmap_for_orbit_extrapolation_with_delta_inclination(self):
         kwargs = self.kwargs.copy()
         kwargs['delta_inclination'] = 0.01
         self.kwargs = kwargs

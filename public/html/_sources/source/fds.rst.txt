@@ -1,0 +1,46 @@
+fds package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fds.models
+   fds.utils
+
+Submodules
+----------
+
+fds.client module
+-----------------
+
+.. automodule:: fds.client
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.config module
+-----------------
+
+.. automodule:: fds.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.constants module
+--------------------
+
+.. automodule:: fds.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fds
+   :members:
+   :undoc-members:
+   :show-inheritance:

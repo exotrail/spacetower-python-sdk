@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Self, Sequence
+from typing import Self, Sequence, Collection
 
 import numpy as np
 
@@ -11,13 +11,18 @@ from fds.utils.log import log_and_raise
 
 
 class Quaternion:
+    """
+    This class is used to represent a rotation through a quaternion description.
+    """
     def __init__(
             self,
             real: float,
             i: float,
             j: float,
             k: float,
-            date: datetime | str = None
+            date: datetime | str = None,
+            frame_1: str = None,
+            frame_2: str = None
     ):
         self._date = get_datetime(date)
         for val in [real, i, j, k]:
@@ -27,36 +32,73 @@ class Quaternion:
 
         self._real = real
         self._i, self._j, self._k = i, j, k
+        self._frame_1 = frame_1
+        self._frame_2 = frame_2
 
     @property
     def date(self) -> datetime | None:
+        """
+        The date at which the quaternion is defined (if any).
+        """
         return self._date
 
     @property
     def real(self) -> float:
+        """
+        Real component of the quaternion.
+        """
         return self._real
 
     @property
     def i(self) -> float:
+        """
+        Component of the quaternion on the i axis.
+        """
         return self._i
 
     @property
     def j(self) -> float:
+        """
+        Component of the quaternion on the j axis.
+        """
         return self._j
 
     @property
     def k(self) -> float:
+        """
+        Component of the quaternion on the k axis.
+        """
         return self._k
+
+    @property
+    def frame_1(self) -> str | None:
+        """
+        Name of the frame from which the rotation starts (if any).
+        """
+        return self._frame_1
+
+    @property
+    def frame_2(self) -> str | None:
+        """
+        Name of the frame to which the rotation ends (if any).
+        """
+        return self._frame_2
 
     def __eq__(self, other):
         return np.allclose([self.real, self.i, self.j, self.k], [other.real, other.i, other.j, other.k],
                            rtol=1e-4)
 
     def __repr__(self):
-        return f"Quaternion({self.real}, {self.i}, {self.j}, {self.k})"
+        r = f"Quaternion({self.real}, {self.i}, {self.j}, {self.k}"
+        if self.date is not None:
+            r += f", date={self.date}"
+        if self.frame_1 is not None and self.frame_2 is not None:
+            r += f", {self.frame_1}->{self.frame_2}"
+        r += ")"
+        return r
 
     def __str__(self):
-        return f"Quaternion({self.real}, {self.i}, {self.j}, {self.k})"
+        return self.__repr__()
 
     def __add__(self, other):
         return Quaternion(self.real + other.real, self.i + other.i, self.j + other.j, self.k + other.k)
@@ -72,19 +114,34 @@ class Quaternion:
             self.real * other.k + self.i * other.j - self.j * other.i + self.k * other.real
         )
 
-    def q4(self) -> float:
-        return self.real
-
     def imag(self) -> np.ndarray:
+        """
+        Get the imaginary part of the quaternion.
+
+        Returns:
+            an array with the components on the i, j and k axis of the quaternion.
+        """
         return np.array([self.i, self.j, self.k])
 
     def conjugate(self) -> Self:
+        """
+        Computes the conjugate of the quaternion.
+
+        Returns:
+            a new Quaternion instance representing the conjugate of this quaternion.
+        """
         return Quaternion(self.real, -self.i, -self.j, -self.k)
 
     def norm(self) -> float:
+        """
+        Compute the norm of the quaternion.
+        """
         return np.sqrt(self.real ** 2 + self.i ** 2 + self.j ** 2 + self.k ** 2)
 
     def unit(self) -> Self:
+        """
+        Normalizes the quaternion.
+        """
         norm = self.norm()
         return Quaternion(self.real / norm, self.i / norm, self.j / norm, self.k / norm)
 
@@ -132,7 +189,9 @@ class Quaternion:
             cls,
             angle: float,
             axis: Sequence[float] | np.ndarray,
-            date: datetime | str = None
+            date: datetime | str = None,
+            frame_1: str = None,
+            frame_2: str = None
     ) -> Self:
         """
         Convert an angle and an axis to a quaternion.
@@ -141,6 +200,8 @@ class Quaternion:
             angle (float): angle [rad]
             axis (np.ndarray | Sequence[float]): axis [3x1]
             date (datetime | str): date of the quaternion (default: None)
+            frame_1 (str): name of the starting frame (default: None)
+            frame_2 (str): name of the ending frame (default: None)
 
         Returns:
             quaternion (Quaternion): quaternion
@@ -156,14 +217,18 @@ class Quaternion:
             i=q_i,
             j=q_j,
             k=q_k,
-            date=date
+            date=date,
+            frame_1=frame_1,
+            frame_2=frame_2
         )
 
     @classmethod
     def from_rotation_matrix(
             cls,
             rot_mat: np.ndarray,
-            date: datetime | str = None
+            date: datetime | str = None,
+            frame_1: str = None,
+            frame_2: str = None
     ) -> Self:
         """
             Convert a rotation matrix to a quaternion.
@@ -171,6 +236,8 @@ class Quaternion:
             Args:
                 rot_mat: rotation matrix 3x3
                 date (datetime | str): date of the quaternion (default: None)
+                frame_1 (str): name of the starting frame (default: None)
+                frame_2 (str): name of the ending frame (default: None)
 
             Returns:
                 quaternion (Quaternion): quaternion
@@ -224,7 +291,9 @@ class Quaternion:
             i=q1,
             j=q2,
             k=q3,
-            date=date
+            date=date,
+            frame_1=frame_1,
+            frame_2=frame_2
         )
 
     def rotate(self, vector: np.ndarray | Sequence[float]) -> np.ndarray:
@@ -253,13 +322,13 @@ class Quaternion:
             rot_order: str = "XYZ"
     ) -> tuple[np.ndarray, np.ndarray]:
         """
-            Convert the quaternion to angles set in the order gioven by rot_order:
+            Convert the quaternion to angles set in the order given by rot_order:
             - 6 Cardan rotations (for which all axes are different): XYZ, XZY, YXZ, YZX, ZXY and ZYX
             - 6 Euler rotations (for which 2 axes are the same): XYX, XZX, YXY, YZY, ZXZ and ZYZ
 
             Returns:
-                np.ndarray: Euler angles [rad]
-                np.ndarray: Euler alternative angles [rad]
+                np.ndarray: 3 Angles [rad]
+                np.ndarray: 3 Alternative angles [rad]
 
             Source:
                 Celestlab (v 3.4.2), https://atoms.scilab.org/toolboxes/celestlab, CL_rot_quat2angles
@@ -276,9 +345,9 @@ class Quaternion:
                     -sgn[2] * (np.pi - abs(ang[2]))
                 ])
 
-            n1 = rot_order[0]
-            n2 = rot_order[1]
-            n3 = rot_order[2]
+            n1 = int(rot_order[0])
+            n2 = int(rot_order[1])
+            n3 = int(rot_order[2])
             sign = np.sign(math.modulo_with_range(n2 - n1, -1.5, 1.5))
 
             x_3_image = self.rotate(identiy[:, n3])
@@ -310,8 +379,8 @@ class Quaternion:
                     -sgn[2] * (np.pi - abs(ang[2]))
                 ])
 
-            n1 = rot_order[0]
-            n2 = rot_order[1]
+            n1 = int(rot_order[0])
+            n2 = int(rot_order[1])
             n3 = int(math.pmodulo(n2 + (n2 - n1) - 1, 3) + 1)
             sign = np.sign(math.modulo_with_range(n2 - n1, -1.5, 1.5))
 
@@ -353,7 +422,9 @@ class Quaternion:
             cls,
             angles: np.ndarray | Sequence[float],
             rot_order: str = "XYZ",
-            date: datetime | str = None
+            date: datetime | str = None,
+            frame_1: str = None,
+            frame_2: str = None
     ) -> Self:
         """
             Convert angles to a quaternion.
@@ -362,6 +433,8 @@ class Quaternion:
                 angles (np.ndarray | Sequence[float]): angles [rad]
                 rot_order (str): rotation order
                 date (datetime | str): date of the quaternion (default: None)
+                frame_1 (str): name of the starting frame (default: None)
+                frame_2 (str): name of the ending frame (default: None)
 
             Returns:
                 quaternion (Quaternion): quaternion
@@ -374,8 +447,93 @@ class Quaternion:
 
         identity = np.eye(3)
 
-        quaternion = Quaternion.from_angle_axis(float(angles[0]), identity[:, rot_order[0]], date)
+        quaternion = Quaternion.from_angle_axis(float(angles[0]), identity[:, rot_order[0]], date, frame_1, frame_2)
         for i in range(1, 3):
             quaternion = quaternion * Quaternion.from_angle_axis(float(angles[i]), identity[:, rot_order[i]])
 
         return quaternion
+
+    @classmethod
+    def from_collection(cls, data: Collection[float], date: datetime | str = None,
+                        frame_1: str = None, frame_2: str = None) -> Self:
+        """
+        Create a Quaternion object from an iterable with 4 elements.
+
+        Args:
+            data (list[float]): list with 4 elements (real, i, j, k)
+            date (datetime | str): date of the quaternion (default: None)
+            frame_1 (str): name of the starting frame (default: None)
+            frame_2 (str): name of the ending frame (default: None)
+
+        Returns:
+            quaternion (Quaternion): quaternion
+        """
+        data = list(data)
+        if len(data) != 4:
+            msg = f"Invalid input {data} for Quaternion. Must be an iterable with 4 elements."
+            log_and_raise(ValueError, msg)
+        return cls(*data, date=date, frame_1=frame_1, frame_2=frame_2)
+
+    @classmethod
+    def from_collections(cls, data: Collection[Collection[float]], dates: Collection[datetime | str] = None,
+                         frame_1: str = None, frame_2: str = None) \
+            -> list[Self]:
+        """
+        Create a list of Quaternion objects from a list of iterables with 4 elements.
+
+        Args:
+            data (list[list[float]]): list of list with 4 elements (real, i, j, k)
+            dates (list[list | str]): list of dates of the quaternions (default: None)
+            frame_1 (str): name of the starting frame (default: None)
+            frame_2 (str): name of the ending frame (default: None)
+
+        Returns:
+            list[Quaternion]: list of quaternions
+        """
+        no_dates = dates is None or len(dates) == 0
+        if no_dates:
+            dates = [None] * len(data)
+        else:
+            dates = list(dates)
+        data = list(data)
+        # check if same length
+        if len(data) != len(dates):
+            msg = f"Invalid input for Quaternion. 'data' and 'dates' must have the same length."
+            log_and_raise(ValueError, msg)
+        quaternions = [cls.from_collection(d, date, frame_1, frame_2) for d, date in zip(data, dates)]
+
+        if not no_dates:
+            return sorted(quaternions, key=lambda x: x.date)
+        return quaternions
+
+
+def get_univoque_list_of_dated_quaternions(
+        quaternions: Collection['Quaternion'],
+        ignore_different_quaternions_at_same_date: bool = False
+) -> list['Quaternion']:
+    """
+    This method takes a list of dated quaternions and returns a list of dated quaternions without duplicates. If two
+    quaternions have the same date and they are the same, only one is kept. If two quaternions have the same date but
+    they are different, an exception is raised if ignore_different_quaternions_at_same_date is False, otherwise no
+    quaternion is kept. The list is then sorted by date.
+
+    Args:
+        quaternions (list[Quaternion]): list of dated quaternions
+        ignore_different_quaternions_at_same_date (bool): if False, an exception is raised if two quaternions have the
+            same date but they are different (default: False)
+    """
+    if not all(q.date is not None for q in quaternions):
+        msg = "All quaternions must have a date to delete duplicates."
+        log_and_raise(ValueError, msg)
+
+    date_map = {}
+    for q in quaternions:
+        date_map.setdefault(q.date, []).append(q)
+    quaternions = []
+    for date, qs in date_map.items():
+        if len(qs) == 1 or (len(qs) == 2 and qs[0] == qs[1]):
+            quaternions.append(qs[0])
+        elif not ignore_different_quaternions_at_same_date:
+            msg = f"Two different quaternions at the same date {date}"
+            log_and_raise(ValueError, msg)
+    return sorted(quaternions, key=lambda _q: _q.date)

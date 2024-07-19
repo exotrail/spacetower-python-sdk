@@ -6,7 +6,11 @@ from fds.models.orbits import Orbit
 
 
 class ResultTleExtrapolation(RetrievableModel):
+    """
+    This class represents the results of a TLE extrapolation request computation.
+    """
     FDS_TYPE = FdsClient.Models.RESULT_TLE_EXTRAPOLATION
+    ":meta private:"
 
     def __init__(
             self,
@@ -19,10 +23,16 @@ class ResultTleExtrapolation(RetrievableModel):
 
     @property
     def extrapolated_orbits(self) -> Sequence[Orbit]:
+        """
+        The orbits to which the requested TLE has been extrapolated; each Orbit instance corresponding to a given  target date.
+        """
         return self._extrapolated_orbits
 
     @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
+        """
+        :meta private:
+        """
         return {
             'extrapolated_orbits': [Orbit.retrieve_generic_by_id(o['id']) for o in
                                     obj_data['orbits']]

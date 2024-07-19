@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds-python-sdk &#8212; spacetower-python-sdk 1.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=6f037312"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fds package" href="fds.html" />
+    <link rel="prev" title="Welcome to spacetower-python-sdk’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-python-sdk">
+<h1>fds-python-sdk<a class="headerlink" href="#fds-python-sdk" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fds.html">fds package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.models.html">fds.models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.actions">fds.models.actions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.ground_station">fds.models.ground_station module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.orbital_state">fds.models.orbital_state module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.orbits">fds.models.orbits module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.quaternion">fds.models.quaternion module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.roadmaps">fds.models.roadmaps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.spacecraft">fds.models.spacecraft module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.strategy">fds.models.strategy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.telemetry">fds.models.telemetry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models.two_line_element">fds.models.two_line_element module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.models.html#module-fds.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.utils.html">fds.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.dates">fds.utils.dates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.dict">fds.utils.dict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.enum">fds.utils.enum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.frames">fds.utils.frames module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.geometry">fds.utils.geometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.log">fds.utils.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.math">fds.utils.math module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.nmea">fds.utils.nmea module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils.orbital_mechanics">fds.utils.orbital_mechanics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.utils.html#module-fds.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.client">fds.client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.client.FdsClient"><code class="docutils literal notranslate"><span class="pre">FdsClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.MODELS_MAP"><code class="docutils literal notranslate"><span class="pre">FdsClient.MODELS_MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.Models"><code class="docutils literal notranslate"><span class="pre">FdsClient.Models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.USE_CASES_MAP"><code class="docutils literal notranslate"><span class="pre">FdsClient.USE_CASES_MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.UseCases"><code class="docutils literal notranslate"><span class="pre">FdsClient.UseCases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.api_config"><code class="docutils literal notranslate"><span class="pre">FdsClient.api_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.api_url_msg"><code class="docutils literal notranslate"><span class="pre">FdsClient.api_url_msg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.create_object"><code class="docutils literal notranslate"><span class="pre">FdsClient.create_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.destroy_object"><code class="docutils literal notranslate"><span class="pre">FdsClient.destroy_object()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_api_client"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_api_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_client"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.get_id"><code class="docutils literal notranslate"><span class="pre">FdsClient.get_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.model_exists"><code class="docutils literal notranslate"><span class="pre">FdsClient.model_exists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_all"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_model"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_result_from_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_result_from_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.retrieve_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.retrieve_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.run_use_case"><code class="docutils literal notranslate"><span class="pre">FdsClient.run_use_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.client.FdsClient.use_case_exists"><code class="docutils literal notranslate"><span class="pre">FdsClient.use_case_exists()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.client.SingletonMeta"><code class="docutils literal notranslate"><span class="pre">SingletonMeta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.config">fds.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.api_key"><code class="docutils literal notranslate"><span class="pre">Config.api_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.api_url"><code class="docutils literal notranslate"><span class="pre">Config.api_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.client_id"><code class="docutils literal notranslate"><span class="pre">Config.client_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.client_secret"><code class="docutils literal notranslate"><span class="pre">Config.client_secret</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.instrumentation"><code class="docutils literal notranslate"><span class="pre">Config.instrumentation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.proxy"><code class="docutils literal notranslate"><span class="pre">Config.proxy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fds.html#fds.config.Config.station_keeping_api_url"><code class="docutils literal notranslate"><span class="pre">Config.station_keeping_api_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_api_key"><code class="docutils literal notranslate"><span class="pre">get_api_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_api_url"><code class="docutils literal notranslate"><span class="pre">get_api_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_client_id"><code class="docutils literal notranslate"><span class="pre">get_client_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_client_secret"><code class="docutils literal notranslate"><span class="pre">get_client_secret()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_proxy"><code class="docutils literal notranslate"><span class="pre">get_proxy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.get_station_keeping_api_url"><code class="docutils literal notranslate"><span class="pre">get_station_keeping_api_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_api_key"><code class="docutils literal notranslate"><span class="pre">set_api_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_api_url"><code class="docutils literal notranslate"><span class="pre">set_api_url()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_client_id"><code class="docutils literal notranslate"><span class="pre">set_client_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_client_secret"><code class="docutils literal notranslate"><span class="pre">set_client_secret()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fds.html#fds.config.set_station_keeping_api_url"><code class="docutils literal notranslate"><span class="pre">set_station_keeping_api_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds.constants">fds.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fds.html#module-fds">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fds-python-sdk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fds.html">fds package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to spacetower-python-sdk’s documentation!</a></li>
+      <li>Next: <a href="fds.html" title="next chapter">fds package</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

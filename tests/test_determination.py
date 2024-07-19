@@ -316,7 +316,7 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
 
         firings = []
 
-        for i in range(1, 10):
+        for i in range(1, 4):
             firings.append(ActionFiring(
                 firing_attitude_mode=AttitudeMode.PROGRADE,
                 post_firing_attitude_mode=AttitudeMode.PROGRADE,
@@ -332,13 +332,19 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
 
         res = self._test_orbit_determination_with_roadmap(roadmap)
         firing_data = res.export_firings_report_data()
-        self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/firings_report.csv", firing_data)
+        self.assertTrue(
+            self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/firings_report.csv", firing_data),
+            f"Firing report not matching with expected data")
 
         parameters_data = res.export_parameter_estimation_data()
-        self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/parameters_estimation.csv", parameters_data)
+        self.assertTrue(self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/parameters_estimation.csv",
+                                                         parameters_data),
+                        f"Parameters estimation report not matching with expected data")
 
         thrust_data = res.export_thrust_estimation_data()
-        self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/thrust_estimation.csv", thrust_data)
+        self.assertTrue(
+            self.compare_csv_to_list_of_dict(DATA_DIR / "orbit_determination/thrust_estimation.csv", thrust_data),
+            f"Thrust estimation report not matching with expected data")
 
     def test_orbit_determination_with_quaternion_roadmap(self):
         start_date = datetime(2023, 5, 22, 0, 0, 0, 0, tzinfo=UTC)
@@ -440,16 +446,23 @@ class TestOrbitDetermination(TestUseCases, unittest.TestCase):
         oe_state_date = oe_result.last_orbital_state.date
         oe_state_date_without_roadmap = oe_result_without_roadmap.last_orbital_state.date
 
-        self.assertTrue(self.is_datetime_close(od_state_date, oe_state_date))
-        self.assertTrue(self.is_datetime_close(od_state_date, oe_state_date_without_roadmap))
+        self.assertTrue(self.is_datetime_close(od_state_date, oe_state_date),
+                        f"OD last date {od_state_date} != OE last date {oe_state_date}")
+        self.assertTrue(
+            self.is_datetime_close(od_state_date, oe_state_date_without_roadmap),
+            f"OD last date {od_state_date} != OE last date (without firing) {oe_state_date_without_roadmap}")
 
         od_state_osc = od_result.estimated_states[-1].osculating_orbit.orbital_elements
         oe_state_osc = oe_result.last_orbital_state.osculating_orbit.orbital_elements
         oe_state_osc_without_roadmap = oe_result_without_roadmap.last_orbital_state.osculating_orbit.orbital_elements
 
-        self.assertTrue(np.isclose(od_state_osc.SMA, oe_state_osc.SMA, atol=1))  # 1 km
-        self.assertTrue(np.isclose(od_state_osc.ECC, oe_state_osc.ECC, atol=1E-4))
-        self.assertFalse(np.isclose(od_state_osc.SMA, oe_state_osc_without_roadmap.SMA, atol=1))
-        self.assertFalse(np.isclose(od_state_osc.ECC, oe_state_osc_without_roadmap.ECC, atol=1E-4))
+        self.assertTrue(np.isclose(od_state_osc.SMA, oe_state_osc.SMA, atol=1),
+                        f"SMA OD {od_state_osc.SMA} != SMA OE {oe_state_osc.SMA}")
+        self.assertTrue(np.isclose(od_state_osc.ECC, oe_state_osc.ECC, atol=1E-4),
+                        f"ECC OD {od_state_osc.ECC} != ECC OE {oe_state_osc.ECC}")
+        self.assertFalse(np.isclose(od_state_osc.SMA, oe_state_osc_without_roadmap.SMA, atol=1),
+                         f"SMA OD {od_state_osc.SMA} == SMA OE (without firing) {oe_state_osc_without_roadmap.SMA}")
+        self.assertFalse(np.isclose(od_state_osc.ECC, oe_state_osc_without_roadmap.ECC, atol=1E-4),
+                         f"ECC OD {od_state_osc.ECC} == ECC OE (without firing) {oe_state_osc_without_roadmap.ECC}")
 
         return od_result

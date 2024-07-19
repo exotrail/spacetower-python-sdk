@@ -1,11 +1,24 @@
 import base64
 from enum import Enum
+from pathlib import Path
+
 from loguru import logger
+import sentry_sdk
 
 import spacetower_python_client as fdsapi
 
 from fds import config
+from fds.config import Config
 from fds.utils.log import log_and_raise
+
+if Config.instrumentation:
+    sentry_sdk.init(
+        dsn="https://16f4ad420cac967c096f37933eed120b@o4507096672698368.ingest.de.sentry.io/4507096674533456",
+        max_breadcrumbs=50,
+        debug=False,
+        enable_tracing=True,
+        sample_rate=1.0
+    )
 
 
 class SingletonMeta(type):
@@ -443,16 +456,18 @@ class FdsClient(metaclass=SingletonMeta):
         }
     }
 
-    def __init__(self, fds_api_url, api_key=None, token=None, client_id=None, client_secret=None, proxy=None):
+    def __init__(self, fds_api_url, api_key=None, client_id=None, client_secret=None, proxy=None, request_timeout=60*20):
+        self.api_key = api_key
+        self.client_id = client_id
+        self.client_secret = client_secret
         self._api_config = fdsapi.Configuration(
             host=fds_api_url
         )
-        self.api_key = api_key
-        self.token = token
-        self.client_id = client_id
-        self.client_secret = client_secret
         if proxy is not None:
-            self.api_config.proxy = proxy
+            logger.info(f"Enabling proxy {proxy} for client {self._api_config.host}")
+            self._api_config.proxy = proxy
+            self._api_config.ssl_ca_cert = Path('./mitmproxy.pem')
+        self.request_timeout = request_timeout
 
     @property
     def api_config(self):
@@ -469,7 +484,6 @@ class FdsClient(metaclass=SingletonMeta):
             api_key=config.get_api_key(),
             client_id=config.get_client_id(),
             client_secret=config.get_client_secret(),
-            token=config.get_token(),
             proxy=config.get_proxy(),
         )
 
@@ -488,9 +502,6 @@ class FdsClient(metaclass=SingletonMeta):
         if self.api_key is not None and self.api_key != '':
             header_value = self.api_key
             header_name = 'apikey'
-        elif self.token is not None and self.token != '':
-            header_value = f'Bearer {self.token}'
-            header_name = 'Authorization'
         elif self.client_id is not None and self.client_secret is not None:
             credentials = base64.b64encode(f"{self.client_id}:{self.client_secret}".encode()).decode()
             header_value = f'Basic {credentials}'
@@ -587,7 +598,7 @@ class FdsClient(metaclass=SingletonMeta):
         with self.get_api_client() as api_client:
             try:
                 # logger.debug(f"{self.api_url_msg}: Running '{use_case_type}'...")
-                obj = self.USE_CASES_MAP[self.UseCases[use_case_type]]['runner'](api_client)(command)
+                obj = self.USE_CASES_MAP[self.UseCases[use_case_type]]['runner'](api_client)(command, _request_timeout=self.request_timeout)
             except fdsapi.ApiException as e:
                 logger.error(f"{self.api_url_msg}: Error while running '{use_case_type}'")
                 raise e

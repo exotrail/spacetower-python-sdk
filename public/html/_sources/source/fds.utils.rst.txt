@@ -1,0 +1,85 @@
+fds.utils package
+=================
+
+Submodules
+----------
+
+fds.utils.dates module
+----------------------
+
+.. automodule:: fds.utils.dates
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.dict module
+---------------------
+
+.. automodule:: fds.utils.dict
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.enum module
+---------------------
+
+.. automodule:: fds.utils.enum
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.frames module
+-----------------------
+
+.. automodule:: fds.utils.frames
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.geometry module
+-------------------------
+
+.. automodule:: fds.utils.geometry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.log module
+--------------------
+
+.. automodule:: fds.utils.log
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.math module
+---------------------
+
+.. automodule:: fds.utils.math
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.nmea module
+---------------------
+
+.. automodule:: fds.utils.nmea
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.utils.orbital\_mechanics module
+-----------------------------------
+
+.. automodule:: fds.utils.orbital_mechanics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fds.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

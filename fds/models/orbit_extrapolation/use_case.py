@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 from fds.client import FdsClient
 from fds.models._use_case import OrbitalStateUseCase
 from fds.models.actions import ActionFiring
-from fds.models.orbit_extrapolation.requests import MeasurementsRequest, OrbitDataMessageRequest, EventsRequestOrbital, \
-    EventsRequestStationVisibility, EventsRequestSensor, EphemeridesRequest
+from fds.models.orbit_extrapolation.requests import MeasurementsRequest, OrbitDataMessageRequest, \
+    EventsRequestOrbital, EventsRequestStationVisibility, EventsRequestSensor, EphemeridesRequest
 from fds.models.orbit_extrapolation.result import ResultOrbitExtrapolation
 from fds.models.orbital_state import OrbitalState, RequiredOrbitalStates
 from fds.models.roadmaps import RoadmapFromSimulation, RoadmapFromActions
@@ -14,8 +14,13 @@ from fds.utils.log import log_and_raise
 
 
 class OrbitExtrapolation(OrbitalStateUseCase):
+    """
+    This class is used to specify the data needed to perform an orbit extrapolation computation.
+    """
     FDS_TYPE = FdsClient.UseCases.ORBIT_EXTRAPOLATION
+    ":meta private:"
     ResultType = ResultOrbitExtrapolation
+    ":meta private:"
 
     def __init__(
             self,
@@ -96,60 +101,102 @@ class OrbitExtrapolation(OrbitalStateUseCase):
 
     @property
     def duration(self) -> float | None:
+        """
+        For how long the orbital state is to be propagated.
+        """
         return self._duration
 
     @property
     def final_date(self):
+        """
+        The date up to which the orbital state is to be propagated.
+        """
         if self.duration is None:
             return self.roadmap.end_date
         return self.initial_orbital_state.date + timedelta(seconds=self.duration)
 
     @property
     def initial_date(self):
+        """
+        The date from which the propagation starts.
+        """
         return self.initial_orbital_state.date
 
     @property
     def orbital_events_request(self) -> EventsRequestOrbital:
+        """
+        Which orbital events are to be recorded in the output of the extrapolation.
+        """
         return self._orbital_events_request
 
     @property
     def station_visibility_events_request(self) -> EventsRequestStationVisibility:
+        """
+        Which station visibility events are to be recorded in the output of the extrapolation.
+        """
         return self._station_visibility_events_request
 
     @property
     def sensor_events_request(self) -> EventsRequestSensor:
+        """
+        Which sensor events are to be recorded in the output of the extrapolation.
+        """
         return self._sensor_events_request
 
     @property
     def ephemerides_request(self) -> EphemeridesRequest:
+        """
+        Which ephemerides are to be recorded in the output of the extrapolation.
+        """
         return self._ephemerides_request
 
     @property
     def measurements_request(self) -> MeasurementsRequest:
+        """
+        Which measurements are to be recorded in the output of the extrapolation.
+        """
         return self._measurements_request
 
     @property
     def orbit_data_message_request(self) -> OrbitDataMessageRequest:
+        """
+        Which ODM (Orbit Data Message) are to be produced in the output of the extrapolation.
+        """
         return self._orbit_data_message_request
 
     @property
     def roadmap(self) -> RoadmapFromSimulation | RoadmapFromActions | None:
+        """
+        The maneuver roadmap of the satellite, if any maneuver is to be performed during the extrapolation.
+        """
         return self._roadmap
 
     @property
     def result(self) -> ResultOrbitExtrapolation:
+        """
+        The output of the orbit extrapolation computation.
+        """
         return self._result
 
     @property
     def required_orbital_states(self) -> RequiredOrbitalStates:
+        """
+        Which orbital states are to be included in the results? Only the last one or every single computed one?
+        """
         return self._required_orbital_states
 
     @property
     def api_response(self):
+        """
+        :meta private:
+        """
         return self._api_response
 
     @property
     def extrapolate_covariance(self) -> bool:
+        """
+        Should the covariance of the extrapolated state(s) be computed as well?
+        """
         return self._extrapolate_covariance
 
     @classmethod
@@ -169,6 +216,8 @@ class OrbitExtrapolation(OrbitalStateUseCase):
             nametag: str = None
     ):
         """
+        Creates a new orbit extrapolation with a new target date.
+
         Args:
             target_date (datetime | str): The target date (only future dates are allowed).
             initial_orbital_state (OrbitalState): The initial orbital state object.
@@ -186,6 +235,9 @@ class OrbitExtrapolation(OrbitalStateUseCase):
             ephemerides_request (EphemeridesRequest): The ephemerides request object. Defaults to None.
             extrapolate_covariance (bool): Whether to extrapolate the covariance matrix. Defaults to False.
             nametag (str): The name of the use case. Defaults to None.
+
+        Returns:
+            a new orbit extrapolation use case object.
         """
         target_date = get_datetime(target_date)
 
@@ -211,6 +263,9 @@ class OrbitExtrapolation(OrbitalStateUseCase):
         )
 
     def api_run_map(self, force_save: bool = False) -> dict:
+        """
+        :meta private:
+        """
         d = super().api_run_map()
         events_request_ids = []
         for request in (

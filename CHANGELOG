@@ -1,21 +1,40 @@
 # CHANGELOG
 
+FDS API Python SDK v1.2.0 (2024-07-12):
+    - Update to spacetower API next version (1.2.0)
+    - Station Keeping: new use case using the leo-station-keeping package (version 1.7.0)
+        - Added StationKeeping class to simulate station keeping maneuvers
+        - Generate a roadmap from ResultStationKeeping
+        - Export ephemerides Keplerian, Cartesian and power system ephemerides (format compatible with pandas DataFrame creation)
+    - Created abstract class Strategy (for StationKeepingStrategy and ManeuverStrategy)
+    - Added method to create firing action from a DateRange object
+    - Added OrbitalState property to keep record of initialisation source (mean orbit, osculating orbit, TLE)
+    - Added public access to KeplerianOrbit property anomaly_kind (TRUE or MEAN)
+    - Quaternions:
+        - Added method to create from list of inputs (real, i, j, k) and date (optional)
+        - Added method to filter list of dated quaternions to avoid duplicates
+        - Added method to convert quaternion to euler angles
+        - Added optional field to keep track of start and end frames in the quaternion object
+    - Added instrumentation and timeout configuration for spacetower API calls
+    - Minor bug fixes and improvements
+
+
 FDS API Python SDK v1.1.0 (2024-06-21):
-    - Update to spacetower API next version(1.1.0)
+    - Update to spacetower API next version (1.1.0)
     - Update of README
     - ManeuverGeneration (already available for use):
            - Add no_firing_date_ranges attribute (list of DateRange) to avoid firing during selected date ranges
     - OrbitDeterminationConfiguration
            - Add an additional parameter for maximum number of consecutive outliers that are allowed before increasing the outliers filtering tolerance
     - Utils:
-- [BREAKING CHANGES] refactored NMEAProcessor object and moved functions to fds.utils.nmea package (added parsing of NMEA sentences). Impacted methods:
-       - NmeaProcessor.from_single_file -> nmea.parse_raw_sentences_from_file
-       - NmeaProcessor.filter_sentences_by_step -> nmea.filter_sentences_by_step
-       - NmeaProcessor.get_merged_sentences -> nmea.export_list_of_sentences
-       - Sentence -> SentenceBoundle (object that contains RmcSentence and GgaSentence objects at the same date)
-       - meaProcessor.Sentence(rmc=…, gga=…, date=…) (initialisation method from strings) -> nmea.SentenceBundle.from_strings(rmc=…, gga=…)
-- Dates: add DateRange in dates utils
-    - Removal of libs\fds-api-gen-client --> Switch to public GitHub spacetower-python-client package (installation through PIP)
+        - [BREAKING CHANGES] refactored NMEAProcessor object and moved functions to fds.utils.nmea package (added parsing of NMEA sentences). Impacted methods:
+            - NmeaProcessor.from_single_file -> nmea.parse_raw_sentences_from_file
+            - NmeaProcessor.filter_sentences_by_step -> nmea.filter_sentences_by_step
+            - NmeaProcessor.get_merged_sentences -> nmea.export_list_of_sentences
+            - Sentence -> SentenceBoundle (object that contains RmcSentence and GgaSentence objects at the same date)
+            - NmeaProcessor.Sentence(rmc=…, gga=…, date=…) (initialisation method from strings) -> nmea.SentenceBundle.from_strings(rmc=…, gga=…)
+        - Dates: add DateRange in dates utils
+            - Removal of libs\fds-api-gen-client --> Switch to public GitHub spacetower-python-client package (installation through PIP)
 
 FDS API Python SDK v1.0.0 (2024-04-19):
     - Update to API 1.0.0, Exoops legacy 1.8.7

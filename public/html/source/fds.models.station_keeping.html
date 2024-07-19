@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds.models.station_keeping package &#8212; spacetower-python-sdk 1.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=6f037312"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fds.models.tle_extrapolation package" href="fds.models.tle_extrapolation.html" />
+    <link rel="prev" title="fds.models.orbit_extrapolation package" href="fds.models.orbit_extrapolation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-models-station-keeping-package">
+<h1>fds.models.station_keeping package<a class="headerlink" href="#fds-models-station-keeping-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-fds.models.station_keeping.requests">
+<span id="fds-models-station-keeping-requests-module"></span><h2>fds.models.station_keeping.requests module<a class="headerlink" href="#module-fds.models.station_keeping.requests" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.requests.</span></span><span class="sig-name descname"><span class="pre">EphemeridesRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType" title="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType"><span class="pre">EphemeridesType</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osculating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">StationKeepingOutputRequest</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EphemeridesType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.utils.html#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.CARTESIAN">
+<span class="sig-name descname"><span class="pre">CARTESIAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CARTESIAN'</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.CARTESIAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.KEPLERIAN">
+<span class="sig-name descname"><span class="pre">KEPLERIAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'KEPLERIAN'</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.KEPLERIAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.POWER_SYSTEM">
+<span class="sig-name descname"><span class="pre">POWER_SYSTEM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'POWER_SYSTEM'</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType.POWER_SYSTEM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.timestep">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestep</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.timestep" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.EphemeridesRequest.types">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">types</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType" title="fds.models.station_keeping.requests.EphemeridesRequest.EphemeridesType"><span class="pre">EphemeridesType</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.station_keeping.requests.EphemeridesRequest.types" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.SpacecraftStatesRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.requests.</span></span><span class="sig-name descname"><span class="pre">SpacecraftStatesRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osculating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.SpacecraftStatesRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">StationKeepingOutputRequest</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.SpacecraftStatesRequest.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.SpacecraftStatesRequest.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.StationKeepingOutputRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.requests.</span></span><span class="sig-name descname"><span class="pre">StationKeepingOutputRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osculating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.StationKeepingOutputRequest.mean">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest.mean" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.StationKeepingOutputRequest.osculating">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">osculating</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest.osculating" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.ThrustEphemeridesRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.requests.</span></span><span class="sig-name descname"><span class="pre">ThrustEphemeridesRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osculating</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.ThrustEphemeridesRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">StationKeepingOutputRequest</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.requests.ThrustEphemeridesRequest.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.requests.ThrustEphemeridesRequest.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.station_keeping.result">
+<span id="fds-models-station-keeping-result-module"></span><h2>fds.models.station_keeping.result module<a class="headerlink" href="#module-fds.models.station_keeping.result" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.result.</span></span><span class="sig-name descname"><span class="pre">ResultStationKeeping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.station_keeping.result.ResultStationKeeping.Report" title="fds.models.station_keeping.result.ResultStationKeeping.Report"><span class="pre">Report</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_ephemerides</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_indexes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_spacecraft_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_burns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_consumption</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_delta_v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thruster_mean_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_warmup_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_burn_duration_estimation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_orbital_periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_impulse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maneuver_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_orbit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">fds.models.orbits.Orbit</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.create_from_api_results">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NumericalLeoStationKeepingResponseResults</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.create_from_api_results" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.final_duty_cycle">
+<span class="sig-name descname"><span class="pre">final_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.final_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.final_orbit">
+<span class="sig-name descname"><span class="pre">final_orbit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">Orbit</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.final_orbit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.maneuver_model">
+<span class="sig-name descname"><span class="pre">maneuver_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.maneuver_model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.mean_burn_duration_estimation">
+<span class="sig-name descname"><span class="pre">mean_burn_duration_estimation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.mean_burn_duration_estimation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.number_of_burns">
+<span class="sig-name descname"><span class="pre">number_of_burns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.number_of_burns" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.number_of_orbital_periods">
+<span class="sig-name descname"><span class="pre">number_of_orbital_periods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.number_of_orbital_periods" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.simulation_duration">
+<span class="sig-name descname"><span class="pre">simulation_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.simulation_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.thrust_duration">
+<span class="sig-name descname"><span class="pre">thrust_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.thrust_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.thruster_mean_duty_cycle">
+<span class="sig-name descname"><span class="pre">thruster_mean_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.thruster_mean_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.total_consumption">
+<span class="sig-name descname"><span class="pre">total_consumption</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.total_consumption" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.total_delta_v">
+<span class="sig-name descname"><span class="pre">total_delta_v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.total_delta_v" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.total_impulse">
+<span class="sig-name descname"><span class="pre">total_impulse</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.total_impulse" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.Report.total_warmup_duty_cycle">
+<span class="sig-name descname"><span class="pre">total_warmup_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.Report.total_warmup_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.ephemerides_field_indexes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ephemerides_field_indexes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.ephemerides_field_indexes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.export_cartesian_ephemerides_data">
+<span class="sig-name descname"><span class="pre">export_cartesian_ephemerides_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.export_cartesian_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.export_keplerian_ephemerides_data">
+<span class="sig-name descname"><span class="pre">export_keplerian_ephemerides_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.export_keplerian_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.export_power_system_ephemerides_data">
+<span class="sig-name descname"><span class="pre">export_power_system_ephemerides_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.export_power_system_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.export_raw_ephemerides_data">
+<span class="sig-name descname"><span class="pre">export_raw_ephemerides_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.export_raw_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.export_state_error_ephemerides_data">
+<span class="sig-name descname"><span class="pre">export_state_error_ephemerides_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.export_state_error_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.from_microservice_response">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_microservice_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NumericalLeoStationKeepingResponse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.from_microservice_response" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.generate_maneuver_roadmap">
+<span class="sig-name descname"><span class="pre">generate_maneuver_roadmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromActions" title="fds.models.roadmaps.RoadmapFromActions"><span class="pre">RoadmapFromActions</span></a></span></span><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.generate_maneuver_roadmap" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a roadmap with the maneuvers performed during the station keeping. The roadmap will contain the
+quaternions and the firing dates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>quaternion_step</strong> (<em>float</em>) – The minimum time step between two quaternions (in seconds). Default is 0.0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.raw_ephemerides">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw_ephemerides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.raw_ephemerides" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.raw_spacecraft_states">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw_spacecraft_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.raw_spacecraft_states" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.report">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">report</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.station_keeping.result.ResultStationKeeping.Report" title="fds.models.station_keeping.result.ResultStationKeeping.Report"><span class="pre">Report</span></a></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.report" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.ResultStationKeeping.start_date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.station_keeping.result.ResultStationKeeping.start_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.get_ephemerides_data">
+<span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.result.</span></span><span class="sig-name descname"><span class="pre">get_ephemerides_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_ephemerides</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_indexes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.station_keeping.result.get_ephemerides_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fds.models.station_keeping.result.select_ephemerides_data_with_specific_prefix">
+<span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.result.</span></span><span class="sig-name descname"><span class="pre">select_ephemerides_data_with_specific_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_ephemerides_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys_to_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.result.select_ephemerides_data_with_specific_prefix" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-fds.models.station_keeping.strategy">
+<span id="fds-models-station-keeping-strategy-module"></span><h2>fds.models.station_keeping.strategy module<a class="headerlink" href="#module-fds.models.station_keeping.strategy" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.strategy.StationKeepingStrategy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.strategy.</span></span><span class="sig-name descname"><span class="pre">StationKeepingStrategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thrust_arcs_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcPosition" title="fds.models.strategy.Strategy.ThrustArcPosition"><span class="pre">ThrustArcPosition</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arcs_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcNumber" title="fds.models.strategy.Strategy.ThrustArcNumber"><span class="pre">ThrustArcNumber</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_thrust_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_rest_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_shift_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_thrust_at_eclipse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_initialisation_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcInitialisationKind" title="fds.models.strategy.Strategy.ThrustArcInitialisationKind"><span class="pre">ThrustArcInitialisationKind</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbital_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_thrust_arc_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.strategy.CustomArcPosition" title="fds.models.strategy.CustomArcPosition"><span class="pre">CustomArcPosition</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_mean_longitude_argument</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.strategy.StationKeepingStrategy" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy" title="fds.models.strategy.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strategy</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.strategy.StationKeepingStrategy.dynamic_duty_cycle">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dynamic_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fds.models.station_keeping.strategy.StationKeepingStrategy.dynamic_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.strategy.StationKeepingStrategy.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CustomManeuveringStrategy</span></span></span><a class="headerlink" href="#fds.models.station_keeping.strategy.StationKeepingStrategy.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.station_keeping.tolerance">
+<span id="fds-models-station-keeping-tolerance-module"></span><h2>fds.models.station_keeping.tolerance module<a class="headerlink" href="#module-fds.models.station_keeping.tolerance" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.AlongTrackTolerance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.tolerance.</span></span><span class="sig-name descname"><span class="pre">AlongTrackTolerance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.tolerance.AlongTrackTolerance" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tolerance</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.AlongTrackTolerance.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AlongTrackTolerance</span></span></span><a class="headerlink" href="#fds.models.station_keeping.tolerance.AlongTrackTolerance.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.SemiMajorAxisTolerance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.tolerance.</span></span><span class="sig-name descname"><span class="pre">SemiMajorAxisTolerance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.tolerance.SemiMajorAxisTolerance" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tolerance</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.SemiMajorAxisTolerance.to_microservice_format">
+<span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SmaTolerance</span></span></span><a class="headerlink" href="#fds.models.station_keeping.tolerance.SemiMajorAxisTolerance.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.Tolerance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.tolerance.</span></span><span class="sig-name descname"><span class="pre">Tolerance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.tolerance.Tolerance" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.Tolerance.to_microservice_format">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_microservice_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.tolerance.Tolerance.to_microservice_format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.tolerance.Tolerance.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#fds.models.station_keeping.tolerance.Tolerance.value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.station_keeping.use_case">
+<span id="fds-models-station-keeping-use-case-module"></span><h2>fds.models.station_keeping.use_case module<a class="headerlink" href="#module-fds.models.station_keeping.use_case" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.station_keeping.use_case.</span></span><span class="sig-name descname"><span class="pre">LeoStationKeeping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_orbit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbits.KeplerianOrbit" title="fds.models.orbits.KeplerianOrbit"><span class="pre">KeplerianOrbit</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagation_context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.PropagationContext" title="fds.models.orbital_state.PropagationContext"><span class="pre">PropagationContext</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacecraft</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.spacecraft.SpacecraftSphere" title="fds.models.spacecraft.SpacecraftSphere"><span class="pre">SpacecraftSphere</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.spacecraft.SpacecraftBox" title="fds.models.spacecraft.SpacecraftBox"><span class="pre">SpacecraftBox</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><span class="pre">Tolerance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><span class="pre">StationKeepingOutputRequest</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulate_attitude_and_power_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.station_keeping.strategy.StationKeepingStrategy" title="fds.models.station_keeping.strategy.StationKeepingStrategy"><span class="pre">StationKeepingStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drag_lift_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srp_absorption_coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_available_on_board_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.ResultType">
+<span class="sig-name descname"><span class="pre">ResultType</span></span><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.ResultType" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#fds.models.station_keeping.result.ResultStationKeeping" title="fds.models.station_keeping.result.ResultStationKeeping"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultStationKeeping</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.average_available_on_board_power">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">average_available_on_board_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.average_available_on_board_power" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.drag_lift_ratio">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drag_lift_ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.drag_lift_ratio" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.from_initial_orbital_state">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_initial_orbital_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_orbital_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><span class="pre">Tolerance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><span class="pre">StationKeepingOutputRequest</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulate_attitude_and_power_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.station_keeping.strategy.StationKeepingStrategy" title="fds.models.station_keeping.strategy.StationKeepingStrategy"><span class="pre">StationKeepingStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drag_lift_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srp_absorption_coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_available_on_board_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.from_initial_orbital_state" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_orbital_state</strong> (<a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><em>OrbitalState</em></a>) – The orbital state of the spacecraft.</p></li>
+<li><p><strong>maximum_duration</strong> (<em>int</em>) – The maximum duration of the maneuver.</p></li>
+<li><p><strong>tolerance</strong> (<a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><em>Tolerance</em></a>) – The tolerance object (SMA or ALONG_TRACK).</p></li>
+<li><p><strong>output_requests</strong> (<em>list</em><em>[</em><a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><em>StationKeepingOutputRequest</em></a><em>]</em>) – The list of output requests.</p></li>
+<li><p><strong>simulate_attitude_and_power_system</strong> (<em>bool</em>) – If True, the attitude and power system are simulated, and the
+average_available_on_board_power is only used to compute the duty cycle of the thruster. Defaults to
+False.</p></li>
+<li><p><strong>strategy</strong> (<a class="reference internal" href="#fds.models.station_keeping.strategy.StationKeepingStrategy" title="fds.models.station_keeping.strategy.StationKeepingStrategy"><em>StationKeepingStrategy</em></a>) – The strategy object. If None, the default strategy is used.</p></li>
+<li><p><strong>drag_lift_ratio</strong> (<em>float</em>) – The drag lift ratio. Defaults to 0.0.</p></li>
+<li><p><strong>srp_absorption_coefficient</strong> (<em>float</em>) – The SRP absorption coefficient. Defaults to 1.0.</p></li>
+<li><p><strong>average_available_on_board_power</strong> (<em>float</em>) – Unit: W. Average power available on board. If the attitude and
+power system are simulated, this value is used only to compute the duty cycle of the thruster. Defaults
+to 0.0.</p></li>
+<li><p><strong>nametag</strong> (<em>str</em>) – The name of the use case. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.initial_orbit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initial_orbit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbits.KeplerianOrbit" title="fds.models.orbits.KeplerianOrbit"><span class="pre">KeplerianOrbit</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.initial_orbit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.maximum_duration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximum_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.maximum_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.microservice_configuration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">microservice_configuration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Configuration</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.microservice_configuration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.nametag">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nametag</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.nametag" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.output_requests">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_requests</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.station_keeping.requests.StationKeepingOutputRequest" title="fds.models.station_keeping.requests.StationKeepingOutputRequest"><span class="pre">StationKeepingOutputRequest</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.output_requests" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.propagation_context">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">propagation_context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.PropagationContext" title="fds.models.orbital_state.PropagationContext"><span class="pre">PropagationContext</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.propagation_context" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.request">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NumericalLeoStationKeepingRequest</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.request" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.response">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">response</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NumericalLeoStationKeepingResponse</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.response" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.station_keeping.result.ResultStationKeeping" title="fds.models.station_keeping.result.ResultStationKeeping"><span class="pre">ResultStationKeeping</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.result" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fds.models.station_keeping.use_case.LeoStationKeeping" title="fds.models.station_keeping.use_case.LeoStationKeeping"><span class="pre">LeoStationKeeping</span></a></span></span><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.run" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.simulate_attitude_and_power_system">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulate_attitude_and_power_system</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.simulate_attitude_and_power_system" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.spacecraft">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spacecraft</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.spacecraft.SpacecraftSphere" title="fds.models.spacecraft.SpacecraftSphere"><span class="pre">SpacecraftSphere</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.spacecraft.SpacecraftBox" title="fds.models.spacecraft.SpacecraftBox"><span class="pre">SpacecraftBox</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.spacecraft" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.srp_absorption_coefficient">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">srp_absorption_coefficient</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.srp_absorption_coefficient" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.start_date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.start_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.strategy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.station_keeping.strategy.StationKeepingStrategy" title="fds.models.station_keeping.strategy.StationKeepingStrategy"><span class="pre">StationKeepingStrategy</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.strategy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.station_keeping.use_case.LeoStationKeeping.tolerance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tolerance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.station_keeping.tolerance.Tolerance" title="fds.models.station_keeping.tolerance.Tolerance"><span class="pre">Tolerance</span></a></em><a class="headerlink" href="#fds.models.station_keeping.use_case.LeoStationKeeping.tolerance" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.station_keeping">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fds.models.station_keeping" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fds-python-sdk</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fds.html">fds package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">fds-python-sdk</a><ul>
+  <li><a href="fds.html">fds package</a><ul>
+  <li><a href="fds.models.html">fds.models package</a><ul>
+      <li>Previous: <a href="fds.models.orbit_extrapolation.html" title="previous chapter">fds.models.orbit_extrapolation package</a></li>
+      <li>Next: <a href="fds.models.tle_extrapolation.html" title="next chapter">fds.models.tle_extrapolation package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/fds.models.station_keeping.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

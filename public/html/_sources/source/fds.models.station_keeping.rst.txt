@@ -1,0 +1,53 @@
+fds.models.station\_keeping package
+===================================
+
+Submodules
+----------
+
+fds.models.station\_keeping.requests module
+-------------------------------------------
+
+.. automodule:: fds.models.station_keeping.requests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.station\_keeping.result module
+-----------------------------------------
+
+.. automodule:: fds.models.station_keeping.result
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.station\_keeping.strategy module
+-------------------------------------------
+
+.. automodule:: fds.models.station_keeping.strategy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.station\_keeping.tolerance module
+--------------------------------------------
+
+.. automodule:: fds.models.station_keeping.tolerance
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+fds.models.station\_keeping.use\_case module
+--------------------------------------------
+
+.. automodule:: fds.models.station_keeping.use_case
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: fds.models.station_keeping
+   :members:
+   :undoc-members:
+   :show-inheritance:

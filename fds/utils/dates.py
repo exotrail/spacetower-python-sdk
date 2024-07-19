@@ -51,6 +51,12 @@ def filter_sequence_with_minimum_time_step(
     if not all(dates[i] <= dates[i + 1] for i in range(len(dates) - 1)):
         msg = "The dates are not sorted."
         log_and_raise(ValueError, msg)
+    if minimum_step_in_seconds < 0:
+        msg = f"Invalid minimum step {minimum_step_in_seconds}. It must be positive or zero."
+        log_and_raise(ValueError, msg)
+
+    if minimum_step_in_seconds == 0:
+        return initial_sequence
 
     filtered_sequence = [initial_sequence[0]]
     j = 0

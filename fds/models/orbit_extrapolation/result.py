@@ -3,6 +3,8 @@ from dataclasses import dataclass
 from datetime import datetime, UTC
 from typing import Sequence
 
+from spacetower_python_client import EphemerisDto
+
 from fds.client import FdsClient
 from fds.models._model import RetrievableModel
 from fds.models.ground_station import GroundStation
@@ -15,14 +17,20 @@ from fds.models.orbital_state import OrbitalState
 from fds.models.telemetry import TelemetryGpsNmea, TelemetryGpsPv, Telemetry
 from fds.utils.dates import get_datetime
 from fds.utils.log import log_and_raise
-from spacetower_python_client import EphemerisDto
 
 
 class ResultOrbitExtrapolation(RetrievableModel):
+    """
+    Instances of this class are output of orbit extrapolation computation; they hold all the computed data.
+    """
     FDS_TYPE = FdsClient.Models.RESULT_ORBIT_EXTRAPOLATION
+    ":meta private:"
 
     @dataclass
     class Ephemerides:
+        """
+        This class structures the ephemeris computed during orbit extrapolation.
+        """
         power: PowerEphemeris = None
         keplerian: KeplerianEphemeris = None
         cartesian: CartesianEphemeris = None
@@ -38,15 +46,28 @@ class ResultOrbitExtrapolation(RetrievableModel):
             EphemeridesRequest.EphemerisType.ATTITUDE_QUATERNIONS: 'attitude_quaternions',
             EphemeridesRequest.EphemerisType.ATTITUDE_EULER_ANGLES: 'attitude_euler_angles',
         }
+        ":meta private:"
 
         @property
         def dates(self) -> Sequence[datetime]:
+            """
+            The dates at which the ephemeris have been computed.
+            """
             # get them from any of the ephemerides that is not None
             for ephemeris in self.__dict__.values():
                 if ephemeris is not None:
                     return ephemeris.dates
 
         def export_ephemeris_data(self, data_name: EphemeridesRequest.EphemerisType) -> list[dict]:
+            """
+            Extract a subset of the computed ephemeris.
+
+            Args:
+                data_name: the data column to be extracted
+
+            Returns:
+                a list, each element being a dict containing the extracted data with its time stamp
+            """
             ephemeris = getattr(self, self._name_mapping[data_name])
             if ephemeris is not None:
                 return ephemeris.export_table_data()
@@ -72,48 +93,85 @@ class ResultOrbitExtrapolation(RetrievableModel):
         self._computed_events = computed_events
         self._computed_measurements = self._create_telemetry(computed_measurements)
         self._orbit_data_message = orbit_data_message
-        self._orbital_states = [OrbitalState.retrieve_by_id(os['id']) for os in
-                                orbital_states]
+        retrieved_orbital_states = [OrbitalState.retrieve_by_id(os['id']) for os in orbital_states]
+        self._orbital_states = sorted(retrieved_orbital_states, key=lambda x: x.date)
         self._ephemerides = self._extract_ephemerides(ephemerides)
 
     @property
     def orbital_states(self) -> list[OrbitalState]:
+        """
+        The computed orbital states (defined by the required_orbital_state property of the OrbitExtrapolation instance
+        which led to the computation of this result).
+        """
         return self._orbital_states
 
     @property
     def ephemerides(self) -> 'ResultOrbitExtrapolation.Ephemerides':
+        """
+        The ephemerides computed during the extrapolation.
+        """
         return self._ephemerides
 
     @property
     def last_orbital_state(self) -> OrbitalState | None:
+        """
+        The last one of the computed orbital states.
+        """
         return self._orbital_states[-1] if self._orbital_states else None
 
     @property
     def computed_measurements(self) -> list[TelemetryGpsNmea | TelemetryGpsPv] | None:
+        """
+        The measurements computed during the computation (defined by the measurements_request property of the
+        OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._computed_measurements if self._computed_measurements else None
 
     @property
     def orbital_events(self) -> list[OrbitalEvent] | None:
+        """
+        The orbital events computed during the computation (defined by the orbital_events_request property of the
+        OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._orbital_events if self._orbital_events else None
 
     @property
     def eclipse_events(self) -> list[EclipseEvent] | None:
+        """
+        The eclipse events computed during the computation (if present in the orbital_events_request property of the
+        OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._eclipse_events if self._eclipse_events else None
 
     @property
     def sensor_events(self) -> list[SensorEvent] | None:
+        """
+        The sensor events computed during the computation (defined by the sensor_events_request property of the
+        OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._sensor_events if self._sensor_events else None
 
     @property
     def station_visibility_events(self) -> list[StationVisibilityEvent] | None:
+        """
+        The station visibility events computed during the computation (defined by the station_visibility_events_request
+        property of the OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._station_visibility_events if self._station_visibility_events else None
 
     @property
     def orbit_data_message(self) -> str | None:
+        """
+        The orbit data message computed during the computation (defined by the orbit_data_message_request property of
+        the OrbitExtrapolation instance which led to the computation of this result).
+        """
         return self._orbit_data_message if self._orbit_data_message else None
 
     @classmethod
     def api_retrieve_map(cls, obj_data: dict) -> dict:
+        """
+        :meta private:
+        """
         return {
             'computed_events': obj_data['computedEvents'],
             'computed_measurements': obj_data['computedMeasurements'],
@@ -241,21 +299,57 @@ class ResultOrbitExtrapolation(RetrievableModel):
         return extracted_ephemerides
 
     def export_cartesian_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed cartesian orbits from the results.
+
+        Returns:
+            a list, each element being a dict containing a cartesian orbit with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.CARTESIAN)
 
     def export_keplerian_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed keplerian orbits from the results.
+
+        Returns:
+            a list, each element being a dict containing a keplerian orbit with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.KEPLERIAN)
 
     def export_power_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed battery state from the results.
+
+        Returns:
+            a list, each element being a dict containing a battery state with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.POWER)
 
     def export_propulsion_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed thrust from the results.
+
+        Returns:
+            a list, each element being a dict containing a thrust with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.PROPULSION)
 
     def export_quaternion_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed rotation represented by quaternions from the results.
+
+        Returns:
+            a list, each element being a dict containing a computed quaternion with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.ATTITUDE_QUATERNIONS)
 
     def export_euler_angles_ephemeris(self) -> list[dict]:
+        """
+        Extract the ephemeris of computed rotation represented by euler angles from the results.
+
+        Returns:
+            a list, each element being a dict containing a set of euler angles with its time stamp
+        """
         return self.ephemerides.export_ephemeris_data(EphemeridesRequest.EphemerisType.ATTITUDE_EULER_ANGLES)
 
     def export_event_timeline_data(self) -> list[dict]:
@@ -332,6 +426,16 @@ class ResultOrbitExtrapolation(RetrievableModel):
 
     @staticmethod
     def sort_event_gantt_data(columns, df_data_list):
+        """
+        This functions sorts the all the given events in the chronological order of their end date.
+
+        Args:
+            columns: the labels of events to be sorted
+            df_data_list: the dataframe containing all events to be sorted
+
+        Returns:
+            an ordered list of events
+        """
         events_data = []
         events_without_start_date = [d for d in df_data_list if d[columns[0]] is None]
         events_without_end_date = [d for d in df_data_list if d[columns[1]] is None]

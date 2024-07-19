@@ -12,13 +12,13 @@ from fds.models.spacecraft import Spacecraft
 class BaseUseCase(ABC):
     FDS_TYPE: FdsClient.UseCases
     ResultType: RetrievableModel
+    api_client = FdsClient.get_client()
 
     @abstractmethod
     def __init__(self, nametag: str):
         self._nametag = nametag
         self._is_run = False
         self._api_response = None
-        self._fds_client = FdsClient.get_client()
         self._result = None
 
     @property
@@ -37,15 +37,11 @@ class BaseUseCase(ABC):
     def result(self) -> RetrievableModel | None:
         return self._result
 
-    @property
-    def fds_client(self) -> FdsClient:
-        return self._fds_client
-
     def api_run_map(self, **kwargs) -> dict:
         return {}
 
     def run(self, force_save: bool = False) -> Self:
-        api_response = self._fds_client.run_use_case(self.FDS_TYPE, **self.api_run_map(force_save=force_save))
+        api_response = self.api_client.run_use_case(self.FDS_TYPE, **self.api_run_map(force_save=force_save))
         self._api_response = api_response
         self._is_run = True
         self._result = self.ResultType.retrieve_by_id(self.api_response.id)

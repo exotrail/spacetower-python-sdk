@@ -130,6 +130,42 @@ class TestDatesUtils(unittest.TestCase):
         min_step = 120
         assert filter_sequence_with_minimum_time_step(initial_sequence, dates, min_step) == [1, 3, 5]
 
+    def test_filter_sequence_with_minimum_time_step_unsorted_dates(self):
+        initial_sequence = [1, 2, 3, 4, 5]
+        dates = [
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 2, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 1, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 3, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 4, tzinfo=UTC)
+        ]
+        min_step = 120
+        self.assertRaises(ValueError, filter_sequence_with_minimum_time_step, initial_sequence, dates, min_step)
+
+    def test_filter_sequence_with_minimum_time_step_negative_step(self):
+        initial_sequence = [1, 2, 3, 4, 5]
+        dates = [
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 1, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 2, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 3, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 4, tzinfo=UTC)
+        ]
+        min_step = -1
+        self.assertRaises(ValueError, filter_sequence_with_minimum_time_step, initial_sequence, dates, min_step)
+
+    def test_filter_sequence_with_minimum_time_step_zero_step(self):
+        initial_sequence = [1, 2, 3, 4, 5]
+        dates = [
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
+            datetime(2021, 3, 4, 0, 0, tzinfo=UTC)
+        ]
+        min_step = 0
+        self.assertTrue(filter_sequence_with_minimum_time_step(initial_sequence, dates, min_step) == initial_sequence)
+
     def test_date_ranges(self):
         drange1 = [datetime(2021, 3, 4, 0, 0, tzinfo=UTC),
                    datetime(2021, 3, 4, 0, 1, tzinfo=UTC)]

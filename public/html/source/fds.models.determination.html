@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds.models.determination package &#8212; spacetower-python-sdk 1.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=6f037312"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fds.models.maneuvers package" href="fds.models.maneuvers.html" />
+    <link rel="prev" title="fds.models package" href="fds.models.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-models-determination-package">
+<h1>fds.models.determination package<a class="headerlink" href="#fds-models-determination-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-fds.models.determination.configuration">
+<span id="fds-models-determination-configuration-module"></span><h2>fds.models.determination.configuration module<a class="headerlink" href="#module-fds.models.determination.configuration" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.configuration.</span></span><span class="sig-name descname"><span class="pre">OrbitDeterminationConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuning_alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tuning_beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tuning_kappa</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outliers_manager_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outliers_manager_warmup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_provider_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind" title="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind"><span class="pre">NoiseProviderKind</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">outliers_manager_max_number_of_consecutive_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FromConfigBaseModel</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrievableModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ORBIT_DETERMINATION_CONFIG'</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NoiseProviderKind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.utils.html#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.BASIC">
+<span class="sig-name descname"><span class="pre">BASIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BASIC'</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.BASIC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.DMC">
+<span class="sig-name descname"><span class="pre">DMC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DMC'</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.DMC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.EDB_CD">
+<span class="sig-name descname"><span class="pre">EDB_CD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'EDB_CD'</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.EDB_CD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.SNC">
+<span class="sig-name descname"><span class="pre">SNC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SNC'</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind.SNC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutliersManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warmup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_number_of_consecutive_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.max_number_of_consecutive_outliers">
+<span class="sig-name descname"><span class="pre">max_number_of_consecutive_outliers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.max_number_of_consecutive_outliers" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.scale" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.warmup">
+<span class="sig-name descname"><span class="pre">warmup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager.warmup" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TuningParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.alpha" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.beta">
+<span class="sig-name descname"><span class="pre">beta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.beta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.kappa">
+<span class="sig-name descname"><span class="pre">kappa</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters.kappa" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.api_create_map">
+<span class="sig-name descname"><span class="pre">api_create_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.api_create_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.api_retrieve_map">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_retrieve_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.api_retrieve_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destroy_subcomponents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.destroy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.import_from_config_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">import_from_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_number_of_consecutive_outliers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.import_from_config_file" title="Link to this definition">¶</a></dt>
+<dd><p>Import the configuration from a configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_filepath</strong> (<em>str</em><em> | </em><em>Path</em>) – The configuration file path.</p></li>
+<li><p><strong>process_noise_matrix</strong> (<a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><em>CovarianceMatrix</em></a>) – The process noise matrix.</p></li>
+<li><p><strong>max_number_of_consecutive_outliers</strong> (<em>int</em>) – The maximum number of consecutive outliers tolerated before the
+scale is increased. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.noise_provider_kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_provider_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind" title="fds.models.determination.configuration.OrbitDeterminationConfiguration.NoiseProviderKind"><span class="pre">NoiseProviderKind</span></a></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.noise_provider_kind" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.outliers_manager">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outliers_manager</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager" title="fds.models.determination.configuration.OrbitDeterminationConfiguration.OutliersManager"><span class="pre">OutliersManager</span></a></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.outliers_manager" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.process_noise_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_noise_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.process_noise_matrix" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.configuration.OrbitDeterminationConfiguration.tuning">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tuning</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters" title="fds.models.determination.configuration.OrbitDeterminationConfiguration.TuningParameters"><span class="pre">TuningParameters</span></a></em><a class="headerlink" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration.tuning" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.determination.requests">
+<span id="fds-models-determination-requests-module"></span><h2>fds.models.determination.requests module<a class="headerlink" href="#module-fds.models.determination.requests" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.requests.DragCoefficientEstimationRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.requests.</span></span><span class="sig-name descname"><span class="pre">DragCoefficientEstimationRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.DragCoefficientEstimationRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest" title="fds.models.determination.requests.ParameterEstimationRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterEstimationRequest</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.DragCoefficientEstimationRequest.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DRAG_COEFFICIENT_ESTIMATION_REQUEST'</span></em><a class="headerlink" href="#fds.models.determination.requests.DragCoefficientEstimationRequest.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.requests.DragCoefficientEstimationRequest.estimated_parameter">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_parameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter" title="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter"><span class="pre">EstimatedParameter</span></a></em><a class="headerlink" href="#fds.models.determination.requests.DragCoefficientEstimationRequest.estimated_parameter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.requests.</span></span><span class="sig-name descname"><span class="pre">ParameterEstimationRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrievableModel</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EstimatedParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.utils.html#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.DRAG_COEFFICIENT">
+<span class="sig-name descname"><span class="pre">DRAG_COEFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DRAG_COEFFICIENT'</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.DRAG_COEFFICIENT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.REFLECTIVITY_COEFFICIENT">
+<span class="sig-name descname"><span class="pre">REFLECTIVITY_COEFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'REFLECTIVITY_COEFFICIENT'</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.REFLECTIVITY_COEFFICIENT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.THRUST_VECTOR">
+<span class="sig-name descname"><span class="pre">THRUST_VECTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THRUST_VECTOR'</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter.THRUST_VECTOR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PARAMETER_ESTIMATION_REQUEST'</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.api_create_map">
+<span class="sig-name descname"><span class="pre">api_create_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.api_create_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.api_retrieve_map">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_retrieve_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.api_retrieve_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.process_noise_standard_deviation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_noise_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.process_noise_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.retrieve_generic_by_id">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">retrieve_generic_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.retrieve_generic_by_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ParameterEstimationRequest.standard_deviation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.requests.ParameterEstimationRequest.standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ReflectivityCoefficientEstimationRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.requests.</span></span><span class="sig-name descname"><span class="pre">ReflectivityCoefficientEstimationRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.ReflectivityCoefficientEstimationRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest" title="fds.models.determination.requests.ParameterEstimationRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterEstimationRequest</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ReflectivityCoefficientEstimationRequest.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'REFLECTIVITY_COEFFICIENT_ESTIMATION_REQUEST'</span></em><a class="headerlink" href="#fds.models.determination.requests.ReflectivityCoefficientEstimationRequest.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ReflectivityCoefficientEstimationRequest.estimated_parameter">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_parameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter" title="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter"><span class="pre">EstimatedParameter</span></a></em><a class="headerlink" href="#fds.models.determination.requests.ReflectivityCoefficientEstimationRequest.estimated_parameter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ThrustVectorEstimationRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.requests.</span></span><span class="sig-name descname"><span class="pre">ThrustVectorEstimationRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_noise_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.requests.ThrustVectorEstimationRequest" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest" title="fds.models.determination.requests.ParameterEstimationRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterEstimationRequest</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ThrustVectorEstimationRequest.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THRUST_VECTOR_ESTIMATION_REQUEST'</span></em><a class="headerlink" href="#fds.models.determination.requests.ThrustVectorEstimationRequest.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.requests.ThrustVectorEstimationRequest.estimated_parameter">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_parameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter" title="fds.models.determination.requests.ParameterEstimationRequest.EstimatedParameter"><span class="pre">EstimatedParameter</span></a></em><a class="headerlink" href="#fds.models.determination.requests.ThrustVectorEstimationRequest.estimated_parameter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.determination.result">
+<span id="fds-models-determination-result-module"></span><h2>fds.models.determination.result module<a class="headerlink" href="#module-fds.models.determination.result" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.result.</span></span><span class="sig-name descname"><span class="pre">ResultOrbitDetermination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Status" title="fds.models.determination.result.ResultOrbitDetermination.Status"><span class="pre">Status</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report" title="fds.models.determination.result.ResultOrbitDetermination.Report"><span class="pre">Report</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_depth_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults"><span class="pre">InDepthResults</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_keplerian_covariance_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">firing_analysis_report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport"><span class="pre">FiringAnalysisReport</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrievableModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RESULT_ORBIT_DETERMINATION'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FiringAnalysisReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processed_analyses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_processed_analyses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_failed_analyses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_pending_analyses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failed_analyses_dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pending_analyses_dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FiringAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_keplerian_elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothed_keplerian_elements_before_firing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothed_keplerian_elements_after_firing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_acceleration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_thrust</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_thrust_direction_tnw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeltaKeplerianElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_semi_major_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_inclination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_raan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_argument_of_perigee</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_argument_of_perigee">
+<span class="sig-name descname"><span class="pre">delta_argument_of_perigee</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_argument_of_perigee" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_eccentricity">
+<span class="sig-name descname"><span class="pre">delta_eccentricity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_eccentricity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_inclination">
+<span class="sig-name descname"><span class="pre">delta_inclination</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_inclination" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_raan">
+<span class="sig-name descname"><span class="pre">delta_raan</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_raan" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_semi_major_axis">
+<span class="sig-name descname"><span class="pre">delta_semi_major_axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.delta_semi_major_axis" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.to_array">
+<span class="sig-name descname"><span class="pre">to_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements.to_array" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SmoothedKeplerianElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semi_major_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument_of_perigee</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">semi_major_axis_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentricity_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclination_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raan_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument_of_perigee_standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.argument_of_perigee">
+<span class="sig-name descname"><span class="pre">argument_of_perigee</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.argument_of_perigee" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.argument_of_perigee_standard_deviation">
+<span class="sig-name descname"><span class="pre">argument_of_perigee_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.argument_of_perigee_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.eccentricity">
+<span class="sig-name descname"><span class="pre">eccentricity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.eccentricity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.eccentricity_standard_deviation">
+<span class="sig-name descname"><span class="pre">eccentricity_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.eccentricity_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.inclination">
+<span class="sig-name descname"><span class="pre">inclination</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.inclination" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.inclination_standard_deviation">
+<span class="sig-name descname"><span class="pre">inclination_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.inclination_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.raan">
+<span class="sig-name descname"><span class="pre">raan</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.raan" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.raan_standard_deviation">
+<span class="sig-name descname"><span class="pre">raan_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.raan_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.semi_major_axis">
+<span class="sig-name descname"><span class="pre">semi_major_axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.semi_major_axis" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.semi_major_axis_standard_deviation">
+<span class="sig-name descname"><span class="pre">semi_major_axis_standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.semi_major_axis_standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.to_array">
+<span class="sig-name descname"><span class="pre">to_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements.to_array" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.delta_keplerian_elements">
+<span class="sig-name descname"><span class="pre">delta_keplerian_elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.DeltaKeplerianElements"><span class="pre">DeltaKeplerianElements</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.delta_keplerian_elements" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_acceleration">
+<span class="sig-name descname"><span class="pre">estimated_acceleration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_acceleration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_thrust">
+<span class="sig-name descname"><span class="pre">estimated_thrust</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_thrust" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_thrust_direction_tnw">
+<span class="sig-name descname"><span class="pre">estimated_thrust_direction_tnw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.estimated_thrust_direction_tnw" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.smoothed_keplerian_elements_after_firing">
+<span class="sig-name descname"><span class="pre">smoothed_keplerian_elements_after_firing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements"><span class="pre">SmoothedKeplerianElements</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.smoothed_keplerian_elements_after_firing" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.smoothed_keplerian_elements_before_firing">
+<span class="sig-name descname"><span class="pre">smoothed_keplerian_elements_before_firing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.SmoothedKeplerianElements"><span class="pre">SmoothedKeplerianElements</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis.smoothed_keplerian_elements_before_firing" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.failed_analyses_dates">
+<span class="sig-name descname"><span class="pre">failed_analyses_dates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.failed_analyses_dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_failed_analyses">
+<span class="sig-name descname"><span class="pre">number_of_failed_analyses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_failed_analyses" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_firings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">number_of_firings</span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_firings" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_pending_analyses">
+<span class="sig-name descname"><span class="pre">number_of_pending_analyses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_pending_analyses" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_processed_analyses">
+<span class="sig-name descname"><span class="pre">number_of_processed_analyses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.number_of_processed_analyses" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.pending_analyses_dates">
+<span class="sig-name descname"><span class="pre">pending_analyses_dates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.pending_analyses_dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.processed_analyses">
+<span class="sig-name descname"><span class="pre">processed_analyses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.FiringAnalysis"><span class="pre">FiringAnalysis</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.processed_analyses" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.processed_analyses_dates">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">processed_analyses_dates</span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport.processed_analyses_dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InDepthResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">fds.models.orbits.Orbit</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osculating_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">fds.models.orbits.Orbit</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">covariance_matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">fds.models.orbital_state.CovarianceMatrix</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_drag_coefficients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_reflectivity_coefficients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_thrust_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DragCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient.value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EstimatedThrust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tnw_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_factors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.magnitude">
+<span class="sig-name descname"><span class="pre">magnitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.magnitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.scale_factors">
+<span class="sig-name descname"><span class="pre">scale_factors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.scale_factors" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.tnw_direction">
+<span class="sig-name descname"><span class="pre">tnw_direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust.tnw_direction" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReflectivityCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient.value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.covariance_matrices">
+<span class="sig-name descname"><span class="pre">covariance_matrices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.covariance_matrices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.dates">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_drag_coefficients">
+<span class="sig-name descname"><span class="pre">estimated_drag_coefficients</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.DragCoefficient"><span class="pre">DragCoefficient</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_drag_coefficients" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_reflectivity_coefficients">
+<span class="sig-name descname"><span class="pre">estimated_reflectivity_coefficients</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.ReflectivityCoefficient"><span class="pre">ReflectivityCoefficient</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_reflectivity_coefficients" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_thrust_data">
+<span class="sig-name descname"><span class="pre">estimated_thrust_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.EstimatedThrust"><span class="pre">EstimatedThrust</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.estimated_thrust_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.mean_orbits">
+<span class="sig-name descname"><span class="pre">mean_orbits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">Orbit</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.mean_orbits" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.InDepthResults.osculating_orbits">
+<span class="sig-name descname"><span class="pre">osculating_orbits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbits.Orbit" title="fds.models.orbits.Orbit"><span class="pre">Orbit</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults.osculating_orbits" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rejected_measurements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">used_measurements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">residuals_statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResidualsStatistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NormalisedResidualStatistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standard_deviation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.dates">
+<span class="sig-name descname"><span class="pre">dates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.max">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.max" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.mean">
+<span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.mean" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.median">
+<span class="sig-name descname"><span class="pre">median</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.median" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.min">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.min" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.standard_deviation">
+<span class="sig-name descname"><span class="pre">standard_deviation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.standard_deviation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.values">
+<span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics.values" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResidualsNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.utils.html#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.ALTITUDE">
+<span class="sig-name descname"><span class="pre">ALTITUDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALTITUDE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.ALTITUDE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.AZIMUTH">
+<span class="sig-name descname"><span class="pre">AZIMUTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AZIMUTH'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.AZIMUTH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.ELEVATION">
+<span class="sig-name descname"><span class="pre">ELEVATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ELEVATION'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.ELEVATION" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.GROUND_SPEED">
+<span class="sig-name descname"><span class="pre">GROUND_SPEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GROUND_SPEED'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.GROUND_SPEED" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.LATITUDE">
+<span class="sig-name descname"><span class="pre">LATITUDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LATITUDE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.LATITUDE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.LONGITUDE">
+<span class="sig-name descname"><span class="pre">LONGITUDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LONGITUDE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.LONGITUDE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.POSITION">
+<span class="sig-name descname"><span class="pre">POSITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'POSITION'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.POSITION" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.RANGE">
+<span class="sig-name descname"><span class="pre">RANGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RANGE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.RANGE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.RANGE_RATE">
+<span class="sig-name descname"><span class="pre">RANGE_RATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RANGE_RATE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.RANGE_RATE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.VELOCITY">
+<span class="sig-name descname"><span class="pre">VELOCITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'VELOCITY'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ResidualsNames.VELOCITY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.azimuth">
+<span class="sig-name descname"><span class="pre">azimuth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.azimuth" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.elevation">
+<span class="sig-name descname"><span class="pre">elevation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.elevation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ground_speed">
+<span class="sig-name descname"><span class="pre">ground_speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.ground_speed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.position">
+<span class="sig-name descname"><span class="pre">position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.position" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.range">
+<span class="sig-name descname"><span class="pre">range</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.range" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.range_rate">
+<span class="sig-name descname"><span class="pre">range_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.range_rate" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.NormalisedResidualStatistics"><span class="pre">NormalisedResidualStatistics</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics.velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.rejected_measurements">
+<span class="sig-name descname"><span class="pre">rejected_measurements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.rejected_measurements" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.residuals_statistics">
+<span class="sig-name descname"><span class="pre">residuals_statistics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics" title="fds.models.determination.result.ResultOrbitDetermination.Report.ResidualsStatistics"><span class="pre">ResidualsStatistics</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.residuals_statistics" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Report.used_measurements">
+<span class="sig-name descname"><span class="pre">used_measurements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Report.used_measurements" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Status" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.utils.html#fds.utils.enum.EnumFromInput" title="fds.utils.enum.EnumFromInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFromInput</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Status.ANALYSIS_NEEDED">
+<span class="sig-name descname"><span class="pre">ANALYSIS_NEEDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ANALYSIS_NEEDED'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Status.ANALYSIS_NEEDED" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Status.FAILURE">
+<span class="sig-name descname"><span class="pre">FAILURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FAILURE'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Status.FAILURE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.Status.SUCCESS">
+<span class="sig-name descname"><span class="pre">SUCCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SUCCESS'</span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.Status.SUCCESS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.api_retrieve_map">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_retrieve_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.api_retrieve_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.estimated_keplerian_covariance_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_keplerian_covariance_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.CovarianceMatrix" title="fds.models.orbital_state.CovarianceMatrix"><span class="pre">CovarianceMatrix</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.estimated_keplerian_covariance_matrix" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.estimated_orbital_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_orbital_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.estimated_orbital_state" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.estimated_states">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.estimated_states" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.estimated_tle">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_tle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.two_line_element.TwoLineElement" title="fds.models.two_line_element.TwoLineElement"><span class="pre">TwoLineElement</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.estimated_tle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.export_firings_report_data">
+<span class="sig-name descname"><span class="pre">export_firings_report_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.export_firings_report_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.export_parameter_estimation_data">
+<span class="sig-name descname"><span class="pre">export_parameter_estimation_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.export_parameter_estimation_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.export_thrust_estimation_data">
+<span class="sig-name descname"><span class="pre">export_thrust_estimation_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.export_thrust_estimation_data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.firing_analysis_report">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">firing_analysis_report</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport" title="fds.models.determination.result.ResultOrbitDetermination.FiringAnalysisReport"><span class="pre">FiringAnalysisReport</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.firing_analysis_report" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.in_depth_results">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">in_depth_results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.InDepthResults" title="fds.models.determination.result.ResultOrbitDetermination.InDepthResults"><span class="pre">InDepthResults</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.in_depth_results" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.report">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">report</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Report" title="fds.models.determination.result.ResultOrbitDetermination.Report"><span class="pre">Report</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.report" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.result.ResultOrbitDetermination.status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination.Status" title="fds.models.determination.result.ResultOrbitDetermination.Status"><span class="pre">Status</span></a></em><a class="headerlink" href="#fds.models.determination.result.ResultOrbitDetermination.status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.determination.use_case">
+<span id="fds-models-determination-use-case-module"></span><h2>fds.models.determination.use_case module<a class="headerlink" href="#module-fds.models.determination.use_case" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.determination.use_case.</span></span><span class="sig-name descname"><span class="pre">OrbitDetermination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_orbital_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">telemetry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.telemetry.TelemetryNmea" title="fds.models.telemetry.TelemetryNmea"><span class="pre">TelemetryNmea</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.telemetry.TelemetryGpsPv" title="fds.models.telemetry.TelemetryGpsPv"><span class="pre">TelemetryGpsPv</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration" title="fds.models.determination.configuration.OrbitDeterminationConfiguration"><span class="pre">OrbitDeterminationConfiguration</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_estimation_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest" title="fds.models.determination.requests.ParameterEstimationRequest"><span class="pre">ParameterEstimationRequest</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_roadmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromActions" title="fds.models.roadmaps.RoadmapFromActions"><span class="pre">RoadmapFromActions</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromSimulation" title="fds.models.roadmaps.RoadmapFromSimulation"><span class="pre">RoadmapFromSimulation</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_results_min_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">OrbitalStateUseCase</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.UseCases" title="fds.client.FdsClient.UseCases"><span class="pre">FdsClient.UseCases</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ORBIT_DETERMINATION'</span></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.ResultType">
+<span class="sig-name descname"><span class="pre">ResultType</span></span><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.ResultType" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination" title="fds.models.determination.result.ResultOrbitDetermination"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultOrbitDetermination</span></code></a></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.actual_roadmap">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actual_roadmap</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromSimulation" title="fds.models.roadmaps.RoadmapFromSimulation"><span class="pre">RoadmapFromSimulation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromActions" title="fds.models.roadmaps.RoadmapFromActions"><span class="pre">RoadmapFromActions</span></a></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.actual_roadmap" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.api_run_map">
+<span class="sig-name descname"><span class="pre">api_run_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.api_run_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.configuration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">configuration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.configuration.OrbitDeterminationConfiguration" title="fds.models.determination.configuration.OrbitDeterminationConfiguration"><span class="pre">OrbitDeterminationConfiguration</span></a></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.configuration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.estimated_results_min_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimated_results_min_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.estimated_results_min_step" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.initial_date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initial_date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.initial_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.initial_orbital_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initial_orbital_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.initial_orbital_state" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.parameter_estimation_requests">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameter_estimation_requests</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fds.models.determination.requests.ParameterEstimationRequest" title="fds.models.determination.requests.ParameterEstimationRequest"><span class="pre">ParameterEstimationRequest</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.parameter_estimation_requests" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.determination.result.ResultOrbitDetermination" title="fds.models.determination.result.ResultOrbitDetermination"><span class="pre">ResultOrbitDetermination</span></a></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.result" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.determination.use_case.OrbitDetermination.telemetry">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">telemetry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.telemetry.TelemetryNmea" title="fds.models.telemetry.TelemetryNmea"><span class="pre">TelemetryNmea</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.telemetry.TelemetryGpsPv" title="fds.models.telemetry.TelemetryGpsPv"><span class="pre">TelemetryGpsPv</span></a></em><a class="headerlink" href="#fds.models.determination.use_case.OrbitDetermination.telemetry" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.determination">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fds.models.determination" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fds-python-sdk</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fds.html">fds package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">fds-python-sdk</a><ul>
+  <li><a href="fds.html">fds package</a><ul>
+  <li><a href="fds.models.html">fds.models package</a><ul>
+      <li>Previous: <a href="fds.models.html" title="previous chapter">fds.models package</a></li>
+      <li>Next: <a href="fds.models.maneuvers.html" title="next chapter">fds.models.maneuvers package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/fds.models.determination.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

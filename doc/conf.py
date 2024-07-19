@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'spacetower-python-sdk'
 copyright = '2024, Exotrail'
 author = 'Exotrail'
-release = '1.0.0'
+release = '1.1.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -23,8 +23,7 @@ extensions = [
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'source/tests.rst']
 
 
 # -- Options for HTML output -------------------------------------------------

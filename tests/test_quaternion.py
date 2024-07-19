@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from fds.models.quaternion import Quaternion
+from fds.models.quaternion import Quaternion, get_univoque_list_of_dated_quaternions
 
 
 class TestQuaternion(unittest.TestCase):
@@ -208,3 +208,64 @@ class TestQuaternion(unittest.TestCase):
         angle_q, axis_q = q.to_angle_axis()
         self.assertTrue(np.isclose(angle_q, angle_test))
         self.assertTrue(np.allclose(axis_q, axis_test))
+
+    def test_quaternion_creation_from_list_and_date(self):
+        q = Quaternion.from_collection([1, 2, 3, 4], date='2023-05-22T00:00:00Z')
+        self.assertTrue(q == Quaternion(1, 2, 3, 4, date='2023-05-22T00:00:00Z'))
+
+    def test_quaternion_creation_from_list_of_lists_and_list(self):
+        q = Quaternion.from_collections([[1, 2, 3, 4], [5, 6, 7, 8]])
+        self.assertTrue(q == [Quaternion(1, 2, 3, 4), Quaternion(5, 6, 7, 8)])
+
+    def test_quaternion_frames_are_correctly_saved(self):
+        q = Quaternion(1, 2, 3, 4, frame_1='J2000', frame_2='TNW')
+        self.assertTrue(q.frame_1 == 'J2000')
+        self.assertTrue(q.frame_2 == 'TNW')
+
+    def test_quaternion_frames_are_correctly_saved_from_collection(self):
+        q = Quaternion.from_collections([[1, 2, 3, 4], [5, 6, 7, 8]], frame_1='J2000', frame_2='TNW')
+        for q_i in q:
+            self.assertTrue(q_i.frame_1 == 'J2000')
+            self.assertTrue(q_i.frame_2 == 'TNW')
+
+    def test_duplicated_quaternion_deletion(self):
+        dates = [
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:01:00Z'
+        ]
+        quaternions = Quaternion.from_collections([[1, 2, 3, 4], [1, 2, 3, 4], [5, 6, 7, 8]], dates=dates)
+        quaternions_unique = get_univoque_list_of_dated_quaternions(quaternions)
+
+        self.assertTrue(len(quaternions_unique) == 2)
+        q_unique_correct = [quaternions[0], quaternions[2]]
+        self.assertTrue(quaternions_unique == q_unique_correct)
+
+    def test_duplicated_quaternion_deletion_error_with_different_quaternions_on_same_date(self):
+        dates = [
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:01:00Z'
+        ]
+        quaternions = Quaternion.from_collections([[1, 2, 3, 4], [1, 2, 3, 4], [5, 6, 7, 8], [5, 6, 7, 8]],
+                                                  dates=dates)
+        self.assertRaises(ValueError, get_univoque_list_of_dated_quaternions, quaternions)
+
+    def test_duplicated_quaternion_deletion_with_different_quaternions_on_same_date(self):
+        dates = [
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:00:00Z',
+            '2023-05-22T00:01:00Z'
+        ]
+        quaternions = Quaternion.from_collections([[1, 2, 3, 4], [1, 2, 3, 4], [5, 6, 7, 8], [5, 6, 7, 8]],
+                                                  dates=dates)
+        quaternions = get_univoque_list_of_dated_quaternions(quaternions,
+                                                             ignore_different_quaternions_at_same_date=True)
+        self.assertTrue(len(quaternions) == 1)
+        self.assertTrue(quaternions[0] == Quaternion(5, 6, 7, 8, date='2023-05-22T00:01:00Z'))
+
+    def test_duplicated_quaternion_deletion_error_with_no_dates(self):
+        quaternions = Quaternion.from_collections([[1, 2, 3, 4], [1, 2, 3, 4]])
+        self.assertRaises(ValueError, get_univoque_list_of_dated_quaternions, quaternions)

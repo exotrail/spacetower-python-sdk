@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fds.models.maneuvers package &#8212; spacetower-python-sdk 1.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=6f037312"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fds.models.ng package" href="fds.models.ng.html" />
+    <link rel="prev" title="fds.models.determination package" href="fds.models.determination.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fds-models-maneuvers-package">
+<h1>fds.models.maneuvers package<a class="headerlink" href="#fds-models-maneuvers-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-fds.models.maneuvers.result">
+<span id="fds-models-maneuvers-result-module"></span><h2>fds.models.maneuvers.result module<a class="headerlink" href="#module-fds.models.maneuvers.result" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.maneuvers.result.</span></span><span class="sig-name descname"><span class="pre">ResultManeuverGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report" title="fds.models.maneuvers.result.ResultManeuverGeneration.Report"><span class="pre">Report</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">generated_roadmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromSimulation" title="fds.models.roadmaps.RoadmapFromSimulation"><span class="pre">RoadmapFromSimulation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrievableModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RESULT_MANEUVER_GENERATION'</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average_thrust_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_orbital_periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbital_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">fds.models.orbital_state.OrbitalState</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thruster_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_burns_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_consumption</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_delta_v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_impulse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_number_of_burns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_warmup_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.average_thrust_duration">
+<span class="sig-name descname"><span class="pre">average_thrust_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.average_thrust_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.create_from_api_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_api_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.create_from_api_dict" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.final_duty_cycle">
+<span class="sig-name descname"><span class="pre">final_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.final_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.number_of_orbital_periods">
+<span class="sig-name descname"><span class="pre">number_of_orbital_periods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.number_of_orbital_periods" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.orbital_states">
+<span class="sig-name descname"><span class="pre">orbital_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.orbital_states" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.simulation_duration">
+<span class="sig-name descname"><span class="pre">simulation_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.simulation_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.thruster_duty_cycle">
+<span class="sig-name descname"><span class="pre">thruster_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.thruster_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_burns_duration">
+<span class="sig-name descname"><span class="pre">total_burns_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_burns_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_consumption">
+<span class="sig-name descname"><span class="pre">total_consumption</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_consumption" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_delta_v">
+<span class="sig-name descname"><span class="pre">total_delta_v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_delta_v" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_impulse">
+<span class="sig-name descname"><span class="pre">total_impulse</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_impulse" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_number_of_burns">
+<span class="sig-name descname"><span class="pre">total_number_of_burns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_number_of_burns" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_warmup_duty_cycle">
+<span class="sig-name descname"><span class="pre">total_warmup_duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report.total_warmup_duty_cycle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.api_retrieve_map">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_retrieve_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.api_retrieve_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.export_attitude_data_for_gantt">
+<span class="sig-name descname"><span class="pre">export_attitude_data_for_gantt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.export_attitude_data_for_gantt" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.export_roadmap_data_for_dataframe">
+<span class="sig-name descname"><span class="pre">export_roadmap_data_for_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.export_roadmap_data_for_dataframe" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.export_thruster_data_for_gantt">
+<span class="sig-name descname"><span class="pre">export_thruster_data_for_gantt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.export_thruster_data_for_gantt" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.generated_roadmap">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generated_roadmap</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.roadmaps.RoadmapFromSimulation" title="fds.models.roadmaps.RoadmapFromSimulation"><span class="pre">RoadmapFromSimulation</span></a></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.generated_roadmap" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.merge_consecutive_actions">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge_consecutive_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.merge_consecutive_actions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.result.ResultManeuverGeneration.report">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">report</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.maneuvers.result.ResultManeuverGeneration.Report" title="fds.models.maneuvers.result.ResultManeuverGeneration.Report"><span class="pre">Report</span></a></em><a class="headerlink" href="#fds.models.maneuvers.result.ResultManeuverGeneration.report" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.maneuvers.strategy">
+<span id="fds-models-maneuvers-strategy-module"></span><h2>fds.models.maneuvers.strategy module<a class="headerlink" href="#module-fds.models.maneuvers.strategy" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.maneuvers.strategy.ManeuverStrategy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.maneuvers.strategy.</span></span><span class="sig-name descname"><span class="pre">ManeuverStrategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thrust_arcs_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcPosition" title="fds.models.strategy.Strategy.ThrustArcPosition"><span class="pre">ThrustArcPosition</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arcs_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcNumber" title="fds.models.strategy.Strategy.ThrustArcNumber"><span class="pre">ThrustArcNumber</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_initialisation_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy.ThrustArcInitialisationKind" title="fds.models.strategy.Strategy.ThrustArcInitialisationKind"><span class="pre">ThrustArcInitialisationKind</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_thrust_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_rest_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_shift_orbits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_thrust_at_eclipse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbital_duty_cycle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_thrust_arc_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.strategy.CustomArcPosition" title="fds.models.strategy.CustomArcPosition"><span class="pre">CustomArcPosition</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thrust_arc_mean_longitude_argument</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.strategy.ManeuverStrategy" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fds.models.html#fds.models.strategy.Strategy" title="fds.models.strategy.Strategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Strategy</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FromConfigBaseModel</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RetrievableModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.strategy.ManeuverStrategy.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.Models" title="fds.client.FdsClient.Models"><span class="pre">Models</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MANEUVER_STRATEGY'</span></em><a class="headerlink" href="#fds.models.maneuvers.strategy.ManeuverStrategy.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.strategy.ManeuverStrategy.api_create_map">
+<span class="sig-name descname"><span class="pre">api_create_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.maneuvers.strategy.ManeuverStrategy.api_create_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.strategy.ManeuverStrategy.api_retrieve_map">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_retrieve_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.maneuvers.strategy.ManeuverStrategy.api_retrieve_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.maneuvers.use_case">
+<span id="fds-models-maneuvers-use-case-module"></span><h2>fds.models.maneuvers.use_case module<a class="headerlink" href="#module-fds.models.maneuvers.use_case" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fds.models.maneuvers.use_case.</span></span><span class="sig-name descname"><span class="pre">ManeuverGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_orbital_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="fds.models.html#fds.models.orbital_state.OrbitalState" title="fds.models.orbital_state.OrbitalState"><span class="pre">OrbitalState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fds.models.maneuvers.strategy.ManeuverStrategy" title="fds.models.maneuvers.strategy.ManeuverStrategy"><span class="pre">ManeuverStrategy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_inclination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_semi_major_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quaternion_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required_orbital_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="fds.models.html#fds.models.orbital_state.RequiredOrbitalStates" title="fds.models.orbital_state.RequiredOrbitalStates"><span class="pre">RequiredOrbitalStates</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RequiredOrbitalStates.LAST</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_firing_date_ranges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.utils.html#fds.utils.dates.DateRange" title="fds.utils.dates.DateRange"><span class="pre">DateRange</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nametag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">OrbitalStateUseCase</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeltaContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semi_major_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.eccentricity">
+<span class="sig-name descname"><span class="pre">eccentricity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.eccentricity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.inclination">
+<span class="sig-name descname"><span class="pre">inclination</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.inclination" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.semi_major_axis">
+<span class="sig-name descname"><span class="pre">semi_major_axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer.semi_major_axis" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.FDS_TYPE">
+<span class="sig-name descname"><span class="pre">FDS_TYPE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="fds.html#fds.client.FdsClient.UseCases" title="fds.client.FdsClient.UseCases"><span class="pre">FdsClient.UseCases</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MANEUVER_GENERATION'</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.FDS_TYPE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.ResultType">
+<span class="sig-name descname"><span class="pre">ResultType</span></span><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.ResultType" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#fds.models.maneuvers.result.ResultManeuverGeneration" title="fds.models.maneuvers.result.ResultManeuverGeneration"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultManeuverGeneration</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.api_run_map">
+<span class="sig-name descname"><span class="pre">api_run_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.api_run_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.delta">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer" title="fds.models.maneuvers.use_case.ManeuverGeneration.DeltaContainer"><span class="pre">DeltaContainer</span></a></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.delta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.maximum_duration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maximum_duration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.maximum_duration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.no_firing_date_ranges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_firing_date_ranges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="fds.utils.html#fds.utils.dates.DateRange" title="fds.utils.dates.DateRange"><span class="pre">DateRange</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.no_firing_date_ranges" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.quaternion_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quaternion_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.quaternion_step" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.maneuvers.result.ResultManeuverGeneration" title="fds.models.maneuvers.result.ResultManeuverGeneration"><span class="pre">ResultManeuverGeneration</span></a></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.result" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fds.models.maneuvers.use_case.ManeuverGeneration.strategy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fds.models.maneuvers.strategy.ManeuverStrategy" title="fds.models.maneuvers.strategy.ManeuverStrategy"><span class="pre">ManeuverStrategy</span></a></em><a class="headerlink" href="#fds.models.maneuvers.use_case.ManeuverGeneration.strategy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fds.models.maneuvers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fds.models.maneuvers" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">spacetower-python-sdk</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fds-python-sdk</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fds.html">fds package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">fds-python-sdk</a><ul>
+  <li><a href="fds.html">fds package</a><ul>
+  <li><a href="fds.models.html">fds.models package</a><ul>
+      <li>Previous: <a href="fds.models.determination.html" title="previous chapter">fds.models.determination package</a></li>
+      <li>Next: <a href="fds.models.ng.html" title="next chapter">fds.models.ng package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Exotrail.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/source/fds.models.maneuvers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

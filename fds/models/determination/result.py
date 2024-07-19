@@ -385,6 +385,7 @@ class ResultOrbitDetermination(RetrievableModel):
     def api_retrieve_map(cls, obj_data: dict) -> dict:
         estimated_states = [OrbitalState.retrieve_by_id(es['id']) for es in
                             obj_data['estimatedStates']]
+        estimated_states = sorted(estimated_states, key=lambda x: x.date)
         firing_analysis_report = cls.FiringAnalysisReport.create_from_api_dict(obj_data['firingAnalysisReport']) \
             if 'firingAnalysisReport' in obj_data else None
         estimated_keplerian_covariance_matrix = CovarianceMatrix._create_from_api_object_data(

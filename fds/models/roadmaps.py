@@ -224,13 +224,14 @@ class RoadmapFromActions(Roadmap, RetrievableModel):
                     }
                 )
             else:
-                data.append(
-                    {
-                        'Date': action.warm_up_start_date,
-                        'Attitude mode': action.firing_attitude_mode.value,  # TODO change when warmup attitude in API
-                        'Thruster mode': ActionThruster.ThrusterMode.WARMUP.value
-                    }
-                )
+                if action.warm_up_duration > 0:
+                    data.append(
+                        {
+                            'Date': action.warm_up_start_date,
+                            'Attitude mode': action.warm_up_attitude_mode.value,
+                            'Thruster mode': ActionThruster.ThrusterMode.WARMUP.value
+                        }
+                    )
                 data.append(
                     {
                         'Date': action.firing_start_date,
@@ -287,6 +288,9 @@ class RoadmapFromSimulation(Roadmap, RetrievableModel):
             nametag: str = None
     ):
         super().__init__(nametag)
+        # sort roadmap actions by date
+        attitude_actions = sorted(attitude_actions, key=lambda x: x.date)
+        thruster_actions = sorted(thruster_actions, key=lambda x: x.date)
         self._attitude_actions = attitude_actions
         self._thruster_actions = thruster_actions
         self._roadmap_timeline = self._get_roadmap_timeline()

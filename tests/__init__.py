@@ -165,3 +165,20 @@ class TestUseCases(unittest.TestCase):
                                 are_same = True
                                 break
         return are_same
+
+
+def compare_csv_to_list(csv_file: Path, list_to_compare: list[dict]):
+    are_same = True
+    with open(csv_file, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            for d in list_to_compare:
+                if all(row[key] == str(value) for key, value in d.items()):
+                    are_same *= True
+                if not are_same:
+                    # verify if there are nan values that are not saved
+                    for key, value in d.items():
+                        if row[key] == 'nan' and np.isnan(value):
+                            are_same = True
+                            break
+    return are_same

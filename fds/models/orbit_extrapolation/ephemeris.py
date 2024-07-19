@@ -12,60 +12,90 @@ from fds.utils.geometry import convert_to_numpy_array_and_check_shape
 
 
 class Ephemeris(ABC):
+    """
+    This class serves as the baseline for all ephemeris classes and regroups features common to all of them.
+    """
     def __init__(self, dates: Sequence[datetime]):
         self._dates = dates
 
     @property
     def dates(self) -> Sequence[datetime]:
+        """
+        All the dates at which a line of the ephemeris have been computed.
+        """
         return self._dates
 
     @property
-    def _ref_lenght(self) -> int:
+    def _ref_length(self) -> int:
         return len(self._dates)
 
     @classmethod
     @abstractmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'Ephemeris':
+        """
+        :meta private:
+        """
         pass
 
     @abstractmethod
     def export_table_data(self) -> list[dict]:
+        """
+        :meta private:
+        """
         pass
 
 
 class PowerEphemeris(Ephemeris):
+    """
+    Ephemeris of the state of the battery.
+    """
     def __init__(self, dates: Sequence[datetime], battery_charge: Sequence[float],
                  solar_array_collected_power: Sequence[float], thruster_power_consumption: Sequence[float],
                  thruster_warm_up_power_consumption: Sequence[float]):
         super().__init__(dates)
         self._battery_charge = convert_to_numpy_array_and_check_shape(
-            battery_charge, (self._ref_lenght,))
+            battery_charge, (self._ref_length,))
         self._solar_array_collected_power = convert_to_numpy_array_and_check_shape(
             solar_array_collected_power,
-            (self._ref_lenght,))
+            (self._ref_length,))
         self._thruster_power_consumption = convert_to_numpy_array_and_check_shape(
             thruster_power_consumption,
-            (self._ref_lenght,))
+            (self._ref_length,))
         self._thruster_warm_up_power_consumption = convert_to_numpy_array_and_check_shape(
-            thruster_warm_up_power_consumption, (self._ref_lenght,))
+            thruster_warm_up_power_consumption, (self._ref_length,))
 
     @property
     def battery_charge(self) -> np.ndarray:
+        """
+        Array of all the computed states of the battery.
+        """
         return self._battery_charge
 
     @property
     def solar_array_collected_power(self) -> np.ndarray:
+        """
+        Array of all the computed power collected by the solar arrays.
+        """
         return self._solar_array_collected_power
 
     @property
     def thruster_power_consumption(self) -> np.ndarray:
+        """
+        Array of all the computed power consumed by the thruster.
+        """
         return self._thruster_power_consumption
 
     @property
     def thruster_warm_up_power_consumption(self) -> np.ndarray:
+        """
+        Array of all the computed power consumed by the thruster warming up.
+        """
         return self._thruster_warm_up_power_consumption
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -85,6 +115,9 @@ class PowerEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'PowerEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         battery_charge = []
@@ -109,6 +142,9 @@ class PowerEphemeris(Ephemeris):
 
 
 class KeplerianEphemeris(Ephemeris):
+    """
+    Ephemeris of the satellite position on orbit, expressed with keplerian parameters.
+    """
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -119,9 +155,15 @@ class KeplerianEphemeris(Ephemeris):
 
     @property
     def orbits(self) -> Sequence[KeplerianOrbit]:
+        """
+        Array of all the computed keplerian orbits.
+        """
         return self._orbits
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -137,6 +179,9 @@ class KeplerianEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'KeplerianEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         orbits = []
@@ -150,6 +195,9 @@ class KeplerianEphemeris(Ephemeris):
 
 
 class CartesianEphemeris(Ephemeris):
+    """
+    Ephemeris of the satellite position on orbit, expressed with cartesian parameters.
+    """
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -160,13 +208,22 @@ class CartesianEphemeris(Ephemeris):
 
     @property
     def states(self) -> Sequence[CartesianState]:
+        """
+        Array of all the computed cartesian states of the satellite.
+        """
         return self._states
 
     @property
     def frame(self) -> Frame:
+        """
+        The frame in which the cartesian positions and velocities are expressed in.
+        """
         return self.states[0].frame
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -182,6 +239,9 @@ class CartesianEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'CartesianEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         states = []
@@ -195,6 +255,9 @@ class CartesianEphemeris(Ephemeris):
 
 
 class PropulsionEphemeris(Ephemeris):
+    """
+    Ephemeris of the thrust parameters.
+    """
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -207,48 +270,71 @@ class PropulsionEphemeris(Ephemeris):
     ):
         super().__init__(dates)
         self._instant_consumption = convert_to_numpy_array_and_check_shape(
-            instant_consumption, (self._ref_lenght,))
+            instant_consumption, (self._ref_length,))
         self._total_consumption = convert_to_numpy_array_and_check_shape(
-            total_consumption, (self._ref_lenght,))
+            total_consumption, (self._ref_length,))
 
         thrust_direction_azimuth = [np.nan if tda == 'NaN' else tda for tda in thrust_direction_azimuth]
         thrust_direction_elevation = [np.nan if tde == 'NaN' else tde for tde in thrust_direction_elevation]
 
         self._thrust_direction_azimuth = convert_to_numpy_array_and_check_shape(
-            thrust_direction_azimuth, (self._ref_lenght,))
+            thrust_direction_azimuth, (self._ref_length,))
         self._thrust_direction_elevation = convert_to_numpy_array_and_check_shape(
             thrust_direction_elevation,
-            (self._ref_lenght,))
+            (self._ref_length,))
         self._propellant_mass = convert_to_numpy_array_and_check_shape(
-            propellant_mass, (self._ref_lenght,))
+            propellant_mass, (self._ref_length,))
         self._current_wet_mass = convert_to_numpy_array_and_check_shape(
-            current_wet_mass, (self._ref_lenght,))
+            current_wet_mass, (self._ref_length,))
 
     @property
     def instant_consumption(self) -> np.ndarray:
+        """
+        Array of the instantaneous mass flow of the thruster at the date of the ephemeris line.
+        """
         return self._instant_consumption
 
     @property
     def total_consumption(self) -> np.ndarray:
+        """
+        Array of the total propellant mass consumed by the thruster at each instant of the ephemeris.
+        """
         return self._total_consumption
 
     @property
     def thrust_direction_azimuth(self) -> np.ndarray:
+        """
+        Array of the azimuth angle of the propulsion axis, expressed in the satellite frame, at each computed date of
+        the ephemeris.
+        """
         return self._thrust_direction_azimuth
 
     @property
     def thrust_direction_elevation(self) -> np.ndarray:
+        """
+        Array of the elevation angle of the propulsion axis, expressed in the satellite frame, at each computed date of
+        the ephemeris.
+        """
         return self._thrust_direction_elevation
 
     @property
     def propellant_mass(self) -> np.ndarray:
+        """
+        Array of the mass of propellant left in the tanks at each computed date of the ephemeris.
+        """
         return self._propellant_mass
 
     @property
     def current_wet_mass(self) -> np.ndarray:
+        """
+        Array of the total mass of the satellite at each computed date of the ephemeris.
+        """
         return self._current_wet_mass
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -272,6 +358,9 @@ class PropulsionEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'PropulsionEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         instant_consumption = []
@@ -302,6 +391,9 @@ class PropulsionEphemeris(Ephemeris):
 
 
 class EulerAnglesEphemeris(Ephemeris):
+    """
+    Ephemeris of the attitude of the satellite expressed with Euler angles.
+    """
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -312,33 +404,51 @@ class EulerAnglesEphemeris(Ephemeris):
             frame_2: str,
     ):
         super().__init__(dates)
-        self._roll = convert_to_numpy_array_and_check_shape(roll, (self._ref_lenght,))
-        self._pitch = convert_to_numpy_array_and_check_shape(pitch, (self._ref_lenght,))
-        self._yaw = convert_to_numpy_array_and_check_shape(yaw, (self._ref_lenght,))
+        self._roll = convert_to_numpy_array_and_check_shape(roll, (self._ref_length,))
+        self._pitch = convert_to_numpy_array_and_check_shape(pitch, (self._ref_length,))
+        self._yaw = convert_to_numpy_array_and_check_shape(yaw, (self._ref_length,))
         self._frame_1 = frame_1
         self._frame_2 = frame_2
 
     @property
     def roll(self) -> np.ndarray:
+        """
+        Array of the roll angle values computed during the orbit extrapolation.
+        """
         return self._roll
 
     @property
     def pitch(self) -> np.ndarray:
+        """
+        Array of the pitch angle values computed during the orbit extrapolation.
+        """
         return self._pitch
 
     @property
     def yaw(self) -> np.ndarray:
+        """
+        Array of the yaw angle values computed during the orbit extrapolation.
+        """
         return self._yaw
 
     @property
     def frame_1(self) -> str:
+        """
+        The name of the reference frame from which the attitude of the satellite is computed.
+        """
         return self._frame_1
 
     @property
     def frame_2(self) -> str:
+        """
+        The name of the frame of the satellite.
+        """
         return self._frame_2
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -351,6 +461,9 @@ class EulerAnglesEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'EulerAnglesEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         roll = []
@@ -374,6 +487,9 @@ class EulerAnglesEphemeris(Ephemeris):
 
 
 class QuaternionEphemeris(Ephemeris):
+    """
+    Ephemeris of the attitude of the satellite expressed with quaternion.
+    """
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -388,17 +504,29 @@ class QuaternionEphemeris(Ephemeris):
 
     @property
     def quaternions(self) -> Sequence[Quaternion]:
+        """
+        Sequence of the quaternions describing the attitude of the satellite at each date of the computation.
+        """
         return self._quaternions
 
     @property
     def frame_1(self) -> str:
+        """
+        The name of the reference frame from which the attitude of the satellite is computed.
+        """
         return self._frame_1
 
     @property
     def frame_2(self) -> str:
+        """
+        The name of the frame of the satellite.
+        """
         return self._frame_2
 
     def export_table_data(self) -> list[dict]:
+        """
+        Exports the ephemeris as a list of dicts, each of which representing a whole ephemeris line.
+        """
         return [
             {
                 'date': date,
@@ -412,6 +540,9 @@ class QuaternionEphemeris(Ephemeris):
 
     @classmethod
     def create_from_api_dict(cls, obj_data: dict) -> 'QuaternionEphemeris':
+        """
+        :meta private:
+        """
         lines = obj_data['lines']
         dates = []
         quaternions = []

@@ -5,7 +5,7 @@ dist/
 .pyc
 .pytest_cache
 .env
-.venv
+.env
 venv
 *.yaml
 __pycache__
@@ -17,4 +17,4 @@ examples/data/
 poetry.lock
 doc/source/
 doc/_build/
-dist/
+e2e

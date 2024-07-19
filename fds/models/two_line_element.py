@@ -9,6 +9,9 @@ from spacetower_python_client import TLE
 
 
 class TwoLineElement:
+    """
+    Represents the TLE (Two Line Elements) in spacetower Python SDK.
+    """
     def __init__(self, line_1: str, line_2: str):
         """
         Args:
@@ -20,18 +23,30 @@ class TwoLineElement:
 
     @property
     def line_1(self):
+        """
+        First line of the TLE.
+        """
         return self._line_1
 
     @property
     def line_2(self):
+        """
+        Second line of the TLE.
+        """
         return self._line_2
 
     @property
     def single_line(self):
+        """
+        Returns both lines of the TLE in one string.
+        """
         return '\n'.join([self.line_1, self.line_2])
 
     @property
     def date(self) -> datetime:
+        """
+        The date of the TLE.
+        """
         values = self.line_1.split()
         try:
             year = int(values[3][:2]) + 2000
@@ -42,10 +57,16 @@ class TwoLineElement:
 
     @property
     def spacecraft_data(self):
+        """
+        Spacecraft ID + object type.
+        """
         return self._line_1.split()[1]
 
     @property
     def launch_data(self):
+        """
+        Launch data (launch year, day, piece).
+        """
         return self._line_1.split()[2]
 
     @spacecraft_data.setter
@@ -90,6 +111,8 @@ class TwoLineElement:
     @classmethod
     def from_single_line(cls, single_line_tle: str):
         """
+        Creates a TLE object from a string containing both its lines.
+
         Args:
             single_line_tle (str): Single line TLE
         """
@@ -103,6 +126,17 @@ class TwoLineElement:
             closest_date: datetime = datetime.now(UTC),
             force_past: bool = False,
     ):
+        """
+        Selects the TLE in the list given that is the closest to the given date.
+
+        Args:
+            tle_list: The list of TLEs in which to search
+            closest_date: The date to search to closest TLE from. Default is current time.
+            force_past: If true, will only consider TLE prior to the given date. Default is false.
+
+        Returns:
+            TwoLineElement: The TLE closest to the given date.
+        """
         closest_date = convert_date_to_utc(closest_date)
 
         tles = sorted(tle_list, key=lambda x: x.date)
@@ -124,16 +158,6 @@ class TwoLineElement:
             start_date_limit: datetime,
             end_date_limit: datetime
     ) -> list[Self]:
-        """
-        Args:
-            spacetrack_client (SpaceTrackClient): SpaceTrackClient object from spacetrack package
-            norad_cat_id (int): NORAD Catalogue ID
-            start_date_limit (datetime): Start date limit (must be UTC)
-            end_date_limit (datetime): End date limit (must be UTC)
-
-        Returns:
-            list[TwoLineElement]: List of TLEs
-        """
         start_date_limit = convert_date_to_utc(start_date_limit)
         end_date_limit = convert_date_to_utc(end_date_limit)
 
@@ -159,6 +183,16 @@ class TwoLineElement:
 
     @classmethod
     def create_from_string_list(cls, tles):
+        """
+        Creates a list of TwoLineElement objects from a given list of TLEs, given line by line.
+
+        Args:
+             tles: List of the TLE lines to parse. Each element of the line is expected to be one LINE of a TLE, hence a
+              TLE is defined by two elements of the list.
+
+        Returns:
+            List[TwoLineElement]: the parsed TwoLineElement objects
+        """
         return [cls(tles[i], tles[i + 1]) for i in range(0, len(tles), 2)]
 
     @classmethod
@@ -170,11 +204,16 @@ class TwoLineElement:
             force_past: bool = False,
     ):
         """
+        Fetches the TLE of a given object from spacetrack.
+
         Args:
             spacetrack_client (SpaceTrackClient): SpaceTrackClient object from spacetrack package
             norad_cat_id (int): NORAD Catalogue ID
             closest_date (datetime, optional): Date limit, gets the TLE closest to this date. Defaults to None.
             force_past (bool, optional): If True, gets the TLE closest to the date but before it. Defaults to False.
+
+        Returns:
+            List[TwoLineElement]: The found parsed TLEs.
         """
 
         tles = cls._get_tles_from_spacetrack(
@@ -190,14 +229,29 @@ class TwoLineElement:
         return cls.select_from_tle_list(tles, closest_date, force_past)
 
     def to_api_tle(self) -> TLE:
+        """
+        :meta private:
+        """
         return TLE(line1=self.line_1, line2=self.line_2)
 
     @classmethod
     def from_api_tle(cls, tle: TLE):
+        """
+        :meta private:
+        """
         return cls(tle.line1, tle.line2)
 
     @staticmethod
     def check_line(line: str) -> str:
+        """
+        Checks if a TLE is correctly formed. If not, an exception is raised.
+
+        Args:
+            line: the line to check
+
+        Returns:
+            str: the checked line
+        """
         line = line.replace('\r', '')
         line = TwoLineElement._check_line_length(line)
         line = TwoLineElement._check_line_checksum(line)
