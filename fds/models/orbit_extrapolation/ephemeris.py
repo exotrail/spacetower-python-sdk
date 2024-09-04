@@ -15,6 +15,7 @@ class Ephemeris(ABC):
     """
     This class serves as the baseline for all ephemeris classes and regroups features common to all of them.
     """
+
     def __init__(self, dates: Sequence[datetime]):
         self._dates = dates
 
@@ -49,6 +50,7 @@ class PowerEphemeris(Ephemeris):
     """
     Ephemeris of the state of the battery.
     """
+
     def __init__(self, dates: Sequence[datetime], battery_charge: Sequence[float],
                  solar_array_collected_power: Sequence[float], thruster_power_consumption: Sequence[float],
                  thruster_warm_up_power_consumption: Sequence[float]):
@@ -132,6 +134,13 @@ class PowerEphemeris(Ephemeris):
             thruster_power_consumption.append(line['thrusterPowerConsumption'])
             thruster_warm_up_power_consumption.append(line['thrusterWarmupPowerConsumption'])
 
+        sorting_indices = sorted(range(len(dates)), key=lambda i: dates[i])
+        dates = sorted(dates)
+        battery_charge = [battery_charge[i] for i in sorting_indices]
+        solar_array_collected_power = [solar_array_collected_power[i] for i in sorting_indices]
+        thruster_power_consumption = [thruster_power_consumption[i] for i in sorting_indices]
+        thruster_warm_up_power_consumption = [thruster_warm_up_power_consumption[i] for i in sorting_indices]
+
         return cls(
             dates=dates,
             battery_charge=battery_charge,
@@ -145,6 +154,7 @@ class KeplerianEphemeris(Ephemeris):
     """
     Ephemeris of the satellite position on orbit, expressed with keplerian parameters.
     """
+
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -188,6 +198,9 @@ class KeplerianEphemeris(Ephemeris):
         for line in lines:
             dates.append(get_datetime(line['orbit']['date']))
             orbits.append(KeplerianOrbit.retrieve_by_id(line['orbit']['id']))
+
+        orbits = [orbits[i] for i in sorted(range(len(dates)), key=lambda i: dates[i])]
+        dates = sorted(dates)
         return cls(
             dates=dates,
             orbits=orbits
@@ -198,6 +211,7 @@ class CartesianEphemeris(Ephemeris):
     """
     Ephemeris of the satellite position on orbit, expressed with cartesian parameters.
     """
+
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -248,6 +262,10 @@ class CartesianEphemeris(Ephemeris):
         for line in lines:
             dates.append(get_datetime(line['orbit']['date']))
             states.append(CartesianState.retrieve_by_id(line['orbit']['id']))
+
+        states = [states[i] for i in sorted(range(len(dates)), key=lambda i: dates[i])]
+        dates = sorted(dates)
+
         return cls(
             dates=dates,
             states=states,
@@ -258,6 +276,7 @@ class PropulsionEphemeris(Ephemeris):
     """
     Ephemeris of the thrust parameters.
     """
+
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -379,6 +398,15 @@ class PropulsionEphemeris(Ephemeris):
             propellant_mass.append(line['remainingPropellant'])
             current_wet_mass.append(line['currentMass'])
 
+        sorting_indices = sorted(range(len(dates)), key=lambda i: dates[i])
+        dates = sorted(dates)
+        instant_consumption = [instant_consumption[i] for i in sorting_indices]
+        total_consumption = [total_consumption[i] for i in sorting_indices]
+        thrust_direction_azimuth = [thrust_direction_azimuth[i] for i in sorting_indices]
+        thrust_direction_elevation = [thrust_direction_elevation[i] for i in sorting_indices]
+        propellant_mass = [propellant_mass[i] for i in sorting_indices]
+        current_wet_mass = [current_wet_mass[i] for i in sorting_indices]
+
         return cls(
             dates=dates,
             instant_consumption=instant_consumption,
@@ -394,6 +422,7 @@ class EulerAnglesEphemeris(Ephemeris):
     """
     Ephemeris of the attitude of the satellite expressed with Euler angles.
     """
+
     def __init__(
             self,
             dates: Sequence[datetime],
@@ -476,6 +505,12 @@ class EulerAnglesEphemeris(Ephemeris):
             pitch.append(line['pitch'])
             yaw.append(line['yaw'])
 
+        sorting_indices = sorted(range(len(dates)), key=lambda i: dates[i])
+        dates = sorted(dates)
+        roll = [roll[i] for i in sorting_indices]
+        pitch = [pitch[i] for i in sorting_indices]
+        yaw = [yaw[i] for i in sorting_indices]
+
         return cls(
             dates=dates,
             roll=roll,
@@ -490,6 +525,7 @@ class QuaternionEphemeris(Ephemeris):
     """
     Ephemeris of the attitude of the satellite expressed with quaternion.
     """
+
     def __init__(
             self,
             dates: Sequence[datetime],

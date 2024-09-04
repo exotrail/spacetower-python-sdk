@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'spacetower-python-sdk'
 copyright = '2024, Exotrail'
 author = 'Exotrail'
-release = '1.1.2'
+release = '1.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

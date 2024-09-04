@@ -1,17 +1,19 @@
 import os
 from dataclasses import dataclass
+from importlib.metadata import version
 
 
 @dataclass
 class Config:
     api_key = os.getenv('FDS_API_KEY', '')
+    user_agent = f'spacetower-sdk/python/' + version('spacetower-fds-sdk')
     client_id: str = os.getenv('FDS_API_CLIENT_ID', '')
     client_secret = os.getenv('FDS_API_CLIENT_SECRET', '')
     api_url = os.getenv('FDS_API_URL', "https://api.spacetower.exotrail.space/fds/v1")
     proxy = os.getenv('HTTP_PROXY')
     instrumentation = os.getenv('INSTRUMENTATION', 'True') == 'True'
     station_keeping_api_url = os.getenv('STATION_KEEPING_API_URL',
-                                        "http://numerical-leo-station-keeping.exoops.91.134.23.237.sslip.io/")
+                                        "https://api.exoops.exotrail.space/station-keeping/leo/v1")
 
 
 def get_proxy():
@@ -56,3 +58,7 @@ def set_station_keeping_api_url(url: str):
 
 def get_station_keeping_api_url():
     return Config.station_keeping_api_url
+
+
+def get_user_agent():
+    return Config.user_agent

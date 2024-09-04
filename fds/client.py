@@ -456,10 +456,11 @@ class FdsClient(metaclass=SingletonMeta):
         }
     }
 
-    def __init__(self, fds_api_url, api_key=None, client_id=None, client_secret=None, proxy=None, request_timeout=60*20):
+    def __init__(self, fds_api_url, api_key=None, client_id=None, client_secret=None, proxy=None, request_timeout=60*20, user_agent=None):
         self.api_key = api_key
         self.client_id = client_id
         self.client_secret = client_secret
+        self.user_agent = user_agent
         self._api_config = fdsapi.Configuration(
             host=fds_api_url
         )
@@ -485,6 +486,7 @@ class FdsClient(metaclass=SingletonMeta):
             client_id=config.get_client_id(),
             client_secret=config.get_client_secret(),
             proxy=config.get_proxy(),
+            user_agent=config.get_user_agent()
         )
 
     @staticmethod
@@ -506,7 +508,9 @@ class FdsClient(metaclass=SingletonMeta):
             credentials = base64.b64encode(f"{self.client_id}:{self.client_secret}".encode()).decode()
             header_value = f'Basic {credentials}'
             header_name = 'Authorization'
-        return fdsapi.ApiClient(self.api_config, header_name=header_name, header_value=header_value)
+        api_client = fdsapi.ApiClient(self.api_config, header_name=header_name, header_value=header_value)
+        api_client.user_agent = self.user_agent
+        return api_client
 
     def _object_exists(self, object_type: str, client_id: str, object_map, command='retrieve') -> bool:
         with self.get_api_client() as api_client:

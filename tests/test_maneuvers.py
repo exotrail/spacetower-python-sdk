@@ -362,7 +362,7 @@ class TestManeuverGeneration(TestUseCases, unittest.TestCase):
 
     def test_maneuver_generation_with_inclination_change(self):
         kwargs = self.kwargs.copy()
-        kwargs['delta_inclination'] = 0.01  # deg
+        kwargs['delta_inclination'] = 0.001  # deg
         self.kwargs = kwargs
         self._test_client_run()
 
@@ -432,7 +432,7 @@ class TestManeuverGeneration(TestUseCases, unittest.TestCase):
 
     def test_use_generated_roadmap_for_orbit_extrapolation_with_delta_inclination(self):
         kwargs = self.kwargs.copy()
-        kwargs['delta_inclination'] = 0.01
+        kwargs['delta_inclination'] = 0.001
         self.kwargs = kwargs
         res_inc = self._test_client_run()
         oe_inc = OrbitExtrapolation(

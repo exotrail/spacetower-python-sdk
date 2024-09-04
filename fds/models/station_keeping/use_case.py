@@ -1,3 +1,5 @@
+import base64
+
 import leo_station_keeping as lsk
 import numpy as np
 
@@ -71,7 +73,12 @@ class LeoStationKeeping:
 
         # Get the microservice configuration
         self._api_url = config.get_station_keeping_api_url()
-        self._microservice_configuration = lsk.Configuration(host=self._api_url)
+        self._microservice_configuration = lsk.Configuration(
+            host=self._api_url
+        )
+
+        # Uncomment to enable debug log level
+        ## self._microservice_configuration.debug = True
 
         # Map the microservice request
         self._request = self._map_request()
@@ -159,8 +166,15 @@ class LeoStationKeeping:
             nametag: str = None
     ):
         """
+        This method creates a Station Keeping use case from an initial orbital state.
+
+        **Note**: Differently from the other use cases, the initial orbital state is used to define the initial
+        conditions of the Station Keeping use case, and it is not saved in the use case object. This behavior will be
+        changed in future versions.
+
         Args:
-            initial_orbital_state (OrbitalState): The orbital state of the spacecraft.
+            initial_orbital_state (OrbitalState): The orbital state of the spacecraft. The mean orbit will be used to
+                define the initial conditions of the Station Keeping use case.
             maximum_duration (int): The maximum duration of the maneuver.
             tolerance (Tolerance): The tolerance object (SMA or ALONG_TRACK).
             output_requests (list[StationKeepingOutputRequest]): The list of output requests.
@@ -450,6 +464,11 @@ class LeoStationKeeping:
 
     def run(self) -> 'LeoStationKeeping':
         with lsk.ApiClient(self.microservice_configuration) as api_client:
+            api_client.user_agent = config.get_user_agent()
+            if config.get_client_id() not in [None, ''] and config.get_client_secret() not in [None, '']:
+                credentials = base64.b64encode(
+                    f"{config.get_client_id()}:{config.get_client_secret()}".encode()).decode()
+                api_client.set_default_header('Authorization', f'Basic {credentials}')
             api = lsk.api.DefaultApi(api_client)
             response = api.compute_numerical_leo_station_keeping(self.request)
             if len(response.errors) > 0:
@@ -460,3 +479,5 @@ class LeoStationKeeping:
         self._response = response
         self._result = self.ResultType.from_microservice_response(self.response, self.initial_orbit.date)
         return self
+
+# %%

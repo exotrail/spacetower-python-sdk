@@ -1,6 +1,6 @@
 # CHANGELOG
 
-FDS API Python SDK v1.2.0 (2024-07-12):
+FDS API Python SDK v1.2.0 (2024-07-26):
     - Update to spacetower API next version (1.2.0)
     - Station Keeping: new use case using the leo-station-keeping package (version 1.7.0)
         - Added StationKeeping class to simulate station keeping maneuvers
